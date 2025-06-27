@@ -34,18 +34,18 @@ public class StudentManager {
     System.out.println("학생의 연락처를 변경합니다.");
     System.out.print("변경 학생 : ");
     String name = sc.next();
-    boolean isFound = false;
+    boolean isNotFound = true;
     for (int i = 0; i < cnt; i++) {
       if (students[i].getName().equals(name)) {
         System.out.print("연락처 : ");
         String tel = sc.next();
         students[i].setTel(tel);
         System.out.println("변경 완료 되었습니다.");
-        isFound = !isFound; //!:true는 false로 false는 true로
+        isNotFound = !isNotFound; //!:true는 false로 false는 true로
         break;
       }
     }
-    if (isFound) {
+    if (isNotFound) {
       System.out.println("이름이 일치하는 학생이 없습니다.");
     }
 
