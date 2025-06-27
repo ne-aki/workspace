@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="135cd624-b0db-4178-9038-27a5a9dbcda4" name="Changes" comment="" />
+    <list default="true" id="021a1cb2-1067-4b80-81a9-e8174bfa8f9b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2yMKuZcnfcFd5OB1NRBLuLcv9ro" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2z58VzS7ZfXba3e5eIhPLxBwXMw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,19 +24,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/01-STUDY/dev/workspace/workspace_java(개인연습)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "last_opened_file_path": "D:/01-STUDY/dev/workspace/workspace_java(개인연습)/Practice01/src"
   }
 }]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="135cd624-b0db-4178-9038-27a5a9dbcda4" name="Changes" comment="" />
-      <created>1749639226916</created>
+      <changelist id="021a1cb2-1067-4b80-81a9-e8174bfa8f9b" name="Changes" comment="" />
+      <created>1751009600354</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1749639226916</updated>
+      <updated>1751009600354</updated>
     </task>
     <servers />
   </component>
