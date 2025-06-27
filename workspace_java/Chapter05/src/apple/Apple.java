@@ -10,6 +10,7 @@ package apple;
 //지역변수에는 접근 제한자 사용 못 함
 //클래스에는 public, default만 사용 가능!
 public class Apple {
+  int newInt;
   String newData;
   public String name;
   private int price;
