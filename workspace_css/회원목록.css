@@ -1,0 +1,53 @@
+/*
+  opacity : 1 (불투명)
+  opacity : 0 (투명)
+  opacity : 0.5 (반투명)
+  또는
+  background-color 속성에 4번째 칸에 넣으면 됨 rgb(0,0,0,0)
+*/
+
+body{
+  background-color: slategray;
+}
+
+.container{
+  background-color: white;
+  margin: 15px auto;
+  width: 1200px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.our-team{
+  background-color: pink;
+  width: 100px;
+  color: white;
+  margin: auto;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.content>*{
+  margin-bottom: 3px;
+}
+
+.content span{
+  color: skyblue;
+}
+
+.team-members{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  border: 1px solid black;
+}
+
+.team-members>img{
+  object-fit: cover;
+  object-position: center center;
+  position: absolute;
+}
+
+.info{
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
+}

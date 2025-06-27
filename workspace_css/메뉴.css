@@ -1,0 +1,19 @@
+.header{
+  height: 150px; /* 세로 화면은 전체로 잡고 싶을 때는 vh를 씀 */
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.title,ul{
+  border: 1px solid red;
+}
+
+ul{
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}

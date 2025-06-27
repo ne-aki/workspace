@@ -1,0 +1,32 @@
+.container{
+  margin: auto;
+  width: 800px;
+}
+.title{
+  text-align: center;
+  background-color: red;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 30px;
+  border-radius: 5px;
+}
+table{
+  border-top: 3px solid black;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+tbody>tr,td{
+  border: 1px solid #dddddd;
+  padding: 10px;
+}
+thead{
+  background-color: dodgerblue;
+  color: white;
+}
+thead>tr,td{
+  border: none;
+}
+li{
+  text-align: left;
+}

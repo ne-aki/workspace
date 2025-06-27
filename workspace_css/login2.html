@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="login2.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 제목 영역 -->
+    <div style="margin-bottom: 40px;">
+      <h2>회원가입</h2>
+      <p>회원이 되어 다양한 혜택을 경험해 보세요!</p>
+    </div>
+    <!-- 정보 입력 영역 -->
+    <div class="info-div">
+      <div>
+        <p>
+          아이디*
+        </p>
+        <di class="id-div">
+          <input type="text" placeholder="아이디 입력(6~20자)">
+          <button type="button" class="confrim-btn">중복 확인</button>
+        </di>
+      </div>
+      <div>
+        <p>
+          비밀번호*
+        </p>
+        <input type="password" placeholder="비밀번호 입력(문자, 숫자, 특수문자 포함 8~20자)" class="wide-input">
+      </div>
+      <div>
+        <p>
+          비밀번호 확인*
+        </p>
+        <input type="password" placeholder="비밀번호 재입력" class="wide-input">
+      </div>
+      <div>
+        <p>
+          이름*
+        </p>
+        <input type="text" placeholder="이름을 입력해주세요" class="wide-input">
+      </div>
+      <div>
+        <p>
+          주소*
+        </p>
+        <input type="text" placeholder="주소를 입력해주세요" class="wide-input" style="margin-bottom: 4px;">
+        <input type="text" placeholder="상세주소" class="wide-input">
+      </div>
+      <div>
+        <p>
+          전화번호*
+        </p>
+        <input type="text" placeholder="휴대폰 번호 입력('-' 제외 11자리 입력)" class="wide-input">
+      </div>
+      <div>
+        <p>
+          이메일 주소*
+        </p>
+        <div class="email-div">
+          <input type="text" placeholder="이메일 주소">
+          <p>@</p>
+          <input type="text" disabled>
+          <select>
+            <option>선택</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <p>
+          생년월일
+        </p>
+        <div class="birth-div">
+          <select>
+            <option>년도</option>
+          </select>
+          <select>
+            <option>월</option>
+          </select>
+          <select>
+            <option>일</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- 버튼 영역 -->
+    <div class="btn-div">
+      <button type="button">가입완료</button>
+      <button type="button">가입취소</button>
+    </div>
+  </div>
+</body>
+</html>

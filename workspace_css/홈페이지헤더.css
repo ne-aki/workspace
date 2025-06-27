@@ -1,0 +1,19 @@
+.container{
+  display: flex;
+  background-color: black;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  height: px;
+}
+
+.menu{
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  margin-right: 30px;
+}
+
+.menu>div{
+  cursor: pointer;
+}

@@ -1,0 +1,31 @@
+*{
+  box-sizing: border-box;
+}
+
+.container{
+  border: 1px solid #dddddd;
+  width: 300px;
+  /* 상하로는 30px 좌우로는 가운데 정렬 */
+  margin: 30px auto;
+  border-radius: 6px;
+  background-color: #eeeeee;
+  padding: 20px;
+}
+
+input{
+  width: 100%;
+  margin: 4px 0px;
+  /* height: 30px; */
+  padding: 6px 4px;
+  border-radius: 15px;
+  border: 1px solid #dddddd;
+}
+
+h2{
+  text-align: center;
+}
+
+.btn{
+  background-color: black;
+  color: white;
+}

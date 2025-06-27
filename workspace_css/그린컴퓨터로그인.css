@@ -1,0 +1,84 @@
+.container{
+  border: 1px solid black;
+  width: 1000px;
+  margin: 100px auto;
+  padding: 10px;
+}
+
+h2{
+  margin-top: 20px;
+}
+
+.content{
+  display: flex;
+  height: 200px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.content>div{
+  width: 50%;
+  margin: 0px 20px;
+}
+
+.login{
+  background-color: lightgray;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login input{
+  margin-top: 5px;
+}
+
+.login>div{
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.login-btn{
+  background-color: lightcoral;
+  border: none;
+  width: 100px;
+  height: 25px;
+  color: white;
+  border-radius: 5px;
+}
+
+ul i{
+  color: lime;
+}
+
+.ad{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-content: center;
+}
+
+.ad-btn{
+  width: 100%;
+  background-color: skyblue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.tel{
+  text-align: center;
+  font-size: 0.8rem;
+  color: green;
+}
+
+.tel>p{
+  margin: 5px;
+}
+
+li{
+  margin: 5px;
+  font-size: 0.8rem;
+}

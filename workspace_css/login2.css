@@ -1,0 +1,76 @@
+body{
+  background-color: mintcream;
+}
+
+.container{
+  width: 400px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px 1px #aaaaaa;
+}
+
+.id-div{
+  display: flex;
+  gap: 4px;
+}
+
+.id-div>input{
+  width: 70%;
+}
+
+.id-div>button{
+  width: 30%;
+}
+
+input,select{
+  padding: 6px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+}
+
+.confrim-btn{
+  background-color: deepskyblue;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  font-size: 0.7rem;
+}
+
+.wide-input{
+  width: 100%;
+}
+
+.info-div>div{
+  margin-bottom: 10px;
+}
+
+.info-div p{
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.birth-div{
+  display: flex;
+  gap: 8px;
+}
+
+.birth-div>select{
+  width: 100%;
+}
+
+.email-div{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.email-div>input,.email-div>select{
+  width: 32%;
+}
+
+.btn-div{
+  text-align: center;
+}

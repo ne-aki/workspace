@@ -1,0 +1,24 @@
+2-1. int age;
+2-2. long money=10;
+2-3. double d=0.25;
+2-4. float f=0.25f
+2-5. String name="이근형"
+
+4-1. a>=b;
+4-2. a<b&&a>c;
+4-3. a+3!=10;
+4-4. a>10||a==b;
+
+6.
+#1. pencils/students;
+#2. pencils%students;
+
+7-1. a=a+1;, ++a;, a++;
+7-2. c=c*d
+7-3. ++d;, d=d+1;, d+=1;
+7-4. c=c-e
+
+8. result=3.0
+
+9. println("result="+a/(double)b);
+a앞에 붙여도 상관없음

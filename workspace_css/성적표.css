@@ -1,0 +1,31 @@
+.container{
+  margin: auto;
+  width: 700px;
+}
+
+h2{
+  text-align: center;
+}
+
+table{
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+tr, td{
+  border: 1px solid black;
+  font-size: 20px;
+}
+.c1{
+  text-align: right;
+}
+.c2{
+  color: red;
+  font-size: 0.8rem;
+}
+
+.btn{
+  text-align: right;
+  margin-top: 15px;
+}

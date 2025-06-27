@@ -1,0 +1,26 @@
+.container{
+  margin: auto;
+  width: 500px;
+}
+table{
+  border: 1px solid black;
+  width: 100%;
+  text-align: center;
+}
+tr,td{
+  border: 1px solid black;
+}
+h2{
+  text-align: center;
+}
+.title{
+  text-align: right;
+}
+.btn{
+  text-align: right;
+  margin-top: 10px;
+}
+.caption{
+  color: red;
+  font-size: 0.8rem;
+}

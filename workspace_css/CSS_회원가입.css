@@ -1,0 +1,11 @@
+body{
+  background-color: powderblue;
+}
+
+.container{
+  background-color: white;
+  margin: 30px auto;
+  width: 500px;
+  padding: 50px;
+  border-radius: 5px;
+}

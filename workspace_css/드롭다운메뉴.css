@@ -1,0 +1,57 @@
+.container{
+  width: 600px;
+  margin: 50px auto;
+}
+
+.menu{
+  display: flex;
+}
+
+.menu>li{
+  width: 150px;
+  background-color: black;
+  text-align: center;
+  padding: 16px 0px;
+
+  /* 상위메뉴와 하위메뉴를 살짝 겹치기 위해 */
+  position: relative;
+}
+
+.menu>li>a{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.submenu{
+  position: absolute;
+  top: 54px;
+  left: 0px;
+  background-color: lightgray;
+  width: 100%;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 500ms;
+}
+
+.menu>li:hover>ul{
+  /* 높이값의 내용의 크기만큼 자동 맞춤. */
+  /* 단, transition은 정확한 값이 아니면 동작하지 않음 */
+  /* 결론은 height 값을 계산해서 px로 줘야 정상 동작! */
+  /* height: 110px; */
+  max-height: 150px;
+}
+
+.submenu>li{
+  margin: 10px 0px;
+}
+
+.submenu>li>a{
+  text-decoration: none;
+  color: black;
+}
+
+.submenu>li>a:hover{
+  font-weight: 555;
+}
+

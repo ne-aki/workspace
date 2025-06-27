@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>그림 퍼즐</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      padding-top: 40px;
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 2px;
+      margin: 0 auto;
+      width: 304px;
+      height: 304px;
+      border: 2px solid #333;
+    }
+
+    .tile {
+      width: 100px;
+      height: 100px;
+      background-image: url('https://picsum.photos/id/237/300/300');
+      background-size: 300px 300px;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .empty {
+      background: #eee;
+      cursor: default;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🖼️ 그림 퍼즐</h1>
+<div id="board"></div>
+<button onclick="shuffle()">🔄 섞기</button>
+
+<script>
+  const board = document.getElementById('board');
+  let tiles = [];
+
+  function init() {
+    tiles = Array.from({ length: 8 }, (_, i) => i);
+    tiles.push(null);
+    draw();
+  }
+
+  function draw() {
+    board.innerHTML = '';
+    tiles.forEach((tile, idx) => {
+      const div = document.createElement('div');
+      div.classList.add('tile');
+      if (tile === null) {
+        div.classList.add('empty');
+      } else {
+        const x = tile % 3;
+        const y = Math.floor(tile / 3);
+        div.style.backgroundPosition = `-${x * 100}px -${y * 100}px`;
+        div.addEventListener('click', () => move(idx));
+      }
+      board.appendChild(div);
+    });
+  }
+
+  function move(index) {
+    const empty = tiles.indexOf(null);
+    if (isAdjacent(index, empty)) {
+      [tiles[index], tiles[empty]] = [tiles[empty], tiles[index]];
+      draw();
+      if (isSolved()) {
+        setTimeout(() => alert("🎉 퍼즐 완성! 잘했어요!"), 200);
+      }
+    }
+  }
+
+  function isAdjacent(i, j) {
+    const x1 = i % 3, y1 = Math.floor(i / 3);
+    const x2 = j % 3, y2 = Math.floor(j / 3);
+    return (Math.abs(x1 - x2) + Math.abs(y1 - y2)) === 1;
+  }
+
+  function shuffle() {
+    do {
+      tiles.sort(() => Math.random() - 0.5);
+    } while (!isSolvable(tiles) || isSolved());
+    draw();
+  }
+
+  function isSolved() {
+    for (let i = 0; i < 8; i++) {
+      if (tiles[i] !== i) return false;
+    }
+    return true;
+  }
+
+  function isSolvable(arr) {
+    const flat = arr.filter(n => n !== null);
+    let inv = 0;
+    for (let i = 0; i < flat.length; i++) {
+      for (let j = i + 1; j < flat.length; j++) {
+        if (flat[i] > flat[j]) inv++;
+      }
+    }
+    return inv % 2 === 0;
+  }
+
+  init();
+</script>
+
+</body>
+</html>
