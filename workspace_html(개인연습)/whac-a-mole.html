@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>두더지 잡기 게임</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f0f8ff;
+      margin-top: 50px;
+    }
+    #game {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .hole {
+      width: 100px;
+      height: 100px;
+      background-color: #654321;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+    }
+    .mole {
+      width: 80px;
+      height: 80px;
+      background-color: #8b4513;
+      border-radius: 50%;
+      position: absolute;
+      top: 100%;
+      left: 10px;
+      transition: top 0.3s;
+      cursor: pointer;
+    }
+    .up {
+      top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎯 두더지 잡기!</h1>
+<p>점수: <span id="score">0</span></p>
+<p>남은 시간: <span id="time">30</span>초</p>
+<button onclick="startGame()">게임 시작</button>
+
+<div id="game">
+  <div class="hole"><div class="mole"></div></div>
+  <div class="hole"><div class="mole"></div></div>
+  <div class="hole"><div class="mole"></div></div>
+  <div class="hole"><div class="mole"></div></div>
+  <div class="hole"><div class="mole"></div></div>
+  <div class="hole"><div class="mole"></div></div>
+</div>
+
+<script>
+  const holes = document.querySelectorAll('.hole');
+  const moles = document.querySelectorAll('.mole');
+  const scoreDisplay = document.getElementById('score');
+  const timeDisplay = document.getElementById('time');
+  let score = 0;
+  let timeLeft = 30;
+  let gameInterval;
+
+  function randomHole() {
+    const index = Math.floor(Math.random() * holes.length);
+    return holes[index].querySelector('.mole');
+  }
+
+  function showMole() {
+    const mole = randomHole();
+    mole.classList.add('up');
+    setTimeout(() => {
+      mole.classList.remove('up');
+    }, 800);
+  }
+
+  function startGame() {
+    score = 0;
+    timeLeft = 30;
+    scoreDisplay.textContent = score;
+    timeDisplay.textContent = timeLeft;
+    gameInterval = setInterval(() => {
+      showMole();
+    }, 800);
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      timeDisplay.textContent = timeLeft;
+      if (timeLeft === 0) {
+        clearInterval(gameInterval);
+        clearInterval(timer);
+        alert("게임 종료! 당신의 점수는 " + score + "점입니다.");
+      }
+    }, 1000);
+  }
+
+  moles.forEach(mole => {
+    mole.addEventListener('click', () => {
+      if (mole.classList.contains('up')) {
+        score++;
+        scoreDisplay.textContent = score;
+        mole.classList.remove('up');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

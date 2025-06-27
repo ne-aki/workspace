@@ -1,0 +1,11 @@
+*{
+  background-color: #999999;
+}
+.login{
+  border: 1px solid white;
+}
+input{
+  background-color: white;
+  border: 1px solid #555555;
+  border-radius: 2px;
+}

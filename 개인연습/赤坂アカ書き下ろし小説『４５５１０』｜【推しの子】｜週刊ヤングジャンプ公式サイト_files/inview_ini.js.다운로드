@@ -1,0 +1,20 @@
+$(function() {
+	$('.zoom').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+		if(isInView){
+			$(this).stop().addClass('zoom_tg');
+		}
+		/*else{
+			$(this).stop().removeClass('zoom_tg');
+		}*/
+	});
+
+	$('.upfadein').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+		if(isInView){
+			$(this).stop().addClass('upfadein_tg');
+		}
+		/*else{
+			$(this).stop().removeClass('upfadein_tg');
+		}*/
+	});
+
+});

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="회원가입 예제.css">
+</head>
+<body>
+  <div class="container">
+    <div class="title">
+      <h2>회원가입</h2>
+      <p>회원이 되어 다양한 혜택을 경험해 보세요!</p>
+    </div>
+    <div class="content">
+      <div>
+        <p>
+          아이디
+          <span>*</span>
+        </p>
+        <div class="id">
+          <input type="text" placeholder="아이디 입력(6~20자)">
+          <input type="button" value="중복 확인">
+        </div>
+      </div>
+      <div>
+        <p>
+          비밀번호
+          <span>*</span>
+        </p>
+        <input type="password" placeholder="비밀번호 입력 (문자, 숫자, 특수문자 포함 8~20자)">
+      </div>
+      <div>
+        <p>
+          비밀번호 확인
+          <span>*</span>
+        </p>
+        <input type="password" placeholder="비밀번호 재입력">
+      </div>
+      <div>
+        <p>
+          이름
+          <span>*</span>
+        </p>
+        <input type="text" placeholder="이름을 입력해주세요">
+      </div>
+      <div>
+        <p>
+          주소
+          <span>*</span>
+          <p><input type="text" placeholder="주소를 입력해주세요"></p>
+          <p><input type="text" placeholder="상세주소"></p>
+        </p>
+      </div>
+      <div>
+        <p>
+          전화번호
+          <span>*</span>
+        </p>
+        <input type="text" placeholder="휴대폰 번호 입력('-'제외 11자리 입력)">
+      </div>
+      <div>
+        <p>
+          이메일 주소
+          <span>*</span>
+        </p>
+        <div class="mail">
+          <input type="text" placeholder="이메일 주소">
+          <span class="mail-span">@</span>
+          <input type="text" disabled>
+          <select name="" id="">
+            <option value="">선택</option>
+            <option value="">naver.com</option>
+            <option value="">gmail.com</option>
+            <option value="">daum.net</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <p>생년월일</p>
+        <div class="dov">
+        <select name="" id="">
+          <option value="">년도</option>
+          <option value="">2000년</option>
+        </select>
+          <select name="" id="">
+            <option value="">월</option>
+            <option value="">1월</option>
+            <option value="">2월</option>
+            <option value="">3월</option>
+            <option value="">4월</option>
+            <option value="">5월</option>
+            <option value="">6월</option>
+            <option value="">7월</option>
+            <option value="">8월</option>
+            <option value="">9월</option>
+            <option value="">10월</option>
+            <option value="">11월</option>
+            <option value="">12월</option>
+          </select>
+          <select name="" id="">
+            <option value="">일</option>
+            <option value="">31일</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="btn">
+      <button type="button">가입완료</button>
+      <button type="button">가입취소</button>
+    </div>
+  </div>
+</body>
+</html>

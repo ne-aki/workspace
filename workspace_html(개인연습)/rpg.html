@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>용사와 슬라임</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding-top: 50px;
+    }
+    .box {
+      display: inline-block;
+      width: 200px;
+      padding: 20px;
+      margin: 20px;
+      background: white;
+      border: 2px solid #333;
+      border-radius: 15px;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    }
+    .hp {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    #log {
+      margin-top: 30px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #eee;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      height: 150px;
+      overflow-y: auto;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+<h1>⚔️ 용사와 슬라임</h1>
+
+<div class="box" id="hero">
+  <h2>🧝 용사</h2>
+  <div class="hp">HP: <span id="heroHP">100</span></div>
+</div>
+
+<div class="box" id="slime">
+  <h2>🟢 슬라임</h2>
+  <div class="hp">HP: <span id="slimeHP">50</span></div>
+</div>
+
+<button onclick="attack()">공격하기</button>
+
+<div id="log">
+  <strong>[전투 기록]</strong><br>
+</div>
+
+<script>
+  let heroHP = 100;
+  let slimeHP = 50;
+
+  function log(msg) {
+    const logDiv = document.getElementById("log");
+    logDiv.innerHTML += msg + "<br>";
+    logDiv.scrollTop = logDiv.scrollHeight;
+  }
+
+  function attack() {
+    if (heroHP <= 0 || slimeHP <= 0) return;
+
+    const heroDmg = Math.floor(Math.random() * 15) + 5;  // 5~19
+    const slimeDmg = Math.floor(Math.random() * 10) + 3; // 3~12
+
+    slimeHP -= heroDmg;
+    if (slimeHP < 0) slimeHP = 0;
+    log(`용사가 슬라임에게 ${heroDmg} 데미지를 주었다!`);
+
+    if (slimeHP === 0) {
+      document.getElementById("slimeHP").textContent = slimeHP;
+      log(`슬라임을 물리쳤다! 🎉`);
+      return;
+    }
+
+    heroHP -= slimeDmg;
+    if (heroHP < 0) heroHP = 0;
+    log(`슬라임이 용사에게 ${slimeDmg} 데미지를 주었다!`);
+
+    document.getElementById("heroHP").textContent = heroHP;
+    document.getElementById("slimeHP").textContent = slimeHP;
+
+    if (heroHP === 0) {
+      log(`용사가 쓰러졌다... 게임 오버 ☠️`);
+    }
+  }
+</script>
+
+</body>
+</html>

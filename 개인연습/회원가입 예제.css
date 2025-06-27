@@ -1,0 +1,105 @@
+body{
+  background-color: lightcyan;
+}
+
+.container{
+  background-color: white;
+  padding: 70px;
+  margin: 50px auto;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px lightgray;
+}
+
+.title{
+  margin-bottom: 50px;
+}
+
+h2{
+  margin-bottom: 10px;
+}
+
+.content>div>p>span{
+  color: red;
+}
+
+.content>div>p{
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+
+.id{
+  display: flex;
+}
+
+.id>input[type="button"]{
+  margin-left: 5px;
+  width: 250px;
+  background-color: deepskyblue;
+  border: none;
+  color: white;
+}
+
+.id>input[type="button"]:hover{
+  cursor: pointer;
+}
+
+.mail{
+  display: flex;
+}
+
+.mail-span{
+  align-self: center;
+  text-align: center;
+  margin: 0px 10px;
+}
+
+.mail>select{
+  margin-left: 10px;
+}
+
+.dov{
+  display: flex;
+  justify-content: space-between;
+}
+
+.dov>select{
+  width: 135px;
+}
+
+input, select{
+  height: 45px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.btn{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn>button{
+  width: 100px;
+  height: 30px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 3px 3px 3px lightgray;
+}
+
+.btn>button:hover{
+  cursor: pointer;
+}
+
+.btn>button:first-child{
+  background-color: deepskyblue;
+}
+
+.btn>button:last-child{
+  background-color: gold;
+}
