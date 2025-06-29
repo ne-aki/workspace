@@ -11,6 +11,8 @@ public class BankTest {
       int inputNum = sc.nextInt();
       switch (inputNum) {
         case 1:
+          Task task = new Task();
+          task.openAcc();
           break;
         case 2:
           break;
