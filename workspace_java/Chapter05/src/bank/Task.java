@@ -17,6 +17,11 @@ public class Task {
   public void openAcc() {
     System.out.println("계좌개설을 시작합니다.");
     System.out.print("이름 : ");
+    clients[cnt].setName(sc.next());
+    System.out.print("주민등록번호 : ");
+    clients[cnt].setResidentRegNum(sc.next());
+    System.out.print("연락처 : ");
+    clients[cnt].setTel(sc.next());
 
   }
   //입금
