@@ -5,6 +5,4 @@ public class ClientInfo {
   private String birthday;
   private String tel;
   private AccountInfo accountInfo;
-
-
 }
