@@ -11,7 +11,7 @@ public class TestMember {
     memberList.add(m1);
     memberList.add(m2);
     memberList.add(m3);
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < memberList.size(); i++) {
       System.out.println(memberList.get(i));
     }
 
