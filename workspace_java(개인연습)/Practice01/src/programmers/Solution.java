@@ -1,14 +1,9 @@
 package programmers;
-//정수 n이 주어질 때, n이하의 짝수를 모두 더한 값을 return 하도록
-//solution 함수를 작성해주세요.
+//알파벳으로 이루어진 문자열 myString이 주어집니다. 모든 알파벳을
+//소문자로 변환하여 return 하는 solution 함수를 완성해 주세요.
 public class Solution {
-  public int solution(int n) {
-    for (int i = 1; i < n; i++) {
-      if (i % 2 == 0) {
-
-      }
-    }
-    int answer = 0;
+  public String solution(String myString) {
+    String answer = myString.toLowerCase();
     return answer;
   }
 }
