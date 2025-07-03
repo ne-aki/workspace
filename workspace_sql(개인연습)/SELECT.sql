@@ -1,0 +1,3 @@
+SELECT * FROM emp;
+SELECT * FROM emp
+WHERE JOB != '사원';

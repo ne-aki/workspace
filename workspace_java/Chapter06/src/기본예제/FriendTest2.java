@@ -15,7 +15,6 @@ public class FriendTest2 {
 
     for (int i = 0; i < friendList.size(); i++) {
       friendList.get(i).showInfo();
-      System.out.println();
     }
   }
 }

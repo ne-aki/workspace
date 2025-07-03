@@ -21,12 +21,10 @@ public class FriendTest1 {
     //등록된 대학 동창 정보 출력
     for (int i = 0; i < univList.size(); i++) {
       univList.get(i).showInfo();
-      System.out.println();
     }
     //등록된 직장 동료 정보 출력
     for (int i = 0; i < compList.size(); i++) {
       compList.get(i).showInfo();
-      System.out.println();
     }
   }
 }
