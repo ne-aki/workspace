@@ -1,3 +1,7 @@
 SELECT * FROM emp;
 SELECT * FROM emp
 WHERE JOB != '사원';
+
+SELECT *
+FROM emp
+WHERE ENAME LIKE '%기';
