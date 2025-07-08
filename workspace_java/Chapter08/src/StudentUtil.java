@@ -4,11 +4,11 @@
 public interface StudentUtil {
   //매개변수로 전달되는 학생의 총점을 리턴
   //메서드명 : getTotalScore
-  public int getTotalScore(int totalScore);
+  public int getTotalScore(Student student);
 
   //매개변수로 전달된 두 명의 학생 중 총점이 높은 학생을 리턴
   //메서드명 : getHighScoreStudent
-  public int getHighScoreStudent(int highScoreStudent);
+  public Student getHighScoreStudent(Student stu1, Student stu2);
 
   //학생 여러명을 매개변수로 받아, 또 다른 매개변수로 받는 학생의 이름과 일치하는 학생의 점수 등급을 문자열로 리턴
   //학생의 점수 등급은 총점의 평균으로 계산.
@@ -18,5 +18,5 @@ public interface StudentUtil {
   //70 <= 평균 < 80 -> "C"
   //평균 < 70 -> "D"
   //메서드명 : getGradeByStudentName
-  public String getGradeByStudentName(String[] gradeByStudentName);
+  public String getGradeByStudentName(Student[] students, String name);
 }
