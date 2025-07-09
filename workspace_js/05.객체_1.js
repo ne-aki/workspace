@@ -77,17 +77,30 @@ console.log(sum);
 
 //6. students 배열에 저장된 학생들의 수학점수를 요소로 받는 배열을 생성하고, 해당 배열을 출력
 for (let i = 0; i < students.length; i++) {
-  students[i].mathScore = 100
+  students[i].mathScore;
   console.log(students[i].mathScore);
 }
 
+
 //7. 국어와 영어점수의 총합이 가장 높은 학생의 이름을 출력
-let korMax = students[0].korScore;
-let engMax = students[0].engScore;
-for (let i = 0; i < students.length; i++) {
-  if (students[i].korScore + students[i].engScore) {
-    
-  }
-}
+let max = students[0].korScore + students[0].engScore;
+// for (let i = 0; i < students.length; i++) {
+//   if (max < students[i].korScore + students[i].engScore) {
+//     max = student[i].korScore + students[i].engScore;
+//   }
+// }
 
 //8. 모든 학생에 총점 데이터를 추가해보세요. 총점의 key는 totalScore로 지정하고, 총점의 value는 국어와 영어점수의 합으로 지정한다.
+for (let i = 0; i < students.length; i++) {
+  students[i].totalScore = students[i].korScore + students[i].engScore;
+}
+
+console.log(students);
+
+
+/////
+let arr = [1,2,3,4,5];
+arr.push(9);
+arr[7] = 22;
+console.log(arr);
+

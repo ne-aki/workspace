@@ -1,0 +1,15 @@
+.good-button {
+  width: 200px;
+  height: 300px;
+  background-color: blue;
+  color: aliceblue;
+}
+
+.good-button:hover {
+  background-color: brown;
+  cursor: pointer;
+}
+
+.good-button:active {
+  background-color: darkred;
+}
