@@ -34,3 +34,35 @@ const {age, score1, name} = student;
 console.log(age); //20
 console.log(score1); //undefined
 
+//매개변수로 크기가 3인 배열이 전달되면 배열 모든 요소의 합을 리턴하는 함수
+function f1(arr) {
+  return arr[0] + arr[1] + arr[2];
+}
+
+const arr5 = [1, 3, 5];
+f1(arr5);
+f2(arr5);
+
+function f2([a, b, c]) {
+  return a + b + c;
+}
+
+const phone = {
+  name : 's10',
+  price : 1000,
+  color : 'white'
+};
+
+//매개변수로 phone 객체가 전달되면, 해당 phone의 이름과 가격, 색상을 출력하는 함수
+function f3(p) {
+  console.log(p.name, p.price, p.color);
+}
+
+function f4({name, price, color}) {
+  console.log(name, price, color);
+}
+
+f3(phone);
+f4(phone);
+
+console.log(10,20,30);
