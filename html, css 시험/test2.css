@@ -1,0 +1,95 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  height: 70px;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  width: 700px;
+  /* font-size: 12px; */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.box {
+  position: relative;
+}
+
+.box > input {
+  width: 250px;
+  height: 30px;
+  border: 1px solid lightgray;
+}
+
+.box > span {
+  position: absolute;
+  right: 5px;
+  color: darkorange;
+}
+
+.title {
+  background-image: url(slide1.jpg);
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title > h1 {
+  color: darkorange;
+  font-weight: 400;
+  margin-bottom: 10px;
+  font-size: 45px;
+}
+
+.title > p {
+  color: white;
+  width: 700px;
+  text-align: center;
+}
+
+.title > button {
+  color: white;
+  background-color: darkorange;
+  border: none;
+  width: 200px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.title > button:hover {
+  cursor: pointer;
+}
+
+.content {
+  margin: auto;
+  width: 900px;
+  border: 1px solid red;
+}
+
+.content-title {
+  text-align: center;
+}
+
+.content-title > h1 {
+  font-weight: 400;
+}
+
+.icon-and-content {
+  display: flex;
+}
+
+.circle {
+  font-size: 100px;
+}

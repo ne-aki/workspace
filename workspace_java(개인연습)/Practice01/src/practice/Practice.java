@@ -1,5 +1,6 @@
 //이곳은 연습장입니다.
 //ここは練習帳です。
-function button() {
-  alert('버튼이라고!');
+package practice;
+
+public class Practice {
 }

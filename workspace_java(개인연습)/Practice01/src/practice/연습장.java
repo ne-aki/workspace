@@ -1,4 +1,4 @@
-package 연습장;
+package practice;
 
 public class 연습장 {
   public static void main(String[] args) {

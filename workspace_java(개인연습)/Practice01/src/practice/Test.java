@@ -1,4 +1,4 @@
-package 연습장;
+package practice;
 
 public class Test implements TestUtil {
   @Override

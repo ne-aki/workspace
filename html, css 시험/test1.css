@@ -19,6 +19,7 @@ table{
 
 tr,td{
   border: 1px solid lightgray;
+  font-size: 14px;
 }
 
 tr>td:first-child{
@@ -50,4 +51,17 @@ tr>td:last-child{
 input{
   height: 25px;
   border: 1px solid lightgray;
+}
+
+.short{
+  width: 80px;
+}
+
+.basic-info-flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.tel{
+  display: flex;
 }
