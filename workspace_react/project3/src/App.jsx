@@ -10,8 +10,10 @@ import Test4배열 from './Test4배열'
 import Test5 from './Test5'
 import Test4복습 from './Test4복습'
 import Test5복습 from './Test5복습'
+import CartList from './CartList'
 
 function App() {
+  const arr = [1, 3, 5]
 
   return (
     <>
@@ -22,7 +24,20 @@ function App() {
       {/* <Test4배열 /> */}
       {/* <Test5 /> */}
       {/* <Test4복습 /> */}
-      <Test5복습 />
+      {/* <Test5복습 /> */}
+      <CartList />
+
+
+
+
+      {
+        arr.map((e, i) => {
+          return (
+            <div key={i}>{e}</div>
+          )
+        })
+      }
+
     </>
   )
 }

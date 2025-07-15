@@ -74,12 +74,14 @@ a {
 
 .content {
   margin: auto;
-  width: 900px;
+  width: 1100px;
   border: 1px solid red;
 }
 
 .content-title {
   text-align: center;
+  margin-bottom: 50px;
+  margin-top: 100px;
 }
 
 .content-title > h1 {
@@ -88,8 +90,43 @@ a {
 
 .icon-and-content {
   display: flex;
+  justify-content: space-between;
 }
 
-.circle {
-  font-size: 100px;
+.icon-and-content > div {
+  text-align: center;
+  width: 250px;
+  /* margin: auto; */
+}
+
+.icon-and-content h4 {
+  margin: 10px;
+}
+
+.icon-and-content p {
+  font-size: 0.8rem;
+}
+
+.icon {
+  border: 15px solid;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 70px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  color: darkorange;
+  margin: auto;
+}
+
+.img-content {
+  display: flex;
+}
+
+.img-content img {
+  width: 100%;
+}
+
+.img-content > div {
+  width: 100%;
 }
