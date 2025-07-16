@@ -9,7 +9,6 @@
   display: flex;
   justify-content: space-around;
   width: 700px;
-  /* font-size: 12px; */
 }
 
 a {
@@ -35,6 +34,7 @@ a {
 
 .title {
   background-image: url(slide1.jpg);
+  background-repeat: no-repeat;
   height: 350px;
   background-size: cover;
   background-position: center;
@@ -96,7 +96,6 @@ a {
 .icon-and-content > div {
   text-align: center;
   width: 250px;
-  /* margin: auto; */
 }
 
 .icon-and-content h4 {
@@ -121,12 +120,23 @@ a {
 
 .img-content {
   display: flex;
+  justify-content: space-between;
 }
 
-.img-content img {
+.img-div > img {
   width: 100%;
 }
 
-.img-content > div {
-  width: 100%;
+.img-div {
+  width: 32%;
+  position: relative;
+  border: 1px solid purple;
+}
+
+.img-div > div {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  
 }
