@@ -1,14 +1,23 @@
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   height: 70px;
   align-items: center;
+  width: 70%;
+  margin: auto;
 }
 
 .menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 700px;
+  gap: 40px;
+  font-weight: bold;
+}
+
+.menu > li:hover {
+  cursor: pointer;
+  color: darkorange;
 }
 
 a {
@@ -16,12 +25,16 @@ a {
   color: black;
 }
 
+a:hover {
+  color: darkorange;
+}
+
 .box {
   position: relative;
 }
 
 .box > input {
-  width: 250px;
+  width: 300px;
   height: 30px;
   border: 1px solid lightgray;
 }
@@ -75,7 +88,6 @@ a {
 .content {
   margin: auto;
   width: 1100px;
-  border: 1px solid red;
 }
 
 .content-title {
@@ -86,6 +98,7 @@ a {
 
 .content-title > h1 {
   font-weight: 400;
+  margin-bottom: 5px;
 }
 
 .icon-and-content {
@@ -121,22 +134,32 @@ a {
 .img-content {
   display: flex;
   justify-content: space-between;
+  margin-top: 70px;
 }
 
 .img-div > img {
   width: 100%;
+  display: block;
 }
 
 .img-div {
   width: 32%;
   position: relative;
-  border: 1px solid purple;
+  display: block;
 }
 
 .img-div > div {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   position: absolute;
   bottom: 0px;
-  
+  width: 100%;
+  text-align: left;
+  padding: 15px;
+}
+
+.img-div p {
+  font-size: 0.9rem;
+  color: darkorange;
+  margin-top: 10px;
 }
