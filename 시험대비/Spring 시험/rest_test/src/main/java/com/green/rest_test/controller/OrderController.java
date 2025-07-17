@@ -1,8 +1,6 @@
 package com.green.rest_test.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class OrderController {
@@ -16,6 +14,11 @@ public class OrderController {
   public String getRestOrderInfo(@PathVariable("itemNum") int a) {
     System.out.println(a);
     return "하나의 주문정보 조회 완료";
+  }
+  //하나의 주문정보를 등록하는 기능을 제공하는 REST API
+  @PostMapping("/rest-order-infos")
+  public String insertRestOrderInfo(@RequestBody OrderInfo orderInfo) {
+    return "하나의 주문정보 등록 완료";
   }
 }
 
