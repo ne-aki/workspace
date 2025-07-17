@@ -12,7 +12,7 @@ public class Practice1 {
 
   @GetMapping("/me")
   public LeeGeunHyeong practice2() {
-    LeeGeunHyeong leeGeunHyeong = new LeeGeunHyeong("lee", 25, "piano");
+    LeeGeunHyeong leeGeunHyeong = new LeeGeunHyeong("lee", 25, "취미");
     return leeGeunHyeong;
   }
 
