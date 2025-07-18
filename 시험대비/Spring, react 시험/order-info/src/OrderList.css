@@ -1,0 +1,32 @@
+.order-list {
+  width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+}
+.order-list-table {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 20px;
+}
+.order-list-table tr, td {
+  border: 1px solid white;
+}
+.order-list-table > thead {
+  background-color: royalblue;
+  color: white;
+  font-weight: bold;
+  border-bottom: white;
+}
+.order-list-table td {
+  padding: 10px;
+}
+.order-list-table > tbody > tr:nth-child(odd) {
+  background-color: deepskyblue;
+}
+.order-list-table > tbody > tr:nth-child(even) {
+  background-color: lightskyblue;
+}
+.order-list-table > tbody > tr:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
+}

@@ -1,0 +1,45 @@
+.order-detail {
+  width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+}
+.order-detail-table {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 20px;
+}
+.order-detail-table td {
+  padding: 10px;
+}
+.order-detail-table tr, td {
+  border: 1px solid white;
+}
+.order-detail-table td:nth-child(odd) {
+  background-color: skyblue;
+}
+.order-detail-table td:nth-child(even) {
+  background-color: lightblue;
+}
+button {
+  text-align: right;
+}
+p {
+  text-align: right;
+  margin-top: 20px;
+}
+button {
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  background-color: cornflowerblue;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+}
+button:hover {
+  background-color: dodgerblue;
+}
+button:active {
+  background-color: steelblue;
+}
