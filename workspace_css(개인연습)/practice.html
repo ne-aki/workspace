@@ -4,9 +4,203 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .container{
+  margin: 10px auto;
+  width: 95%;
+}
+
+.container>div{
+  margin-bottom: 50px;
+}
+
+h2{
+  margin-bottom: 20px;
+}
+
+table{
+  border: 1px solid lightgray;
+  width: 100%;
+  border-top: 2px solid lightgray;
+}
+
+tr,td{
+  border: 1px solid lightgray;
+  font-size: 14px;
+}
+
+tr>td:first-child{
+  background-color: whitesmoke;
+  width: 10%;
+  padding: 12px;
+}
+
+tr>td:first-child>span{
+  color: red;
+}
+
+tr>td:last-child{
+  padding: 5px;
+}
+
+.zip-code{
+  display: flex;
+}
+.zip-code > * {
+  margin-left: 5px;
+}
+.zip-code-td > p {
+  margin: 5px;
+  margin-left: 0px;
+}
+
+.dov{
+  display: flex;
+}
+
+.dov>div{
+  margin-right: 20px;
+}
+
+input{
+  height: 25px;
+  border: 1px solid lightgray;
+  margin-left: 5px;
+}
+.shorter {
+  width: 50px;
+}
+
+.short{
+  width: 80px;
+}
+
+.mid {
+  width: 200px;
+}
+
+.long {
+  width: 300px;
+}
+
+.basic-info-flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.tel{
+  display: flex;
+  border: none;
+}
+.tel > input, select{
+  margin: 3px;
+}
+input[type='checkbox'], [type='radio'] {
+  vertical-align: -8px;
+}
+
+  </style>
   <link rel="stylesheet" href="practice.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
-  
+  <div class="container">
+    <div class="header">
+      <ul class="menu">
+        <li>HOME</li>
+        <li>ABOUT</li>
+        <li>PRODUCTS</li>
+        <li>
+          <a href="test1.html">CONTACT</a>
+        </li>
+      </ul>
+      <div class="box">
+        <input type="text">
+        <span>
+          <i class="bi bi-search"></i>
+        </span>
+      </div>
+    </div>
+    <div class="title">
+      <h1>DELICIOUS MEALS</h1>
+      <p>Donec justo dui, semper vitae aliquam euzali, arnare pretium enim. Maecenas molestie diam eget tellus luctus fermentum.</p>
+      <button type="button">SHOP NOW</button>
+    </div>
+    <div class="content">
+      <div class="content1">
+        <div class="content-title">
+          <h1>Free Website Templates</h1>
+          <img src="under-heading.png" alt="">
+        </div>
+        <div class="icon-and-content">
+          <div>
+            <div class="icon">
+              <i class="bi bi-pencil-fill"></i>
+            </div>
+            <h4>MAKE AN ORDER</h4>
+            <p>
+              Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit.
+            </p>
+          </div>
+          <div>
+            <div class="icon">
+              <i class="bi bi-megaphone-fill"></i>
+            </div>
+            <h4>PROMOTION</h4>
+            <p>
+              Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit.
+            </p>
+          </div>
+          <div>
+            <div class="icon">
+              <i class="bi bi-bell-fill"></i>
+            </div>
+            <h4>READY TO SERVE</h4>
+            <p>
+              Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit.
+            </p>
+          </div>
+          <div>
+            <div class="icon">
+              <i class="bi bi-heart-fill"></i>
+            </div>
+            <h4>SATISFACTION</h4>
+            <p>
+              Sed egestas tincidunt mollis. Suspendisse rhoncus vitae enim et faucibus. Ut dignissim nec arcu nec hendrerit.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="content2">
+        <div class="content-title">
+          <h1>Latest blog posts</h1>
+          <img src="under-heading.png" alt="">
+          <div class="img-content">
+            <div class="img-div">
+              <img src="blogpost1.jpg" alt="">
+              <div>
+                <h4>SUMMER SANDWICH</h4>
+                <p>29 Sep 2084</p>
+              </div>
+            </div>
+            <div class="img-div">
+              <img src="blogpost2.jpg" alt="">
+              <div>
+                <h4>NEW GREAT TASTE</h4>
+                <p>23 Sep 2084</p>
+              </div>
+            </div>
+            <div class="img-div">
+              <img src="blogpost3.jpg" alt="">
+              <div>
+                <h4>SPICY PIZZA</h4>
+                <p>14 Sep 2084</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

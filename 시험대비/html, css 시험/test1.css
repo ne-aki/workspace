@@ -25,7 +25,7 @@ tr,td{
 tr>td:first-child{
   background-color: whitesmoke;
   width: 10%;
-  padding: 10px;
+  padding: 12px;
 }
 
 tr>td:first-child>span{
@@ -39,6 +39,13 @@ tr>td:last-child{
 .zip-code{
   display: flex;
 }
+.zip-code > * {
+  margin-left: 5px;
+}
+.zip-code-td > p {
+  margin: 5px;
+  margin-left: 0px;
+}
 
 .dov{
   display: flex;
@@ -51,10 +58,22 @@ tr>td:last-child{
 input{
   height: 25px;
   border: 1px solid lightgray;
+  margin-left: 5px;
+}
+.shorter {
+  width: 50px;
 }
 
 .short{
   width: 80px;
+}
+
+.mid {
+  width: 200px;
+}
+
+.long {
+  width: 300px;
 }
 
 .basic-info-flex{
@@ -64,4 +83,11 @@ input{
 
 .tel{
   display: flex;
+  border: none;
+}
+.tel > input, select{
+  margin: 3px;
+}
+input[type='checkbox'], [type='radio'] {
+  vertical-align: -8px;
 }

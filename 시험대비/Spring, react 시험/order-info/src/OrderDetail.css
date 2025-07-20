@@ -36,9 +36,11 @@ button {
   border-radius: 10px;
   font-size: 20px;
   color: white;
+  margin-right: 10px;
 }
 button:hover {
   background-color: dodgerblue;
+  cursor: pointer;
 }
 button:active {
   background-color: steelblue;

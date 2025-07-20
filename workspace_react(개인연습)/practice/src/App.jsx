@@ -1,6 +1,6 @@
 //이곳은 연습장입니다.
 //ここは練習帳です。
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,13 +8,21 @@ import Header from './Header'
 import Footer from './Footer'
 import Content from './content'
 import Hello from './Hello'
+import axios from 'axios'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [restOrderInfo, setRestOrderInfo] = useState(null);
+  useEffect(() => {
+    axios.post('/api/rest-order-infos')
+    .then((res) => {
+      console.log(res.data)
+    })
+    .catch((error) => console.log(error))
+  }, [])
 
   return (
     <>
-      <Header></Header>
+      <Header />
       <Content />
       <table>
         <thead>
@@ -40,7 +48,7 @@ function App() {
       </table>
       <div></div>
       <Hello />
-      <Footer></Footer>
+      <Footer />
     </>
   )
 }

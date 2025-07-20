@@ -25,11 +25,15 @@ const OrderInfo = () => {
       />
       {isShowDetail
       ?
-      <OrderDetail selectOrderList={selectOrderList} />
+      <>
+        <OrderDetail
+          selectOrderList={selectOrderList}
+          setIsShowDetail={setIsShowDetail}
+        />
+      </>
       :
       null
       }
-      
     </>
   )
 }

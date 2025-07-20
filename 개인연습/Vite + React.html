@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:5173/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="./Vite + React_files/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:5173/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite + React</title>
+  <style type="text/css" data-vite-dev-id="C:/01-STUDY/dev/workspace/시험대비/Spring, react 시험/order-info/src/index.css"></style><style type="text/css" data-vite-dev-id="C:/01-STUDY/dev/workspace/시험대비/Spring, react 시험/order-info/src/App.css">html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	/* border: 0; */
+	/* font-size: 100%; */
+	/* font: inherit; */
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*  * -> 에스테리스크 (모든, 전부, all)   */
+*{
+  box-sizing: border-box;
+	
+}
+
+
+
+</style><style type="text/css" data-vite-dev-id="C:/01-STUDY/dev/workspace/시험대비/Spring, react 시험/order-info/src/OrderList.css">.order-list {
+  width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+}
+.order-list-table {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 20px;
+}
+.order-list-table tr, td {
+  border: 1px solid white;
+}
+.order-list-table > thead {
+  background-color: royalblue;
+  color: white;
+  font-weight: bold;
+  border-bottom: white;
+}
+.order-list-table td {
+  padding: 10px;
+}
+.order-list-table > tbody > tr:nth-child(odd) {
+  background-color: deepskyblue;
+}
+.order-list-table > tbody > tr:nth-child(even) {
+  background-color: lightskyblue;
+}
+.order-list-table > tbody > tr:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
+}</style><style type="text/css" data-vite-dev-id="C:/01-STUDY/dev/workspace/시험대비/Spring, react 시험/order-info/src/OrderDetail.css">.order-detail {
+  width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+}
+.order-detail-table {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 20px;
+}
+.order-detail-table td {
+  padding: 10px;
+}
+.order-detail-table tr, td {
+  border: 1px solid white;
+}
+.order-detail-table td:nth-child(odd) {
+  background-color: skyblue;
+}
+.order-detail-table td:nth-child(even) {
+  background-color: lightblue;
+}
+button {
+  text-align: right;
+}
+p {
+  text-align: right;
+  margin-top: 20px;
+}
+button {
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  background-color: cornflowerblue;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  margin-right: 10px;
+}
+button:hover {
+  background-color: dodgerblue;
+  cursor: pointer;
+}
+button:active {
+  background-color: steelblue;
+}</style></head>
+  <body>
+    <div id="root"><div class="order-list"><h2>주문목록</h2><table class="order-list-table"><thead><tr><td>No</td><td>상품명</td><td>상품가격</td><td>수량</td><td>총구매가격</td></tr></thead><tbody><tr><td>5</td><td>데님 청바지</td><td>15000원</td><td>2</td><td>30000원</td></tr><tr><td>4</td><td>맨투맨 반팔 티셔츠</td><td>10000원</td><td>3</td><td>30000원</td></tr><tr><td>3</td><td>오버핏 니트</td><td>25000원</td><td>2</td><td>50000원</td></tr><tr><td>2</td><td>롱 패딩</td><td>55000원</td><td>1</td><td>55000원</td></tr><tr><td>1</td><td>맨투맨 긴팔 티셔츠</td><td>12000원</td><td>3</td><td>36000원</td></tr></tbody></table></div><div class="order-detail"><h2>주문 상세 정보</h2><table class="order-detail-table"><colgroup><col width="25%"><col width="25%"><col width="25%"><col width="25%"></colgroup><tbody><tr><td>상품번호</td><td>101</td><td>상품명</td><td>데님 청바지</td></tr><tr><td>가격</td><td>15000원</td><td>수량</td><td>2</td></tr><tr><td>주문자ID</td><td>abc</td><td>구매금액</td><td>30000원</td></tr></tbody></table><p><button type="button">닫기</button></p></div></div>
+    <script type="module" src="./Vite + React_files/main.jsx"></script>
+  
+
+<iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./Vite + React_files/saved_resource.html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}" style="display: none;"></div></body></html>

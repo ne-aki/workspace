@@ -1,2 +1,95 @@
 /* 이곳은 연습장입니다. */
 /* ここは練習帳です。 */
+.container{
+  margin: 10px auto;
+  width: 95%;
+}
+
+.container>div{
+  margin-bottom: 50px;
+}
+
+h2{
+  margin-bottom: 20px;
+}
+
+table{
+  border: 1px solid lightgray;
+  width: 100%;
+  border-top: 2px solid lightgray;
+}
+
+tr,td{
+  border: 1px solid lightgray;
+  font-size: 14px;
+}
+
+tr>td:first-child{
+  background-color: whitesmoke;
+  width: 10%;
+  padding: 12px;
+}
+
+tr>td:first-child>span{
+  color: red;
+}
+
+tr>td:last-child{
+  padding: 5px;
+}
+
+.zip-code{
+  display: flex;
+}
+.zip-code > * {
+  margin-left: 5px;
+}
+.zip-code-td > p {
+  margin: 5px;
+  margin-left: 0px;
+}
+
+.dov{
+  display: flex;
+}
+
+.dov>div{
+  margin-right: 20px;
+}
+
+input{
+  height: 25px;
+  border: 1px solid lightgray;
+  margin-left: 5px;
+}
+.shorter {
+  width: 50px;
+}
+
+.short{
+  width: 80px;
+}
+
+.mid {
+  width: 200px;
+}
+
+.long {
+  width: 300px;
+}
+
+.basic-info-flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.tel{
+  display: flex;
+  border: none;
+}
+.tel > input, select{
+  margin: 3px;
+}
+input[type='checkbox'], [type='radio'] {
+  vertical-align: -8px;
+}

@@ -33,7 +33,11 @@ const OrderDetail = (props) => {
           </tr>
         </tbody>
       </table>
-      {/* <p><button type="button" onClick={props.setIsShowDetail(false)}>닫기</button></p> */}
+      <p>
+        <button type="button" onClick={() => {
+          props.setIsShowDetail(false);
+        }}>닫기</button>
+      </p>
     </div>
   )
 }
