@@ -7,6 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+//문제에는 5개만 만들라고 되어 있지만, db연결할 때 정석은 모든 컬럼명을 다 연결한다. 현재는 둘다 정답으로 함
 public class OrderDTO {
   private int itemNum; //상품번호
   private String itemName; //상품명
