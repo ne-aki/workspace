@@ -1,0 +1,36 @@
+.book-list-container {
+  margin: 50px auto;
+  width: 800px;
+  text-align: center;
+}
+
+.book-list-table {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.book-list-table > thead {
+  background-color: cornflowerblue;
+  color: white;
+  border-bottom: 3px solid white;
+}
+
+.book-list-table > tbody > tr:nth-child(odd) {
+  background-color: rgb(177, 199, 239);
+} 
+
+.book-list-table > tbody > tr:nth-child(even) {
+  background-color: rgb(208, 217, 233);
+}
+
+.book-list-table tr, td {
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.book-list-table > tbody > tr:hover {
+  cursor: pointer;
+  background-color: rgb(129, 168, 239);
+}
