@@ -11,6 +11,10 @@ import Test5 from './Test5'
 import InputTest1 from './InputTest1'
 import InputTest2 from './InputTest2'
 import InputTest3 from './InputTest3'
+import InputTest4 from './InputTest4'
+import InputTest5 from './InputTest5'
+import InputTest6 from './InputTest6'
+import CallbackTest from './CallbackTest'
 
 function App() {
 
@@ -23,7 +27,12 @@ function App() {
       {/* <Test5 /> */}
       {/* <InputTest1 /> */}
       {/* <InputTest2 /> */}
-      <InputTest3 />
+      {/* <InputTest3 /> */}
+      {/* <InputTest4 /> */}
+      {/* <InputTest5 /> */}
+      {/* <InputTest6 /> */}
+      {/* <CallbackTest /> */}
+      <InputTest6 />
     </>
   )
 }

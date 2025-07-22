@@ -54,4 +54,3 @@ SELECT LPAD('DB', 5, '#'), RPAD('DB', 5, '#'), LPAD(123, 5, 0);
 
 #REPLACE : 문자열 교체
 SELECT REPLACE('나는 HOME에 가고 싶다.', 'HOME', '집');
-

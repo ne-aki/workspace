@@ -1,0 +1,13 @@
+.test6-container {
+  margin: auto;
+  
+}
+
+.test6-table {
+  text-align: center;
+  width: 100%;
+}
+
+.test6-table tr, td{
+  border: 1px solid black;
+}

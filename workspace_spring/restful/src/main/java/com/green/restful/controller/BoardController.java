@@ -1,5 +1,6 @@
 package com.green.restful.controller;
 
+import com.green.restful.dto.BoardDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

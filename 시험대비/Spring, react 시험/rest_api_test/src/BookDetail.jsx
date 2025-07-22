@@ -23,7 +23,7 @@ const BookDetail = ({selectedBook}) => {
             <td>저자</td>
             <td>{selectedBook.author}</td>
             <td>가격</td>
-            <td>{selectedBook.price}</td>
+            <td>{selectedBook.price}원</td>
           </tr>
           <tr className='high-tr'>
             <td>도서소개</td>

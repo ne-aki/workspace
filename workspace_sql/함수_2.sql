@@ -1,0 +1,51 @@
+#날짜 관련 함수
+SELECT NOW(), SYSDATE(), CURRENT_DATE(), CURRENT_TIME();
+
+SELECT YEAR(NOW()), MONTH(SYSDATE()), DAY('2030-03-23');
+
+SELECT * FROM emp;
+
+#emp 테이블에서 2005년 이후에 입사한 사원들의 모든 정보를 조회 - 시험 출제
+SELECT *
+FROM emp
+WHERE YEAR(HIREDATE) >= 2005;
+
+#시험 출제
+SELECT
+	HIREDATE
+	, TO_CHAR(NOW(), 2, 'YYYY.MM.DD HH24:MI:SS')
+	, TO_CHAR(HIREDATE, 'YYYY')
+	, YEAR(HIREDATE)
+	, TO_CHAR(HIREDATE, 'YYYY-MM-DD')
+	, TO_CHAR(HIREDATE, 'YY.MM.DD')
+	, TO_CHAR(HIREDATE, 'YYYYMMDD')
+	#, TO_CHAR(HIREDATE, 'YYYY년 MM월 DD일')
+	, CONCAT(
+		TO_CHAR(HIREDATE, 'YYYY'),
+		'년 ',
+		TO_CHAR(HIREDATE, 'MM'),
+		'월 ',
+		TO_CHAR(HIREDATE, 'DD'),
+		'일'
+	) AS 입사일
+FROM emp;
+
+#IF문 - 시험 미출제
+SELECT IF(10 > 2, '참', '거짓');
+
+#IFNULL() -> NULL을 특정 값으로 치환(시험 출제)
+SELECT COMM, IFNULL(COMM, 0) FROM emp;
+#시험미출제
+SELECT COUNT(EMPNO), COUNT(ENAME), COUNT(COMM) FROM emp;
+SELECT AVG(SAL), AVG(COMM), AVG(IFNULL(COMM, 0)) FROM emp;
+#시험문제 6번
+SELECT
+	EMPNO,
+	ENAME,
+	DEPTNO,
+	CASE DEPTNO
+		WHEN 10 THEN '인사부'
+		WHEN 20 THEN '영업부'
+		WHEN 30 THEN '개발부'
+		ELSE '생산부' END AS 부서명
+FROM emp;

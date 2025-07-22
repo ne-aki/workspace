@@ -28,7 +28,7 @@ const BookList = ({books, setIsShow, setSelectedBook}) => {
                 <td>{e.bookNum}</td>
                 <td>{e.title}</td>
                 <td>{e.author}</td>
-                <td>{e.price}</td>
+                <td>{e.price}원</td>
               </tr>
             ))
           }
