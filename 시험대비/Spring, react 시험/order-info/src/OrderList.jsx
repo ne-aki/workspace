@@ -2,7 +2,16 @@ import React, { useEffect, useState } from 'react'
 import './OrderList.css'
 import axios from 'axios';
 
-const OrderList = (props) => {
+const OrderList = ({orderListInfo, setSelectOrderList, setIsShowDetail, setIsShowReg}) => {
+  const showDetail = (e) => {
+    setIsShowDetail(true);
+    setSelectOrderList(e);
+    setIsShowReg(false);
+  }
+  const regOrderBtn = () => {
+    setIsShowReg(true);
+    setIsShowDetail(false);
+  }
 
   return (
     <div className="order-list">
@@ -19,13 +28,10 @@ const OrderList = (props) => {
         </thead>
         <tbody>
           {
-            props.orderListInfo.map((e, i) => {
+            orderListInfo.map((e, i) => {
               return (
-                <tr key={i} onClick={() => {
-                  props.setIsShowDetail(true);
-                  props.setSelectOrderList(e);
-                }}>
-                  <td>{props.orderListInfo.length - i}</td>
+                <tr key={i} onClick={event => showDetail(e)}>
+                  <td>{orderListInfo.length - i}</td>
                   <td>{e.itemName}</td>
                   <td>{e.price}원</td>
                   <td>{e.cnt}</td>
@@ -36,6 +42,11 @@ const OrderList = (props) => {
           }
         </tbody>
       </table>
+      <p>
+        <button type="button" onClick={() => regOrderBtn()}>
+          주문 등록
+        </button>
+      </p>
     </div>
   )
 }

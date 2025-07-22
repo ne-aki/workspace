@@ -2,11 +2,20 @@ import React, { use, useEffect, useState } from 'react'
 import OrderList from './OrderList'
 import OrderDetail from './OrderDetail'
 import axios from 'axios';
+import Registration from './Registration';
 
 const OrderInfo = () => {
   const[orderListInfo, setOrderListInfo] = useState([]);
   const[selectOrderList, setSelectOrderList] = useState({})
   const[isShowDetail, setIsShowDetail] = useState(false)
+  const[isShowReg, setIsShowReg] = useState(false)
+  const[regOrder, setRegOrder] = useState({
+    itemNum : '',
+    itemName : '',
+    price : 0,
+    cnt : 1,
+    id : '',
+  })
   useEffect(() => {
     axios.get('/api/rest-order-infos')
     .then((res) => {
@@ -22,7 +31,24 @@ const OrderInfo = () => {
         orderListInfo={orderListInfo}
         setSelectOrderList={setSelectOrderList}
         setIsShowDetail={setIsShowDetail}
+        setIsShowReg={setIsShowReg}
       />
+      
+      {isShowReg
+      ?
+      <>
+        <Registration
+          regOrder={regOrder}
+          setRegOrder={setRegOrder}
+          setOrderListInfo={setOrderListInfo}
+          orderListInfo={orderListInfo}
+          setIsShowReg={setIsShowReg}
+        />
+      </>
+      :
+      null
+      }
+
       {isShowDetail
       ?
       <>

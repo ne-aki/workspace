@@ -1,0 +1,55 @@
+.reg {
+  width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+}
+.reg-table {
+  width: 100%;
+  margin-top: 30px;
+  font-size: 20px;
+}
+.reg-table td {
+  padding: 10px;
+}
+.reg-table tr, td {
+  border: 1px solid white;
+}
+.reg-table td:nth-child(odd) {
+  background-color: skyblue;
+}
+.reg-table td:nth-child(even) {
+  background-color: lightblue;
+}
+button {
+  text-align: right;
+}
+p {
+  text-align: right;
+  margin-top: 20px;
+}
+button {
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  background-color: cornflowerblue;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  margin-right: 10px;
+}
+button:hover {
+  background-color: dodgerblue;
+  cursor: pointer;
+}
+button:active {
+  background-color: steelblue;
+}
+.reg-table input {
+  border: none;
+  background: none  ;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  outline: none;
+}

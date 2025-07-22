@@ -13,7 +13,6 @@ public class OrderController {
   //1. 모든 주문정보를 조회하는 기능을 제공하는 REST API
   @GetMapping("/rest-order-infos")
   public List<OrderDTO> getRestOrderInfoList() {
-    System.out.println("모든 주문정보 조회");
     List<OrderDTO> dtoList = new ArrayList<>();
     dtoList.add(new OrderDTO(101,"데님 청바지", 15000, 2, "abc"));
     dtoList.add(new OrderDTO(102, "맨투맨 반팔 티셔츠", 10000, 3, "def"));
@@ -31,10 +30,12 @@ public class OrderController {
   }
   //3. 하나의 주문정보를 등록하는 기능을 제공하는 REST API
   @PostMapping("/rest-order-infos")
-  public String insertRestOrderInfo(@RequestBody OrderDTO orderDTO) {
+  public List<OrderDTO> insertRestOrderInfo(@RequestBody OrderDTO orderDTO) {
     System.out.println("하나의 주문정보 등록");
-    System.out.println(orderDTO.toString());
-    return "하나의 주문정보 등록 완료";
+    List<OrderDTO> dtoList = new ArrayList<>();
+    dtoList.add(orderDTO);
+    System.out.println(orderDTO);
+    return dtoList;
   }
   //4. 하나의 주문정보를 삭제하는 기능을 제공하는 REST API
   @DeleteMapping("/rest-order-infos/{itemNum}")
