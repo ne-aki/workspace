@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class OrderController {
@@ -33,7 +34,8 @@ public class OrderController {
   public List<OrderDTO> insertRestOrderInfo(@RequestBody OrderDTO orderDTO) {
     System.out.println("하나의 주문정보 등록");
     List<OrderDTO> dtoList = new ArrayList<>();
-    getRestOrderInfoList();
+    dtoList.add(orderDTO);
+    System.out.println(dtoList);
     System.out.println(orderDTO);
     return dtoList;
   }
@@ -41,8 +43,8 @@ public class OrderController {
   @DeleteMapping("/rest-order-infos/{itemNum}")
   public List<OrderDTO> deleteRestOrderInfo(@PathVariable("itemNum") int itemNum) {
     System.out.println("하나의 주문정보 삭제");
-    List<OrderDTO> dtoList = new ArrayList<>();
-    dtoList = getRestOrderInfoList();
+    List<OrderDTO> dtoList = getRestOrderInfoList();
+    System.out.println(itemNum);
     return dtoList;
   }
   //5. 하나의 주문정보에서 상품명과 상품가격을 수정하는 기능을 제공하는 REST API

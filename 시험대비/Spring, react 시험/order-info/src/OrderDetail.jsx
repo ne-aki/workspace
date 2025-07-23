@@ -3,11 +3,12 @@ import './OrderDetail.css'
 import axios from 'axios'
 
 const OrderDetail = ({selectOrderList, setIsShowDetail, setOrderListInfo, orderListInfo}) => {
+  //삭제버튼
   const deleteBtn = () => {
     axios.delete(`/api/rest-order-infos/${selectOrderList.itemNum}`)
     .then(res => {
       console.log(res.data);
-      setOrderListInfo({...orderListInfo});
+      setOrderListInfo(res.data);
     })
     .catch(error => console.log(error))
   }

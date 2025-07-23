@@ -5,6 +5,7 @@ import axios from 'axios';
 const Registration = ({
   regOrder, setRegOrder, setOrderListInfo, orderListInfo, setIsShowReg
 }) => {
+  //입력했을 때
   const handleRegOrder = e => {
     setRegOrder({
       ...regOrder,
