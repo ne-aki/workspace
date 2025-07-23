@@ -1,7 +1,16 @@
 import React from 'react'
 import './OrderDetail.css'
+import axios from 'axios'
 
-const OrderDetail = ({selectOrderList, setIsShowDetail}) => {
+const OrderDetail = ({selectOrderList, setIsShowDetail, setOrderListInfo, orderListInfo}) => {
+  const deleteBtn = () => {
+    axios.delete(`/api/rest-order-infos/${selectOrderList.itemNum}`)
+    .then(res => {
+      console.log(res.data);
+      setOrderListInfo({...orderListInfo});
+    })
+    .catch(error => console.log(error))
+  }
   return (
     <div className='order-detail'>
       <h2>주문 상세 정보</h2>
@@ -34,6 +43,9 @@ const OrderDetail = ({selectOrderList, setIsShowDetail}) => {
         </tbody>
       </table>
       <p>
+        <button type="button" onClick={e => deleteBtn()}>
+          삭제
+        </button>
         <button type="button" onClick={() => setIsShowDetail(false)}>닫기</button>
       </p>
     </div>

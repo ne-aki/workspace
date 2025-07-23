@@ -12,10 +12,10 @@
 }
 
 .book-detail-table td:nth-child(odd) {
-  background-color: rgb(177, 199, 239);
+  background-color: rgb(171, 218, 248);
 }
 .book-detail-table td:nth-child(even) {
-  background-color: rgb(208, 217, 233);
+  background-color: rgb(216, 240, 255);
 }
 
 .book-detail-table tr, td {

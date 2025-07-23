@@ -14,7 +14,8 @@
 .book-list-table > thead {
   background-color: cornflowerblue;
   color: white;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid;
+  font-weight: bold;
 }
 
 .book-list-table > tbody > tr:nth-child(odd) {
@@ -32,5 +33,5 @@
 
 .book-list-table > tbody > tr:hover {
   cursor: pointer;
-  background-color: rgb(129, 168, 239);
+  background-color: rgb(141, 175, 238);
 }

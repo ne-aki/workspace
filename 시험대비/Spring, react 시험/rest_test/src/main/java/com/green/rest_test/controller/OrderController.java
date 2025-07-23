@@ -33,16 +33,17 @@ public class OrderController {
   public List<OrderDTO> insertRestOrderInfo(@RequestBody OrderDTO orderDTO) {
     System.out.println("하나의 주문정보 등록");
     List<OrderDTO> dtoList = new ArrayList<>();
-    dtoList.add(orderDTO);
+    getRestOrderInfoList();
     System.out.println(orderDTO);
     return dtoList;
   }
   //4. 하나의 주문정보를 삭제하는 기능을 제공하는 REST API
   @DeleteMapping("/rest-order-infos/{itemNum}")
-  public String deleteRestOrderInfo(@PathVariable("itemNum") int itemNum) {
+  public List<OrderDTO> deleteRestOrderInfo(@PathVariable("itemNum") int itemNum) {
     System.out.println("하나의 주문정보 삭제");
-    System.out.println(itemNum);
-    return "하나의 주문정보 삭제 완료";
+    List<OrderDTO> dtoList = new ArrayList<>();
+    dtoList = getRestOrderInfoList();
+    return dtoList;
   }
   //5. 하나의 주문정보에서 상품명과 상품가격을 수정하는 기능을 제공하는 REST API
   @PutMapping("rest-order-infos/{itemNum}")

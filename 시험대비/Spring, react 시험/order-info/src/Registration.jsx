@@ -20,7 +20,15 @@ const Registration = ({
     .catch(error => console.log(error));
     alert('등록되었습니다.');
     setIsShowReg(false);
+    setRegOrder({
+      itemNum : '',
+      itemName : '',
+      price : 0,
+      cnt : 1,
+      id : ''
+    })
   };
+  const cancel = () => setIsShowReg(false)
   return (
     <div className='reg'>
       <h2>주문 등록</h2>
@@ -93,6 +101,12 @@ const Registration = ({
         </tbody>
       </table>
       <p>
+        <button
+          type="button"
+          onClick={e => cancel()}
+        >
+          취소
+        </button>
         <button
           type="button"
           onClick={e => regBtn()}

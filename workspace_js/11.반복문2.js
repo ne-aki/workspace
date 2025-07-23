@@ -18,7 +18,6 @@ arr1.forEach((e, i) => {
   console.log(`e = ${e}, i = ${i}`);
   return e + 1;
 });
-
 console.log('\n');
 
 //map() 함수

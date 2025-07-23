@@ -14,7 +14,7 @@ const OrderInfo = () => {
     itemName : '',
     price : 0,
     cnt : 1,
-    id : '',
+    id : ''
   })
   useEffect(() => {
     axios.get('/api/rest-order-infos')
@@ -55,6 +55,8 @@ const OrderInfo = () => {
         <OrderDetail
           selectOrderList={selectOrderList}
           setIsShowDetail={setIsShowDetail}
+          setOrderListInfo={setOrderListInfo}
+          orderListInfo={orderListInfo}
         />
       </>
       :
