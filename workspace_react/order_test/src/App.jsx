@@ -15,6 +15,12 @@ import InputTest4 from './InputTest4'
 import InputTest5 from './InputTest5'
 import InputTest6 from './InputTest6'
 import CallbackTest from './CallbackTest'
+import Select1 from './Select1'
+import Select2 from './Select2'
+import TextArea1 from './TextArea1'
+import Radio1 from './Radio1'
+import Form1 from './Form1'
+import Form2 from './Form2'
 
 function App() {
 
@@ -32,7 +38,13 @@ function App() {
       {/* <InputTest5 /> */}
       {/* <InputTest6 /> */}
       {/* <CallbackTest /> */}
-      <InputTest6 />
+      {/* <InputTest6 /> */}
+      {/* <Select1 /> */}
+      {/* <Select2 /> */}
+      {/* <TextArea1 /> */}
+      {/* <Radio1 /> */}
+      {/* <Form1 /> */}
+      <Form2 />
     </>
   )
 }

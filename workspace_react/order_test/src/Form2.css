@@ -1,0 +1,65 @@
+.Form2-container {
+  width: 500px;
+  margin: auto;
+}
+.Form2-container > h1 {
+  margin: auto;
+  text-align: center;
+}
+.Form2-container > h3 {
+  font-style: italic;
+}
+.Form2-table {
+  width: 100%;
+}
+.Form2-table tr, td {
+  padding: 5px;
+}
+.Form2-container textarea {
+  resize: none;
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 5px;
+}
+.cntInput {
+  width: 80px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 5px;
+  margin: 5px;
+}
+.detailInput {
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.Form2-btn-div {
+  text-align: center;
+}
+.Form2-btn {
+  text-align: center;
+  background-color: dodgerblue;
+  color: white;
+  margin: 10px auto;
+  border: none;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+.Form2-btn:hover {
+  cursor: pointer;
+  background-color: cornflowerblue;
+}
+.Form2-btn:active {
+  background-color: royalblue;
+}
+.addr-select {
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 5px;
+  margin: 5px 0px;
+}
