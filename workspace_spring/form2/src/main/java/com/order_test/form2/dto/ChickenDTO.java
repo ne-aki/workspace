@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+//DTO(Data Transfer Object) : 데이터를 이동시키는 객체 - 데이터를 전송할 때 사용하는 객체
 @Getter
 @Setter
 @ToString

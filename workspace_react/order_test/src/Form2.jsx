@@ -5,7 +5,7 @@ import './Form2.css'
 const Form2 = () => {
   const[chickenDelivery, setChickenDelivery] = useState({
     menu : '후라이드 치킨',
-    cnt : '',
+    cnt : '1',
     addr : '',
     addrDetail : '',
     request : ''
@@ -14,15 +14,15 @@ const Form2 = () => {
     setChickenDelivery({
       ...chickenDelivery,
       [e.target.name] : e.target.value
-    })
+    });
   }
   const orderBtn = e => {
     axios.post('/api/chickens', chickenDelivery)
     .then(res => {
       console.log(res.data);
+      alert('주문이 완료되었습니다.');
     })
-    .catch(error => console.log(error))
-    alert('주문이 완료되었습니다.')
+    .catch(error => console.log(error));
   }
   console.log(chickenDelivery);
   

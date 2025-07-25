@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.basic_member.mapper.MemberMapper">
+	<!-- 1. 회원 한명을 등록하는 쿼리를 실행하는 기능 구현(등록 데이터는 마음대로) -->
+  <insert id="regMember">
+    INSERT INTO BASIC_MEMBER (
+      MEM_ID
+      , MEM_PW
+      , MEM_NAME
+      , MEM_AGE
+      , BIRTHDAY
+    )
+    VALUES (
+      'aaa'
+      , 'abc'
+      , '김자바'
+      , 25
+      , '2000-02-02'
+    )
+    INSERT INTO BASIC_MEMBER (
+    MEM_ID
+      , MEM_PW
+      , MEM_NAME
+      , MEM_AGE
+      , BIRTHDAY
+    ) VALUES (
+      'bbb'
+      , 'def'
+      , '박자바'
+      , 20
+      , '2005-01-01'
+    )
+  </insert>
+
+  <!-- 2. 등록한 회원의 이름과 나이를 변경하는 기능 구현(수정 데이터는 마음대로) -->
+  <update id="setMember">
+    UPDATE BASIC_MEMBER
+    SET
+      MEM_NAME = '다나카 자바'
+      , MEM_AGE = 30
+    WHERE MEM_ID = 'aaa'
+  </update>
+  <!-- 3. 등록한 회원을 한 명 삭제하는 기능 구현 -->
+  <delete id="removeMember">
+    DELETE FROM BASIC_MEMBER
+    WHERE MEM_ID = 'bbb'
+  </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

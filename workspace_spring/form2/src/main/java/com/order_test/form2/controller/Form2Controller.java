@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Form2Controller {
-  @PostMapping("chickens")
+  //치킨 주문받기 api
+  @PostMapping("/chickens")
   public String orderChicken(@RequestBody ChickenDTO chickenDTO) {
     System.out.println("치킨 주문");
     System.out.println(chickenDTO);
