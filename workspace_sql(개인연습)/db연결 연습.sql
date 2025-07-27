@@ -15,6 +15,5 @@ INSERT INTO basic_board (TITLE, WRITER, CONTENT)
 VALUES ('test2', 'writer2', 'content2');
 INSERT INTO basic_board (TITLE, WRITER, CONTENT)
 VALUES ('test3', 'writer3', 'content3');
-UPDATE basic_board
-SET READ_CNT = 5
-WHERE BOARD_NUM = 3;
+
+COMMIT;

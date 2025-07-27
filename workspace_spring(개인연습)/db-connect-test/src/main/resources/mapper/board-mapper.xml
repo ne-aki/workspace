@@ -3,74 +3,54 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
-<mapper namespace="com.example.home.db_connect_test">
-    <resultMap id="board" type="com.example.home.db_connect_test.dto.BoardDTO">
-        <id column="BOARD_NUM" property="boardNum"/>
-        <result column="TITLE" property="title"/>
-        <result column="WRITER" property="writer"/>
-        <result column="CONTENT" property="content"/>
-        <result column="READ_CNT" property="readCnt"/>
-        <result column="CREATE_DATE" property="createDate"/>
-    </resultMap>
-    <select id="getReadCnt" resultType="int">
-        SELECT READ_CNT
-        FROM BASIC_BOARD
-        WHERE BOARD_NUM = 1
-    </select>
-    <select id="getReadCnt" resultType="int">
-        SELECT READ_CNT
-        FROM BASIC_BOARD
-    </select>
-    <select id="getReadCnt" resultType="int">
-        SELECT READ_CNT
-        FROM BASIC_BOARD
-    </select>
-    <select id="getTitle" resultType="String">
-        SELECT TITLE
-        FROM BASIC_BOARD
-        WHERE BOARD_NUM = 2
-    </select>
-    <select id="GetTitle" resultType="String">
-        SELECT TITLE
-        FROM BASIC_BOARD
-    </select>
-    <select id="getBoardList" resultMap="board">
-        SELECT *
-        FROM BASIC_BOARD
-        WHERE BOARD_NUM = 1
-    </select>
-    <select id="getList2" resultMap="board">
-        SELECT BOARD_NUM, TITLE, WRITER, FROM BASIC_BOARD
-    </select>
+<mapper namespace="com.example.home.db_connect_test.mapper.BoardMapper">
+<!--    <resultMap id="board" type="com.example.home.db_connect_test.dto.BoardDTO">-->
+<!--        <id column="BOARD_NUM" property="boardNum"/>-->
+<!--        <result column="TITLE" property="title"/>-->
+<!--        <result column="WRITER" property="writer"/>-->
+<!--        <result column="CONTENT" property="content"/>-->
+<!--        <result column="READ_CNT" property="readCnt"/>-->
+<!--        <result column="CREATE_DATE" property="createDate"/>-->
+<!--    </resultMap>-->
+<!--    <select id="getReadCnt" resultType="int">-->
+<!--        SELECT READ_CNT-->
+<!--        FROM BASIC_BOARD-->
+<!--        WHERE BOARD_NUM = 1-->
+<!--    </select>-->
+<!--    <select id="getReadCnt" resultType="int">-->
+<!--        SELECT READ_CNT-->
+<!--        FROM BASIC_BOARD-->
+<!--    </select>-->
+<!--    <select id="getReadCnt" resultType="int">-->
+<!--        SELECT READ_CNT-->
+<!--        FROM BASIC_BOARD-->
+<!--    </select>-->
+<!--    <select id="getTitle" resultType="String">-->
+<!--        SELECT TITLE-->
+<!--        FROM BASIC_BOARD-->
+<!--        WHERE BOARD_NUM = 2-->
+<!--    </select>-->
+<!--    <select id="GetTitle" resultType="String">-->
+<!--        SELECT TITLE-->
+<!--        FROM BASIC_BOARD-->
+<!--    </select>-->
+<!--    <select id="getBoardList" resultMap="board">-->
+<!--        SELECT *-->
+<!--        FROM BASIC_BOARD-->
+<!--        WHERE BOARD_NUM = 1-->
+<!--    </select>-->
+<!--    <select id="getList2" resultMap="board">-->
+<!--        SELECT BOARD_NUM, TITLE, WRITER, FROM BASIC_BOARD-->
+<!--    </select>-->
+    <insert id="createBoard">
+        INSERT INTO BASIC_BOARD (
+            TITLE
+            , WRITER
+            , CONTENT
+        ) VALUES (
+            'test4'
+            , 'writer4'
+            , 'content4'
+        )
+    </insert>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

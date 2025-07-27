@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.home.order_info.mapper.OrderMapper">
+  <resultMap id="order" type="com.home.order_info.dto.OrderDTO">
+    <id column="ITEM_NUM" property="itemNum" />
+    <result column="ITEM_NAME" property="itemName"/>
+    <result column="PRICE" property="price"/>
+    <result column="CNT" property="cnt"/>
+    <result column="ID" property="id"/>
+    <result column="TOTAL" property="total"/>
+  </resultMap>
+	<!--목록 전체 조회-->
+  <select id="getOrderList" resultMap="order">
+    SELECT
+      ITEM_NUM
+      , ITEM_NAME
+      , PRICE
+      , CNT
+      , ID
+      , TOTAL
+    FROM REST_ORDER_INFO
+  </select>
+  <!-- 하나의 게시글 조회 -->
+  <select id="getOrder" resultMap="order">
+    SELECT
+      ITEM_NUM
+      , ITEM_NAME
+      , PRICE
+      , CNT
+      , ID
+      , TOTAL
+    FROM REST_ORDER_INFO
+    WHERE ITEM_NUM = #{itemNum}
+  </select>
+  <!-- 주문 하나 등록 -->
+  <insert id="regOrder">
+    INSERT INTO REST_ORDER_INFO (
+      ITEM_NUM
+      , ITEM_NAME
+      , PRICE
+      , CNT
+      , ID
+    ) VALUES (
+      #{itemNum}
+      , #{itemName}
+      , #{price}
+      , #{cnt}
+      , #{id}
+    )
+  </insert>
+  <!-- 하나의 게시글 삭제 -->
+  <delete id="deleteOrder">
+    DELETE FROM REST_ORDER_INFO
+    WHERE ITEM_NUM = #{itemNum}
+  </delete>
+</mapper>

@@ -12,22 +12,23 @@ const Registration = ({
       [e.target.name] : e.target.value
     })
   };
+  //버튼을 눌렀을 때 등록
   const regBtn = () => {
     axios.post('/api/rest-order-infos', regOrder)
     .then(res => {
-      setOrderListInfo([...res.data, ...orderListInfo]);
       console.log(res.data);
+      setOrderListInfo([...orderListInfo, regOrder])
+      alert('등록되었습니다.');
+      setIsShowReg(false);
     })
     .catch(error => console.log(error));
-    alert('등록되었습니다.');
-    setIsShowReg(false);
-    setRegOrder({
-      itemNum : '',
-      itemName : '',
-      price : 0,
-      cnt : 1,
-      id : ''
-    })
+    // setRegOrder({
+    //   itemNum : '',
+    //   itemName : '',
+    //   price : 0,
+    //   cnt : 1,
+    //   id : ''
+    // })
   };
   const cancel = () => setIsShowReg(false)
   return (

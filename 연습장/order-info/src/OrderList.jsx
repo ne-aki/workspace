@@ -2,10 +2,17 @@ import React, { useEffect, useState } from 'react'
 import './OrderList.css'
 import axios from 'axios';
 
-const OrderList = ({orderListInfo, setSelectOrderList, setIsShowDetail, setIsShowReg}) => {
-  const showDetail = (e) => {
+const OrderList = ({orderListInfo, setSelectOrderList, setIsShowDetail, setIsShowReg, selectOrderList}) => {
+  
+  const showDetail = (each, event) => {
+    setSelectOrderList(each)
+    axios.get(`rest-order-infos/${each.itemNum}`)
+    .then(res => {
+      console.log(res.data);
+      console.log(event);
+    })
+    .catch(error => console.log(error));
     setIsShowDetail(true);
-    setSelectOrderList(e);
     setIsShowReg(false);
   }
   const regOrderBtn = () => {
@@ -28,14 +35,18 @@ const OrderList = ({orderListInfo, setSelectOrderList, setIsShowDetail, setIsSho
         </thead>
         <tbody>
           {
-            orderListInfo.map((e, i) => {
+            orderListInfo.map((each, i) => {
               return (
-                <tr key={i} onClick={event => showDetail(e)}>
+                <tr
+                  key={i}
+                  onClick={event => showDetail(each, event)}
+                  
+                >
                   <td>{orderListInfo.length - i}</td>
-                  <td>{e.itemName}</td>
-                  <td>{e.price}원</td>
-                  <td>{e.cnt}</td>
-                  <td>{e.price * e.cnt}원</td>
+                  <td>{each.itemName}</td>
+                  <td>{each.price}원</td>
+                  <td>{each.cnt}</td>
+                  <td>{each.total}원</td>
                 </tr>
               )
             })

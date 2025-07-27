@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.home.practice_spring.mapper.PracticeMapper">
+	<insert id="regMember">
+    INSERT INTO PRACTICE (
+      ID
+      , PW
+      , MEM_NAME
+      , MEM_AGE
+      , MEM_TEL
+      , BIRTHDAY
+      , COUNTRY
+      , GENDER
+    ) VALUES (
+      'dlrmsgud1'
+      , 'geunboy135'
+      , '이근형'
+      , 25
+      , 01047923663
+      , '1999-10-27'
+      , 'Korea'
+      , 'male'
+    )
+  </insert>
+  <update id="changeMember">
+    UPDATE PRACTICE
+    SET
+      MEM_NAME = '李根炯'
+      , COUNTRY = 'China'
+    WHERE MEM_NUM = 2
+  </update>
+  <delete id="deleteMember">
+    DELETE FROM PRACTICE
+    WHERE MEM_NUM = 3
+  </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

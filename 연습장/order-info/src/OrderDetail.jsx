@@ -8,7 +8,9 @@ const OrderDetail = ({selectOrderList, setIsShowDetail, setOrderListInfo, orderL
     axios.delete(`/api/rest-order-infos/${selectOrderList.itemNum}`)
     .then(res => {
       console.log(res.data);
-      setOrderListInfo(res.data);
+      setOrderListInfo(orderListInfo);
+      alert('삭제되었습니다.');
+      setIsShowDetail(false);
     })
     .catch(error => console.log(error))
   }
@@ -39,7 +41,7 @@ const OrderDetail = ({selectOrderList, setIsShowDetail, setOrderListInfo, orderL
             <td>주문자ID</td>
             <td>{selectOrderList.id}</td>
             <td>구매금액</td>
-            <td>{selectOrderList.price * selectOrderList.cnt}원</td>
+            <td>{selectOrderList.total}원</td>
           </tr>
         </tbody>
       </table>
