@@ -12,7 +12,7 @@ const OrderDetail = ({selectOrderList, setIsShowDetail, setOrderListInfo, orderL
       alert('삭제되었습니다.');
       setIsShowDetail(false);
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log(error));
   }
   return (
     <div className='order-detail'>

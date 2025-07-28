@@ -46,4 +46,11 @@ public class OrderService {
     System.out.println("삭제 완료");
     return delete;
   }
+  //주문정보 수정 기능
+  public int updateOrder(OrderDTO orderDTO) {
+    System.out.println("주문 수정");
+    int update = orderMapper.updateOrder(orderDTO);
+    System.out.println("수정 완료");
+    return update;
+  }
 }

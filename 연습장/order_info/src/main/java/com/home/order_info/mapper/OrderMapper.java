@@ -15,4 +15,6 @@ public interface OrderMapper {
   int regOrder(OrderDTO orderDTO);
   //주문정보 삭제
   int deleteOrder(int itemNum);
+  //주문정보 수정
+  int updateOrder(OrderDTO orderDTO);
 }

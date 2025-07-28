@@ -51,12 +51,14 @@ public class OrderController {
     int delete = orderService.deleteOrder(itemNum);
     return delete;
   }
-  //5. 하나의 주문정보에서 상품명과 상품가격을 수정하는 기능을 제공하는 REST API
+  //5. 하나의 주문정보에서 상품명과 상품가격과 개수를 수정하는 기능을 제공하는 REST API
   @PutMapping("rest-order-infos/{itemNum}")
-  public String updateRestOrderInfo(@PathVariable("itemNum") int itemNum, @RequestBody OrderDTO orderDTO) {
+  public int updateRestOrderInfo(@PathVariable("itemNum") int itemNum, @RequestBody OrderDTO orderDTO) {
     System.out.println("하나의 주문정보에서 상품명, 상품가격 수정");
+    int update = orderService.updateOrder(orderDTO);
+    orderDTO.setItemNum(itemNum);
     System.out.println(itemNum);
-    System.out.println(orderDTO.toString());
-    return "하나의 주문정보에서 상품명, 상품가격 수정 완료";
+    System.out.println(orderDTO);
+    return update;
   }
 }

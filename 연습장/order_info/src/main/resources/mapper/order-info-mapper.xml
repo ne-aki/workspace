@@ -51,9 +51,18 @@
       , #{id}
     )
   </insert>
-  <!-- 하나의 게시글 삭제 -->
+  <!-- 하나의 주문정보 삭제 -->
   <delete id="deleteOrder">
     DELETE FROM REST_ORDER_INFO
     WHERE ITEM_NUM = #{itemNum}
   </delete>
+  <!-- 하나의 주문정보 수정 -->
+  <update id="updateOrder">
+    UPDATE REST_ORDER_INFO
+    SET
+      ITEM_NAME = #{itemName},
+      PRICE = #{price},
+      CNT = #{cnt},
+    WHERE ITEM_NUM = #{itemNum}
+  </update>
 </mapper>
