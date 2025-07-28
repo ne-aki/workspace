@@ -17,7 +17,8 @@ const OrderInfo = () => {
     price : 0,
     cnt : 1,
     id : ''
-  })
+  });
+  const[isShowList, setIsShowList] = useState(true);
   
   useEffect(() => {
     axios.get('/api/rest-order-infos')

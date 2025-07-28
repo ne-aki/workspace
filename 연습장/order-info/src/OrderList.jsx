@@ -4,12 +4,12 @@ import axios from 'axios';
 
 const OrderList = ({orderListInfo, setSelectOrderList, setIsShowDetail, setIsShowReg, selectOrderList}) => {
   
-  const showDetail = (each, event) => {
+  const showDetail = (each) => {
     setSelectOrderList(each)
     axios.get(`rest-order-infos/${each.itemNum}`)
     .then(res => {
       console.log(res.data);
-      console.log(event);
+      console.log(each);
     })
     .catch(error => console.log(error));
     setIsShowDetail(true);
@@ -39,8 +39,7 @@ const OrderList = ({orderListInfo, setSelectOrderList, setIsShowDetail, setIsSho
               return (
                 <tr
                   key={i}
-                  onClick={event => showDetail(each, event)}
-                  
+                  onClick={event => showDetail(each)}
                 >
                   <td>{orderListInfo.length - i}</td>
                   <td>{each.itemName}</td>
