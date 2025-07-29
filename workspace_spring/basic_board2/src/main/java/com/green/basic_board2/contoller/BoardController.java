@@ -52,12 +52,12 @@ public class BoardController {
     return boardService.getBoardList();
   }
   //하나의 게시글 조회 API
-  @GetMapping("/{boardNum}")
-  public BoardDTO getBoard(
-          @PathVariable("boardNum") int boardNum
-  ) {
-    return boardService.getBoard(boardNum);
-  }
+//  @GetMapping("/{boardNum}")
+//  public BoardDTO getBoard(
+//          @PathVariable("boardNum") int boardNum
+//  ) {
+//    return boardService.getBoard(boardNum);
+//  }
   //입력받은 문자열이 포함된 게시글 목록 조회 API
   @GetMapping("/{title}")
   public List<BoardDTO> searchBoard(

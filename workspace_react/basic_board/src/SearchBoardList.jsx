@@ -3,21 +3,34 @@ import React, { useEffect, useState } from 'react'
 
 const SearchBoardList = () => {
   const [boardListInfo, setBoardListInfo] = useState([]);
-  useEffect(() => {
-    axios.get('/api/boards')
+  const [searchedTitle, setSearchedTitle] = useState('');
+  const [isShowList, setIsShowList] = useState(false)
+  // useEffect(() => {
+  //   axios.get('/api/boards')
+  //   .then(res => {
+  //     console.log(res.data);
+  //     setBoardListInfo(res.data);
+  //   })
+  //   .catch(error => console.log(error));
+  // }, []);
+  const viewBtn = () => {
+    axios.get(`/api/boards/${searchedTitle}`)
     .then(res => {
       console.log(res.data);
       setBoardListInfo(res.data);
+      setIsShowList(true);
     })
     .catch(error => console.log(error));
-  }, [])
+  }
+  console.log(searchedTitle)
+
   return (
     <div>
       <h1>게시글 목록 페이지2</h1>
       <p>
         제목
-        <input type="text" name="" />
-        <button type="button">
+        <input type="text" name="" value={searchedTitle} onChange={e => setSearchedTitle(e.target.value)} />
+        <button type="button" onClick={e => viewBtn()}>
           조회
         </button>
       </p>
@@ -34,7 +47,7 @@ const SearchBoardList = () => {
         <tbody>
           {
             boardListInfo.map((board, i) => {
-              return(
+              const content = (
                 <tr key={i}>
                   <td>{boardListInfo.length - i}</td>
                   <td>{board.title}</td>
@@ -43,6 +56,7 @@ const SearchBoardList = () => {
                   <td>{board.readCnt}</td>
                 </tr>
               )
+              return board.title === searchedTitle ? content : alert('일치하는 제목이 없습니다.');
             })
           }
         </tbody>
