@@ -5,7 +5,10 @@ import com.green.basic_board2.mapper.BoardMapper;
 import com.green.basic_board2.service.BoardService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
+@RequestMapping("/boards") //공통으로 쓰고있는 url 정보
 public class BoardController {
   private BoardService boardService;
 
@@ -14,14 +17,14 @@ public class BoardController {
   }
 
   //게시글 등록 API
-  @PostMapping("/boards")
+  @PostMapping("")
   public void regBoard(@RequestBody BoardDTO boardDTO) {
     System.out.println("게시글 등록 API 호출");
     System.out.println(boardDTO);
     boardService.insertBoard(boardDTO);
   }
   //게시글 수정 API
-  @PutMapping("/boards/{boardNum}")
+  @PutMapping("/{boardNum}")
   public int updateBoard(
           @PathVariable("boardNum") int boardNum,
           @RequestBody BoardDTO boardDTO
@@ -36,11 +39,30 @@ public class BoardController {
     return result;
   }
   //게시글 삭제 API
-  @DeleteMapping("boards/{boardNum}")
+  @DeleteMapping("/{boardNum}")
   public int deleteBoard(
           @PathVariable("boardNum") int boardNum
   ) {
     int result = boardService.deleteBoard(boardNum);
     return result;
+  }
+  //게시글 목록 조회 API
+  @GetMapping("")
+  public List<BoardDTO> getBoardList() {
+    return boardService.getBoardList();
+  }
+  //하나의 게시글 조회 API
+  @GetMapping("/{boardNum}")
+  public BoardDTO getBoard(
+          @PathVariable("boardNum") int boardNum
+  ) {
+    return boardService.getBoard(boardNum);
+  }
+  //입력받은 문자열이 포함된 게시글 목록 조회 API
+  @GetMapping("/{title}")
+  public List<BoardDTO> searchBoard(
+          @PathVariable("title") String title
+  ) {
+    return boardService.searchBoard(title);
   }
 }
