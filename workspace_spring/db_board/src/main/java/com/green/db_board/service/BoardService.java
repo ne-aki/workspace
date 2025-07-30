@@ -16,4 +16,12 @@ public class BoardService {
   public List<BoardDTO> getBoardList() {
     return boardMapper.getBoardList();
   }
+
+  public void regBoard(BoardDTO boardDTO) {
+    boardMapper.regBoard(boardDTO);
+  }
+
+  public BoardDTO getBoard(int boardNum) {
+    return boardMapper.getBoard(boardNum);
+  }
 }

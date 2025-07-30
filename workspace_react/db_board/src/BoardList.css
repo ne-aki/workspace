@@ -4,7 +4,7 @@
   background-color: dodgerblue;
   color: white;
   border-radius: 5px;
-  margin-top: 15px;
+  margin: 15px 5px;
   font-size: 16px;
 }
 
@@ -49,6 +49,15 @@
   color: white;
 }
 
+.search-div > button:hover {
+  cursor: pointer;
+  background-color: rgb(30, 132, 235);
+}
+
+.search-div > button:active {
+  background-color: rgb(24, 115, 206);
+}
+
 .search-div > select {
   padding-left: 10px;
   width: 100px;
@@ -76,6 +85,7 @@
   border-bottom: 3px solid;
 }
 
+
 .board-list-table > tbody > tr:nth-child(odd) {
   background-color: rgb(182, 218, 255);
 }
@@ -86,4 +96,10 @@
 
 .board-list-table > tbody td:nth-child(2) {
   text-align: left;
+}
+
+.board-list-table > tbody > tr:hover {
+  cursor: pointer;
+  background-color: rgb(121, 188, 255);
+  color: white;
 }

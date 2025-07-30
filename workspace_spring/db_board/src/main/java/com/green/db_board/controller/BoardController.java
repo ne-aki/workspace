@@ -2,9 +2,7 @@ package com.green.db_board.controller;
 
 import com.green.db_board.dto.BoardDTO;
 import com.green.db_board.service.BoardService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +17,15 @@ public class BoardController {
   @GetMapping("")
   public List<BoardDTO> getBoardList() {
     return boardService.getBoardList();
+  }
+
+  @PostMapping("")
+  public void regBoard(@RequestBody BoardDTO boardDTO) {
+    boardService.regBoard(boardDTO);
+  }
+
+  @GetMapping("/{boardNum}")
+  public BoardDTO getBoard(@PathVariable("boardNum") int boardNum) {
+    return boardService.getBoard(boardNum);
   }
 }

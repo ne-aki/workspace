@@ -22,6 +22,27 @@
     FROM BOARD
     ORDER BY CREATE_DATE DESC
   </select>
+  <insert id="regBoard">
+    INSERT INTO BOARD (
+      TITLE
+      , WRITER
+      , CONTENT
+    ) VALUES (
+      #{title}
+      , #{writer}
+      , #{content}
+    )
+  </insert>
+  <select id="getBoard" resultMap="board">
+    SELECT
+      BOARD_NUM
+      , TITLE
+      , WRITER
+      , CREATE_DATE
+      , READ_CNT
+    FROM BOARD
+    WHERE BOARD_NUM = #{boardNum}
+  </select>
 </mapper>
 
 

@@ -3,7 +3,7 @@ import './BoardList.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const BoardList = () => {
+const BoardList = ({nav}) => {
   const [boardListInfo, setBoardListInfo] = useState([]);
 
   useEffect(() => {
@@ -14,9 +14,11 @@ const BoardList = () => {
     })
     .catch(error => console.log(error));
   }, []);
+  const selectList = (board) => {
+    (board.readCnt)++;
+    nav(`/board-detail/${board.boardNum}`);
+  }
   
-  const nav = useNavigate();
-
   return (
     <div className='board-list-container'>
       <h1>자유게시판</h1>
@@ -42,7 +44,7 @@ const BoardList = () => {
           {
             boardListInfo.map((board, i) => {
               return(
-                <tr key={i}>
+                <tr key={i} onClick={e => selectList(board)}>
                   <td>{boardListInfo.length - i}</td>
                   <td>{board.title}</td>
                   <td>{board.writer}</td>

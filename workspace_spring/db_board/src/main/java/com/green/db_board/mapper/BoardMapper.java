@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface BoardMapper {
   List<BoardDTO> getBoardList();
+  void regBoard(BoardDTO boardDTO);
+  BoardDTO getBoard(int boardNum);
 }

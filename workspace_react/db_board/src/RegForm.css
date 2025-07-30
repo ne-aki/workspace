@@ -1,0 +1,39 @@
+.reg-form-container {
+  width: 700px;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.reg-form-table {
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.reg-form-table tr, td {
+  border: 1px solid white;
+  padding: 7px;
+}
+
+.reg-form-table > tbody > tr:nth-child(odd) {
+  background-color: rgb(182, 218, 255);
+}
+
+
+.reg-form-table > tbody > tr:nth-child(even) {
+  background-color: rgb(212, 234, 255);
+}
+
+.reg-form-table td:first-child {
+  vertical-align: middle;
+}
+
+.reg-form-table textarea {
+  width: 100%;
+  resize: none;
+}
+
+.reg-form-table input {
+  width: 100%;
+}
