@@ -11,6 +11,8 @@ import MemberList from './MemberList'
 import BoardList from './BoardList'
 import BoardDetail from './BoardDetail'
 import SearchBoardList from './SearchBoardList'
+import BoardDetail풀이 from './BoardDetail풀이'
+import SearchBoardList풀이 from './SearchBoardList풀이'
 
 function App() {
 
@@ -23,7 +25,9 @@ function App() {
       {/* <MemberList /> */}
       {/* <BoardList /> */}
       {/* <BoardDetail /> */}
-      <SearchBoardList />
+      {/* <SearchBoardList /> */}
+      {/* <BoardDetail풀이 /> */}
+      <SearchBoardList풀이 />
     </>
   )
 }

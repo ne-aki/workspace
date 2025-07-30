@@ -1,8 +1,11 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import './BoardList.css'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const BoardList = () => {
   const [boardListInfo, setBoardListInfo] = useState([]);
+
   useEffect(() => {
     axios.get('/api/boards')
     .then(res => {
@@ -10,14 +13,22 @@ const BoardList = () => {
       setBoardListInfo(res.data);
     })
     .catch(error => console.log(error));
-  }, [])
+  }, []);
+  
+  const nav = useNavigate();
+
   return (
-    <div>
-      <h1>게시글 목록</h1>
-      <p>
-        총 n개의 게시글이 조회되었습니다.
-      </p>
-      <table>
+    <div className='board-list-container'>
+      <h1>자유게시판</h1>
+      <div className="search-div">
+        <select name="">
+          <option value="">제목</option>
+          <option value="">작성자</option>
+        </select>
+        <input type="text" name="" />
+        <button type="button">검색</button>
+      </div>
+      <table className='board-list-table'>
         <thead>
           <tr>
             <td>No</td>
@@ -43,6 +54,13 @@ const BoardList = () => {
           }
         </tbody>
       </table>
+      <p>
+        <button
+          type="button"
+          className='bottom-btn'
+          onClick={e => nav('/reg-form')}
+        >글쓰기</button>
+      </p>
     </div>
   )
 }

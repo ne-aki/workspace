@@ -50,7 +50,7 @@ const BoardDetail = () => {
       {
         isShowDetail
         ?
-        <table>
+        <table border={1}>
         <tbody>
           <tr>
             <td>글번호</td>
@@ -66,15 +66,11 @@ const BoardDetail = () => {
           </tr>
           <tr>
             <td>제목</td>
-            <td>{boardInfo.title}</td>
-            <td></td>
-            <td></td>
+            <td colSpan={3}>{boardInfo.title}</td>
           </tr>
           <tr>
             <td>내용</td>
-            <td>{boardInfo.content}</td>
-            <td></td>
-            <td></td>
+            <td colSpan={3}>{boardInfo.content}</td>
           </tr>
         </tbody>
       </table>

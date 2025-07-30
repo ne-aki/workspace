@@ -1,0 +1,89 @@
+.bottom-btn {
+  width: 100px;
+  border: 1px solid black;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.bottom-btn:hover {
+  cursor: pointer;
+  background-color: rgb(30, 132, 235);
+}
+
+.bottom-btn:active {
+  background-color: rgb(24, 115, 206);
+}
+
+.board-list-container > p {
+  text-align: center;
+}
+
+.board-list-container {
+  width: 1000px;
+  margin: 30px auto;
+}
+
+.board-list-container > h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.search-div {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.search-div > * {
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.search-div > button {
+  width: 80px;
+  border: 1px solid black;
+  background-color: dodgerblue;
+  color: white;
+}
+
+.search-div > select {
+  padding-left: 10px;
+  width: 100px;
+}
+
+.search-div > input {
+  border: 1px solid black;
+}
+
+.board-list-table {
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.board-list-table tr, td {
+  border: 1px solid white;
+  padding: 7px;
+}
+
+.board-list-table > thead {
+  background-color: dodgerblue;
+  color: white;
+  border-bottom: 3px solid;
+}
+
+.board-list-table > tbody > tr:nth-child(odd) {
+  background-color: rgb(182, 218, 255);
+}
+
+.board-list-table > tbody > tr:nth-child(even) {
+  background-color: rgb(212, 234, 255);
+}
+
+.board-list-table > tbody td:nth-child(2) {
+  text-align: left;
+}

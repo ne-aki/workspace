@@ -23,6 +23,6 @@ public interface BoardMapper {
   List<BoardDTO> getBoardList();
   //하나의 게시글 쿼리를 실행하는 추상메서드
   BoardDTO getBoard(int boardNum);
-  //입력받은 문자열이 포함된 게시글 목록을 조회하는 추상메서드
-  List<BoardDTO> searchBoard(String title);
+  //입력받은 문자열이 포함된 제목의 게시글 목록을 조회하는 추상메서드
+  List<BoardDTO> searchTitle(String title);
 }

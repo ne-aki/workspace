@@ -41,8 +41,8 @@ public class BoardService {
   public BoardDTO getBoard(int boardNum) {
     return boardMapper.getBoard(boardNum);
   }
-  //입력받은 문자열이 포함된 게시글 목록을 조회하는 메서드
-  public List<BoardDTO> searchBoard(String title) {
-    return boardMapper.searchBoard(title);
+  //입력받은 문자열이 포함된 제목의 게시글 목록을 조회하는 메서드
+  public List<BoardDTO> searchTitle(String title) {
+    return boardMapper.searchTitle(title);
   }
 }
