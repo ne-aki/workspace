@@ -13,7 +13,7 @@ const BoardDetail = ({nav}) => {
       console.log(res.data);
       setBoard(res.data)
     })
-  }, [])
+  }, [nav])
   //삭제버튼 클릭 시 실행 함수
   const deleteBtn = () => {
     //confirm 에서 확인 클릭 시 리턴 true, 취소 클릭 시 리턴 false
@@ -33,6 +33,14 @@ const BoardDetail = ({nav}) => {
     <div className={styles.board_detail_container}>
       <h1>게시글 상세 정보 페이지</h1>
       <table className={styles.board_detail_table}>
+        <colgroup>
+          <col width={10} />
+          <col width={100} />
+          <col width={20} />
+          <col width={100} />
+          <col width={10} />
+          <col width={30} />
+        </colgroup>
         <tbody>
           <tr>
             <td>작성일</td>
@@ -52,11 +60,17 @@ const BoardDetail = ({nav}) => {
           </tr>
         </tbody>
       </table>
-      <p>
-        <button type="button" className='bottom-btn' onClick={e => nav('/')}>목록가기</button>
-        <button type="button" className='bottom-btn' onClick={e => nav(`/board-update/${boardNum}`)}>수정</button>
-        <button type="button" className='bottom-btn' onClick={e => deleteBtn()}>삭제</button>
-      </p>
+      <div>
+        {/* <p>
+          <button type="button" className='bottom-btn' onClick={e => nav(`/board-detail/${boardNum - 1}`)}>이전글</button>
+          <button type="button" className='bottom-btn' onClick={e => nav(`/board-detail/${boardNum - (-1)}`)}>다음글</button>
+        </p> */}
+        <p>
+          <button type="button" className='bottom-btn' onClick={e => nav('/')}>목록가기</button>
+          <button type="button" className='bottom-btn' onClick={e => nav(`/board-update/${boardNum}`)}>수정</button>
+          <button type="button" className='bottom-btn' onClick={e => deleteBtn()}>삭제</button>
+        </p>
+      </div>
     </div>
   )
 }
