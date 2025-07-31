@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { data, useParams } from 'react-router-dom'
-import './BoardDetail.css'
+import styles from './BoardDetail.module.css'
 import axios from 'axios';
 
 const BoardDetail = ({nav}) => {
@@ -14,11 +14,25 @@ const BoardDetail = ({nav}) => {
       setBoard(res.data)
     })
   }, [])
+  //삭제버튼 클릭 시 실행 함수
+  const deleteBtn = () => {
+    //confirm 에서 확인 클릭 시 리턴 true, 취소 클릭 시 리턴 false
+    const confirmDelete = confirm('삭제하시겠습니까?');
+    //확인을 클릭했을 때만 삭제 진행
+    if(confirmDelete) {
+      axios.delete(`/api/boards/${boardNum}`)
+      .then(res => {
+        alert('삭제되었습니다.');
+        nav('/');
+      })
+      .catch(error => console.log(error));
+    }
+  }
   
   return (
-    <div className='board-detail-container'>
+    <div className={styles.board_detail_container}>
       <h1>게시글 상세 정보 페이지</h1>
-      <table className='board-detail-table'>
+      <table className={styles.board_detail_table}>
         <tbody>
           <tr>
             <td>작성일</td>
@@ -30,18 +44,18 @@ const BoardDetail = ({nav}) => {
           </tr>
           <tr>
             <td>제목</td>
-            <td colSpan={5}>{board.title}</td>
+            <td colSpan={5} className={styles.align_left}>{board.title}</td>
           </tr>
           <tr>
             <td>내용</td>
-            <td colSpan={5}>{board.content}</td>
+            <td colSpan={5} className={styles.align_left}>{board.content}</td>
           </tr>
         </tbody>
       </table>
       <p>
-        <button type="button" className='bottom-btn'>목록가기</button>
-        <button type="button" className='bottom-btn'>수정</button>
-        <button type="button" className='bottom-btn'>삭제</button>
+        <button type="button" className='bottom-btn' onClick={e => nav('/')}>목록가기</button>
+        <button type="button" className='bottom-btn' onClick={e => nav(`/board-update/${boardNum}`)}>수정</button>
+        <button type="button" className='bottom-btn' onClick={e => deleteBtn()}>삭제</button>
       </p>
     </div>
   )

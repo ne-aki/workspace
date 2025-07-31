@@ -1,0 +1,34 @@
+.board_detail_container {
+  width: 1000px;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.board_detail_table {
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.board_detail_table tr, td {
+  border: 1px solid white;
+  padding: 7px;
+}
+
+.board_detail_table td:nth-child(odd) {
+  background-color: lightgray;
+  vertical-align: middle;
+}
+
+.board_detail_table td:nth-child(even) {
+  background-color: lightcyan;
+}
+
+.board_detail_table tr:last-child {
+  height: 100px;
+}
+
+.align_left {
+  text-align: left;
+}

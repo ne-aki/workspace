@@ -21,11 +21,26 @@ public class BoardController {
 
   @PostMapping("")
   public void regBoard(@RequestBody BoardDTO boardDTO) {
+    System.out.println(boardDTO);
     boardService.regBoard(boardDTO);
   }
 
   @GetMapping("/{boardNum}")
   public BoardDTO getBoard(@PathVariable("boardNum") int boardNum) {
     return boardService.getBoard(boardNum);
+  }
+
+  @DeleteMapping("/{boardNum}")
+  public int deleteBoard(@PathVariable("boardNum") int boardNum) {
+    return boardService.deleteBoard(boardNum);
+  }
+
+  @PutMapping("/{boardNum}")
+  public int updateBoard(
+          @PathVariable("boardNum") int boardNum,
+          @RequestBody BoardDTO boardDTO
+  ) {
+    boardDTO.setBoardNum(boardNum);
+    return boardService.updateBoard(boardDTO);
   }
 }

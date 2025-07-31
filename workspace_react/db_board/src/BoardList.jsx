@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './BoardList.css'
+import styles from './BoardList.module.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,14 +15,16 @@ const BoardList = ({nav}) => {
     .catch(error => console.log(error));
   }, []);
   const selectList = (board) => {
-    (board.readCnt)++;
+    axios.put(`api/cnt-increment/${board.boardNum}`, board)
+    .then(res => {})
+    .catch(e => console.log(e));
     nav(`/board-detail/${board.boardNum}`);
   }
   
   return (
-    <div className='board-list-container'>
+    <div className={styles.board_list_container}>
       <h1>자유게시판</h1>
-      <div className="search-div">
+      <div className={styles.search_div}>
         <select name="">
           <option value="">제목</option>
           <option value="">작성자</option>
@@ -30,7 +32,7 @@ const BoardList = ({nav}) => {
         <input type="text" name="" />
         <button type="button">검색</button>
       </div>
-      <table className='board-list-table'>
+      <table className={styles.board_list_table}>
         <thead>
           <tr>
             <td>No</td>
@@ -42,11 +44,24 @@ const BoardList = ({nav}) => {
         </thead>
         <tbody>
           {
+            boardListInfo.length === 0
+            ?
+            <tr>
+              <td colSpan={5}>조회된 게시글이 없습니다.</td>
+            </tr>
+            :
             boardListInfo.map((board, i) => {
               return(
-                <tr key={i} onClick={e => selectList(board)}>
+                <tr key={i}>
                   <td>{boardListInfo.length - i}</td>
-                  <td>{board.title}</td>
+                  <td>
+                    <span
+                      className={styles.clickable}
+                      onClick={e => selectList(board)}
+                    >
+                      {board.title}
+                    </span>
+                  </td>
                   <td>{board.writer}</td>
                   <td>{board.createDate}</td>
                   <td>{board.readCnt}</td>

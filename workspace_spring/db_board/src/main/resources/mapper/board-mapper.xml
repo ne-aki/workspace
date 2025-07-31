@@ -40,9 +40,21 @@
       , WRITER
       , CREATE_DATE
       , READ_CNT
+      , CONTENT
     FROM BOARD
     WHERE BOARD_NUM = #{boardNum}
   </select>
+  <delete id="deleteBoard">
+    DELETE FROM BOARD
+    WHERE BOARD_NUM = #{boardNum}
+  </delete>
+  <update id="updateBoard">
+    UPDATE BOARD
+    SET
+      TITLE = #{title}
+      , CONTENT = #{content}
+    WHERE BOARD_NUM = #{boardNum}
+  </update>
 </mapper>
 
 

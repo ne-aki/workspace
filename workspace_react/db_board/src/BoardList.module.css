@@ -1,105 +1,92 @@
-.bottom-btn {
-  width: 100px;
-  border: 1px solid black;
-  background-color: dodgerblue;
-  color: white;
-  border-radius: 5px;
-  margin: 15px 5px;
-  font-size: 16px;
-}
 
-.bottom-btn:hover {
-  cursor: pointer;
-  background-color: rgb(30, 132, 235);
-}
-
-.bottom-btn:active {
-  background-color: rgb(24, 115, 206);
-}
-
-.board-list-container > p {
+.board_list_container > p {
   text-align: center;
 }
 
-.board-list-container {
+.board_list_container {
   width: 1000px;
   margin: 30px auto;
 }
 
-.board-list-container > h1 {
+.board_list_container > h1 {
   text-align: center;
   margin-bottom: 15px;
 }
 
-.search-div {
+.search_div {
   display: flex;
   justify-content: end;
   gap: 10px;
 }
 
-.search-div > * {
+.search_div > * {
   font-size: 1.2rem;
   border-radius: 5px;
 }
 
-.search-div > button {
+.search_div > button {
   width: 80px;
   border: 1px solid black;
   background-color: dodgerblue;
   color: white;
 }
 
-.search-div > button:hover {
+.search_div > button:hover {
   cursor: pointer;
   background-color: rgb(30, 132, 235);
 }
 
-.search-div > button:active {
+.search_div > button:active {
   background-color: rgb(24, 115, 206);
 }
 
-.search-div > select {
+.search_div > select {
   padding-left: 10px;
   width: 100px;
 }
 
-.search-div > input {
+.search_div > input {
   border: 1px solid black;
 }
 
-.board-list-table {
+.board_list_table {
   width: 100%;
   margin-top: 15px;
   text-align: center;
   font-size: 1.2rem;
 }
 
-.board-list-table tr, td {
+.board_list_table tr, td {
   border: 1px solid white;
   padding: 7px;
 }
 
-.board-list-table > thead {
+.board_list_table > thead {
   background-color: dodgerblue;
   color: white;
   border-bottom: 3px solid;
 }
 
 
-.board-list-table > tbody > tr:nth-child(odd) {
+.board_list_table > tbody > tr:nth-child(odd) {
   background-color: rgb(182, 218, 255);
 }
 
-.board-list-table > tbody > tr:nth-child(even) {
+.board_list_table > tbody > tr:nth-child(even) {
   background-color: rgb(212, 234, 255);
 }
 
-.board-list-table > tbody td:nth-child(2) {
+.board_list_table > tbody td:nth-child(2) {
   text-align: left;
 }
 
-.board-list-table > tbody > tr:hover {
+/* .board_list_table > tbody > tr:hover {
   cursor: pointer;
   background-color: rgb(121, 188, 255);
   color: white;
+} */
+
+.clickable:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

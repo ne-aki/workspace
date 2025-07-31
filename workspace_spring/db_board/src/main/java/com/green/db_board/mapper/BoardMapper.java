@@ -10,4 +10,6 @@ public interface BoardMapper {
   List<BoardDTO> getBoardList();
   void regBoard(BoardDTO boardDTO);
   BoardDTO getBoard(int boardNum);
+  int deleteBoard(int boardNum);
+  int updateBoard(BoardDTO boardDTO);
 }

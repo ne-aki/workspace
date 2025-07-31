@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './RegForm.css'
+import styles from './RegForm.module.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,24 +17,25 @@ const RegForm = ({nav}) => {
   }
   const regBtn = () => {
     if(regBoard.title === '') {
-        alert('제목을 입력해 주세요.');
-        return;
-      }
-      if(regBoard.writer === '') {
-        alert('작성자를 입력해 주세요.');
-        return;
-      }
+      alert('제목을 입력해 주세요.');
+      return;
+    }
+    if(regBoard.writer === '') {
+      alert('작성자를 입력해 주세요.');
+      return;
+    }
     axios.post('/api/boards', regBoard)
     .then(res => {
-      alert('등록되었습니다.');
+      // \n: 한 줄 개행
+      alert('등록되었습니다.\n게시글 목록페이지로 이동합니다.');
       nav('/')
     })
     .catch(error => console.log(error));
   }
   return (
-    <div className='reg-form-container'>
+    <div className={styles.reg_form_container}>
       <h1>게시글 작성 페이지</h1>
-      <table className='reg-form-table'>
+      <table className={styles.reg_form_table}>
         <colgroup>
           <col width={150} />
           <col width='*' />
