@@ -15,9 +15,10 @@ const BoardList = ({nav}) => {
     .catch(error => console.log(error));
   }, []);
   const selectList = (board) => {
-    axios.put(`api/cnt-increment/${board.boardNum}`, board)
-    .then(res => {})
-    .catch(e => console.log(e));
+    // axios.put(`api/cnt-increment/${board.boardNum}`)
+    // .then(res => {})
+    // .catch(e => console.log(e));
+
     nav(`/board-detail/${board.boardNum}`);
   }
   

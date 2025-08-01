@@ -15,7 +15,7 @@ public class CntIncrementController {
   }
 
   @PutMapping("/cnt-increment/{boardNum}")
-  public void setCntIncrement(@RequestBody BoardDTO boardDTO, @PathVariable("boardNum") int boardNum) {
+  public void setCntIncrement(@PathVariable("boardNum") int boardNum) {
     cntIncrementService.setCntIncrement(boardNum);
   }
 

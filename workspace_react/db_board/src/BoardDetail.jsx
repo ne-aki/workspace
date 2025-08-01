@@ -7,13 +7,25 @@ const BoardDetail = ({nav}) => {
   const {boardNum} = useParams();
   console.log(boardNum);
   const [board, setBoard] = useState({})
+
   useEffect(() => {
+    axios.put(`/api/cnt-increment/${boardNum}`)
+    .then(res => {getBoardDetail()})
+    .catch(e => console.log(e));
+    
+  }, [nav])
+
+  //상세정보 조회 함수
+  const getBoardDetail = () => {
     axios.get(`/api/boards/${boardNum}`)
     .then(res => {
       console.log(res.data);
-      setBoard(res.data)
+      setBoard(res.data);
     })
-  }, [nav])
+    .catch(error => console.log(error))
+    
+  }
+
   //삭제버튼 클릭 시 실행 함수
   const deleteBtn = () => {
     //confirm 에서 확인 클릭 시 리턴 true, 취소 클릭 시 리턴 false

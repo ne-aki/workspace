@@ -1,0 +1,17 @@
+.container {
+  width: 1000px;
+  margin: 20px auto;
+}
+
+.detail_table tr, td {
+  border: 1px solid gray;
+}
+
+.detail_table tr:last-child {
+  height: 150px;
+}
+
+.btn_div {
+  text-align: center;
+  margin-top: 20px;
+}

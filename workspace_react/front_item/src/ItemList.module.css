@@ -1,0 +1,33 @@
+.container {
+  width: 800px;
+  margin: 20px auto;
+}
+
+.sum_price {
+  display: flex;
+  justify-content: end;
+}
+
+.sum_price > p {
+  padding: 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.sum_price > p:first-child {
+  background-color: lightgray;
+}
+
+.sum_price > p:last-child {
+  width: 150px;
+  border-bottom: 1px solid gray;
+}
+
+.btn_div {
+  text-align: center;
+}
+
+.list_table tbody > tr:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}

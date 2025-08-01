@@ -1,0 +1,79 @@
+import React from 'react'
+import { useParams } from 'react-router-dom'
+
+const UpdateForm = () => {
+  const {itemNum} = useParams();
+  return (
+    <div>
+      공사중
+      {/* <div>
+        <p>상품 카테고리</p>
+        <select name="itemCategory" value={regItem.itemCategory} onChange={e => handleRegItem(e)}>
+          <option value="">선택</option>
+          <option value="상의">상의</option>
+          <option value="하의">하의</option>
+          <option value="액세서리">액세서리</option>
+        </select>
+      </div>
+      <div>
+        <p>상품명</p>
+        <input
+          type="text"
+          name="itemName"
+          value={regItem.itemName}
+          onChange={e => handleRegItem(e)}
+        />
+      </div>
+      <div>
+        <p>상품 가격</p>
+        <input
+          type="number"
+          name="itemPrice"
+          value={regItem.itemPrice}
+          onChange={e => handleRegItem(e)}
+        />
+      </div>
+      <div>
+        <p>상품 상태</p>
+        <input
+          type="radio"
+          name="itemStatus"
+          value={'준비 중'}
+          onChange={e => handleRegItem(e)}
+          checked={regItem.itemStatus === '준비 중'}
+        /> 준비 중
+        <input
+          type="radio"
+          name="itemStatus"
+          value={'판매 중'}
+          onChange={e => handleRegItem(e)}
+          checked={regItem.itemStatus === '판매 중'}
+        /> 판매 중
+        <input
+          type="radio"
+          name="itemStatus"
+          value={'매진'}
+          onChange={e => handleRegItem(e)}
+          checked={regItem.itemStatus === '매진'}
+        /> 매진
+      </div>
+      <div>
+        <p>상품 소개</p>
+        <textarea
+          name="itemIntro"
+          rows="5"
+          value={regItem.itemIntro}
+          onChange={e => handleRegItem(e)}
+        ></textarea>
+      </div>
+      <div className={styles.btn_div}>
+        <button
+          type="button"
+          onClick={e => regBtn()}
+        >등록</button>
+      </div> */}
+    </div>
+  )
+}
+
+export default UpdateForm
