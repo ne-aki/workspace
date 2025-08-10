@@ -32,9 +32,13 @@ INSERT INTO practice (
 	, '01000000000'
 	, '2000-01-01'
 	, 'country'
-	, 'sex'
+	, 'gender'
 );
 
 ROLLBACK;
 
 COMMIT;
+
+SELECT IF(1 + 1 = 3, '정답', '오답');
+
+SELE

@@ -13,21 +13,6 @@ const UpdateForm = ({nav}) => {
     content : ''
   });
 
-  // const [inputData, setInputData] = useState({
-  //   title : '',
-  //   content : ''
-  // })
-
-  // useEffect(() => {
-  //   //마운트 시점이 아니라면
-  //   if(board.title !== undefined) {
-  //     setInputData({
-  //       title : board.title,
-  //       content : board.content
-  //     });  
-  //   }
-  // }, [board])
-
   useEffect(() => {
     axios.get(`/api/boards/${boardNum}`)
     .then(res => {
@@ -44,19 +29,12 @@ const UpdateForm = ({nav}) => {
     })
   }
 
-  // const handleBoard = e => {
-  //   setBoard({
-  //     ...inputData,
-  //     [e.target.name] : e.target.value
-  //   })
-  // }
-
   const updateBtn = () => {
     if(board.title === '') {
       alert('제목을 입력하세요.');
       return;
     }
-    axios.put(`/api/boards/${boardNum}`, /*inputData*/board)
+    axios.put(`/api/boards/${boardNum}`, board)
     .then(res => {
       alert('수정되었습니다.');
       nav(`board-detail/${boardNum}`);
@@ -78,7 +56,7 @@ const UpdateForm = ({nav}) => {
           <tr>
             <td>제목</td>
             <td colSpan={4} className={styles.input_td}>
-              <input type="text" name="title" value={/*inputData.*/board.title} onChange={e => handleBoard(e)} onKeyDown={e => {
+              <input type="text" name="title" value={board.title} onChange={e => handleBoard(e)} onKeyDown={e => {
                   if(e.key === 'Enter') {
                     regBtn();
                   }
@@ -88,7 +66,7 @@ const UpdateForm = ({nav}) => {
           <tr>
             <td>내용</td>
             <td colSpan={4}>
-              <textarea name="content" value={/*inputData.*/board.content} onChange={e => handleBoard(e)} rows={8}></textarea>
+              <textarea name="content" value={board.content} onChange={e => handleBoard(e)} rows={8}></textarea>
             </td>
           </tr>
         </tbody>

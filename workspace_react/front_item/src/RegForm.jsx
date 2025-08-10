@@ -6,7 +6,7 @@ const RegForm = ({nav}) => {
   const [regItem, setRegItem] = useState({
     itemCategory : '',
     itemName : '',
-    itemPrice : '',
+    itemPrice : '1000',
     itemStatus : '준비 중',
     itemIntro : ''
   })
@@ -16,19 +16,22 @@ const RegForm = ({nav}) => {
       [e.target.name] : e.target.value
     })
   }
-  console.log(regItem);
+  //console.log(regItem);
 
   const regBtn = () => {
     if(regItem.itemCategory === '' || regItem.itemName === '' || regItem.itemPrice === '') {
       alert('카테고리, 상품명, 상품 가격은 필수사항입니다.');
       return;
     }
-    axios.post('/api/items', regItem)
-    .then(res => {
-      alert('등록되었습니다.');
-      nav('/');
-    })
-    .catch(e => console.log(e))
+    const confirmReg = confirm('등록하시겠습니까?');
+    if(confirmReg) {
+      axios.post('/api/items', regItem)
+      .then(res => {
+        alert('등록되었습니다.');
+        nav('/');
+      })
+      .catch(e => console.log(e))
+    }
   }
 
   return (
@@ -55,34 +58,44 @@ const RegForm = ({nav}) => {
         <p>상품 가격</p>
         <input
           type="number"
+          max={999999999}
+          min={100}
+          step={100}
+          readOnly={false}
           name="itemPrice"
           value={regItem.itemPrice}
           onChange={e => handleRegItem(e)}
         />
       </div>
-      <div>
+      <div className={styles.status_div}>
         <p>상품 상태</p>
-        <input
-          type="radio"
-          name="itemStatus"
-          value={'준비 중'}
-          onChange={e => handleRegItem(e)}
-          checked={regItem.itemStatus === '준비 중'}
-        /> 준비 중
-        <input
-          type="radio"
-          name="itemStatus"
-          value={'판매 중'}
-          onChange={e => handleRegItem(e)}
-          checked={regItem.itemStatus === '판매 중'}
-        /> 판매 중
-        <input
-          type="radio"
-          name="itemStatus"
-          value={'매진'}
-          onChange={e => handleRegItem(e)}
-          checked={regItem.itemStatus === '매진'}
-        /> 매진
+        <span>
+          <input
+            type="radio"
+            name="itemStatus"
+            value={'준비 중'}
+            onChange={e => handleRegItem(e)}
+            checked={regItem.itemStatus === '준비 중'}
+          /> 준비 중
+        </span>
+        <span>
+          <input
+            type="radio"
+            name="itemStatus"
+            value={'판매 중'}
+            onChange={e => handleRegItem(e)}
+            checked={regItem.itemStatus === '판매 중'}
+          /> 판매 중
+        </span>
+        <span>
+          <input
+            type="radio"
+            name="itemStatus"
+            value={'매진'}
+            onChange={e => handleRegItem(e)}
+            checked={regItem.itemStatus === '매진'}
+          /> 매진
+        </span>
       </div>
       <div>
         <p>상품 소개</p>
@@ -94,6 +107,7 @@ const RegForm = ({nav}) => {
         ></textarea>
       </div>
       <div className={styles.btn_div}>
+        <button type="button" onClick={e => nav(-1)}>취소</button>
         <button
           type="button"
           onClick={e => regBtn()}

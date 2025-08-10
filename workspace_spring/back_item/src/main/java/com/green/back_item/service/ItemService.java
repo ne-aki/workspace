@@ -28,4 +28,8 @@ public class ItemService {
   public int deleteItem(int itemNum) {
     return itemMapper.deleteItem(itemNum);
   }
+
+  public int changeItem(ItemDTO itemDTO) {
+    return itemMapper.changeItem(itemDTO);
+  }
 }

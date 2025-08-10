@@ -11,4 +11,5 @@ public interface ItemMapper {
   int regItem(ItemDTO itemDTO);
   ItemDTO getItem(int itemNum);
   int deleteItem(int itemNum);
+  int changeItem(ItemDTO itemDTO);
 }

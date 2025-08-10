@@ -55,6 +55,16 @@
     DELETE FROM ITEM
     WHERE ITEM_NUM = #{itemNum}
   </delete>
+  <update id="changeItem">
+    UPDATE ITEM
+    SET
+      ITEM_CATEGORY = #{itemCategory}
+      , ITEM_NAME = #{itemName}
+      , ITEM_PRICE = #{itemPrice}
+      , ITEM_STATUS = #{itemStatus}
+      , ITEM_INTRO = #{itemIntro}
+    WHERE ITEM_NUM = #{itemNum}
+  </update>
 </mapper>
 
 

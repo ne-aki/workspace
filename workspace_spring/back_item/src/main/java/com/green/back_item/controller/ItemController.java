@@ -39,4 +39,13 @@ public class ItemController {
   ) {
     return itemService.deleteItem(itemNum);
   }
+
+  @PutMapping("/{itemNum}")
+  public int changeItem(
+          @RequestBody ItemDTO itemDTO,
+          @PathVariable("itemNum") int itemNum
+  ) {
+    itemDTO.setItemNum(itemNum);
+    return itemService.changeItem(itemDTO);
+  }
 }

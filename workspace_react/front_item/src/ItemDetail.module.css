@@ -3,7 +3,7 @@
   margin: 20px auto;
 }
 
-.detail_table tr, td {
+.detail_table > tbody > tr > td {
   border: 1px solid gray;
 }
 

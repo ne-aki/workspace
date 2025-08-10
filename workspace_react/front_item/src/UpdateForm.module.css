@@ -1,0 +1,29 @@
+.container {
+  width: 500px;
+  margin: 30px auto;
+}
+
+.container input[type='text'], input[type='number'], textarea, select {
+  width: 100%;
+}
+
+.status_div > span {
+  margin-right: 15px;
+}
+
+.container textarea {
+  resize: none;
+}
+
+.btn_div {
+  text-align: right;
+}
+
+.container div {
+  margin: 10px 0px;
+}
+
+.btn_div > button {
+  margin-right: 0px;
+  margin-left: 10px;
+}
