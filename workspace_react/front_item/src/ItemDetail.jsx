@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './ItemDetail.module.css'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 const ItemDetail = ({nav}) => {
   const {itemNum} = useParams();
@@ -36,13 +37,18 @@ const ItemDetail = ({nav}) => {
             <td>상품명</td>
             <td>{itemInfo.itemName}</td>
             <td>가격</td>
-            <td>{itemInfo.itemPrice}</td>
+            <td>
+              {
+                itemInfo.itemPrice &&
+                itemInfo.itemPrice.toLocaleString() + '원'
+              }
+            </td>
           </tr>
           <tr>
             <td>상태</td>
             <td>{itemInfo.itemStatus}</td>
             <td>등록일</td>
-            <td>{itemInfo.regDate}</td>
+            <td>{dayjs(itemInfo.regDate).format('YYYY/MM/DD HH:mm:ss')}</td>
           </tr>
           <tr>
             <td>상품 소개</td>

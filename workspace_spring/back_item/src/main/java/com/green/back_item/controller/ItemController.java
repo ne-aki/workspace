@@ -23,6 +23,7 @@ public class ItemController {
   public int regItem(
           @RequestBody ItemDTO itemDTO
   ) {
+    System.out.println(itemDTO);
     return itemService.regItem(itemDTO);
   }
 

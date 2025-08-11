@@ -1,0 +1,171 @@
+import React, { useState } from 'react'
+import styles from './RegForm.module.css'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+const RegForm = () => {
+  const nav = useNavigate();
+
+  //입력한 데이터를 저장할 state 변수
+  const [itemData, setItemData] = useState({
+    'itemCategory' : '',
+    'itemName' : '',
+    'itemPrice' : '',
+    'itemStatus' : '준비중',
+    'itemIntro' : ''
+  });
+
+  //유효성 검사에 사용할 변수
+  const [isNotValid, setIsNotVlid] = useState({
+    'itemCategory' : false,
+    'itemName' : false,
+    'itemPrice' : false
+  });
+
+  //값 변경 시 실행 함수
+  const handleItemData = (e) => {
+    setItemData({
+      ...itemData,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  console.log(itemData);
+
+  //등록 버튼 클릭 시 실행
+  const regItem = () => {
+    //유효성 함수 호출
+    //const result = checkValid();
+    
+    if(checkValid()){
+      axios.post('/api/items', itemData)
+      .then(res => {
+        alert('등록 성공');
+        nav('/');
+      })
+      .catch(e => console.log(e));
+    }
+  }
+
+  //유효성 검사 함수
+  const checkValid = () => {
+    //유효성 검사 결과
+    const isValid = true;
+
+    //유효성 검사(상품명)
+    if(itemData.itemName === ''){
+      setIsNotVlid({
+        ...isNotValid,
+        'itemName' : true
+      });
+      isValid = false;
+    }
+
+    //유효성 검사(카테고리)
+    if(itemData.itemCategory === ''){
+      setIsNotVlid({
+        ...isNotValid,
+        'itemCategory' : true
+      });
+      isValid = false;
+    }
+
+    //유효성 검사(가격)
+    if(itemData.itemPrice === '' || itemData.itemPrice < 0){
+      setIsNotVlid({
+        ...isNotValid,
+        'itemPrice' : true
+      });
+      isValid = false;
+    }
+    return isValid;
+  }
+
+  return (
+    <div className={styles.container}>
+      <div>
+        <p>상품카테고리</p>
+        <select 
+          value={itemData.itemCategory}
+          name='itemCategory'
+          onChange={e => handleItemData(e)}
+        >
+          <option value=''>선택</option>
+          <option value='상의'>상의</option>
+          <option value='하의'>하의</option>
+          <option value='악세사리'>악세사리</option>
+        </select>
+        {
+          isNotValid.itemCategory &&
+          <p className={styles.not_valid}>
+            상품카테고리를 선택하세요
+          </p>
+        }
+      </div>
+      <div>
+        <p>상품명</p>
+        <input 
+          type="text" 
+          name='itemName'
+          value={itemData.itemName}
+          onChange={e => handleItemData(e)}
+        />
+        {
+          isNotValid.itemName &&
+          <p className={styles.not_valid}>상품명은 필수입력입니다</p>
+        }
+      </div>
+      <div>
+        <p>상품가격</p>
+        <input 
+          type="text" 
+          name='itemPrice'
+          value={itemData.itemPrice}
+          onChange={e => handleItemData(e)}
+        />
+        {
+          isNotValid.itemPrice &&
+          <p className={styles.not_valid}>
+            상품가격은 필수입력이며, 음수가 들어올 수 없습니다
+          </p>
+        }
+      </div>
+      <div>
+        <p>상품상태</p>
+        <input 
+          type="radio" 
+          name='itemStatus' 
+          value='준비중'
+          checked={itemData.itemStatus === '준비중'}
+          onChange={e => handleItemData(e)}/>준비 중
+
+        <input 
+          type="radio" 
+          name='itemStatus' 
+          value='판매중'
+          checked={itemData.itemStatus === '판매중'}
+          onChange={e => handleItemData(e)}/>판매 중
+
+        <input 
+          type="radio" 
+          name='itemStatus' 
+          value='매진'
+          checked={setItemData.itemStatus === '매진'}
+          onChange={e => handleItemData(e)}/>매진
+      </div>
+      <div>
+        <p>상품소개</p>
+        <textarea
+          name='itemIntro'
+          value={itemData.itemIntro}
+          onChange={e => handleItemData(e)}
+        ></textarea>
+      </div>
+      <div className={styles.btn_div}>
+        <button type='button' onClick={e => regItem()}>등록</button>
+      </div>
+    </div>
+  )
+}
+
+export default RegForm

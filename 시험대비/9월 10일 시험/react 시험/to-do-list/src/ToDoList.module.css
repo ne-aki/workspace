@@ -1,0 +1,36 @@
+.container {
+  width: 500px;
+  margin: 50px auto;
+  border: 1px solid black;
+}
+
+h1 {
+  text-align: center;
+}
+
+.content {
+  background-color: lightskyblue;
+  padding: 10px;
+}
+
+.list {
+  display: flex;
+  background-color: rgb(202, 233, 252);
+  border-radius: 10px;
+  margin: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list > p {
+  font-size: 1.2rem;
+  margin: 15px;
+}
+
+.icon_div {
+  display: flex;
+}
+
+.icon_div > img {
+  object-fit: cover;
+}

@@ -3,7 +3,7 @@
   margin: 30px auto;
 }
 
-.container input[type='text'], input[type='number'], textarea, select {
+.container input[type='text'], .container input[type='number'], .container textarea, select {
   width: 100%;
 }
 
@@ -26,4 +26,9 @@
 .btn_div > button {
   margin-right: 0px;
   margin-left: 10px;
+}
+
+.not_valid {
+  color: red;
+  font-size: 0.8rem;
 }

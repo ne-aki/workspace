@@ -51,34 +51,5 @@ table {
 	
 }
 
-/* --------------------------- */
 
-table {
-	width: 100%;
-	text-align: center;
-}
 
-thead {
-	border-top: 1px solid black;
-	border-bottom: 2px solid black;
-}
-
-tbody {
-	border-bottom: 1px solid black;
-}
-
-td {
-	padding: 5px;
-}
-
-* {
-	font-size: 1.1rem;
-}
-
-button {
-	margin: 0px 15px;
-}
-
-button:hover {
-	cursor: pointer;
-}

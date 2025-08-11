@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './ItemList.module.css'
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 const ItemList = ({nav}) => {
   const [itemInfo, setItemInfo] = useState([])
@@ -42,9 +43,9 @@ const ItemList = ({nav}) => {
                   <td>{itemInfo.length - i}</td>
                   <td>{item.itemCategory}</td>
                   <td>{item.itemName}</td>
-                  <td>{item.itemPrice}</td>
+                  <td>{'￦' + item.itemPrice.toLocaleString()}</td>
                   <td>{item.itemStatus}</td>
-                  <td>{item.regDate}</td>
+                  <td>{dayjs(item.regDate).format('YYYY/MM/DD HH:mm:ss')}</td>
                 </tr>
               )
             })
@@ -53,7 +54,7 @@ const ItemList = ({nav}) => {
       </table>
       <div className={styles.sum_price}>
         <p>총 등록 가격</p>
-        <p>{sumPrice}원</p>
+        <p>{sumPrice.toLocaleString() + '원'}</p>
       </div>
       <div className={styles.btn_div}>
         <button type="button" onClick={e => nav('/reg-item')}>상품 등록</button>
