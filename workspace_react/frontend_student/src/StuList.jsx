@@ -21,16 +21,18 @@ const StuList = () => {
     .catch(e => console.log(e));
   }, []);
 
-  // const handleSelectedStudent = e => {
-  //   axios.get(`api/students/${e.target.value}`)
-  // }
+  const handleSelectedStudent = e => {
+    axios.get(`api/students/${e.target.value}`)
+    .then(res => setSelectedStudent(res.data))
+    .catch(e => console.log(e))
+  }
   
   console.log(classList);
 
   return (
     <div>
-      <select name="className" value={0} onChange={e => {}}>
-        <option value="">전체</option>
+      <select name="className" value={selectedStudent} onChange={e => handleSelectedStudent(e)}>
+        <option value={[]}>전체</option>
         {
           classList.map((classInfo, i) => {
             return (

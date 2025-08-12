@@ -4,7 +4,7 @@
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
 <mapper namespace="com.home.pokemon_type.mapper.TypeMapper">
-  <resultMap id="type" type="com.home.pokemon_type.dto.TypeDTO">
+  <resultMap id="typeInfo" type="com.home.pokemon_type.dto.TypeDTO">
     <id column="TYPE_NUM" property="typeNum" />
     <result column="ATTACK_TYPE" property="attackType" />
     <result column="NORMAL" property="normal" />
@@ -26,7 +26,7 @@
     <result column="STEEL" property="steel" />
     <result column="FAIRY" property="fairy" />
   </resultMap>
-  <select id="getAttackType" resultMap="type">
+  <select id="getTypeList" resultMap="typeInfo">
     SELECT
       TYPE_NUM
       , NORMAL
@@ -49,7 +49,7 @@
       , FAIRY
     FROM DEFENSE_TYPE
   </select>
-  <select id="getAttackType" resultMap="type">
+  <select id="getAttackType" resultMap="typeInfo">
     SELECT ATTACK_TYPE
     FROM DEFENSE_TYPE
   </select>

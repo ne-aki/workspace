@@ -86,7 +86,7 @@ VALUES(
 
 
 
-
+DROP TABLE student_info;
 
 #연습용 테이블
 #1. 학급 정보

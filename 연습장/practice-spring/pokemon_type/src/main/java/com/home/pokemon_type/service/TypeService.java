@@ -14,6 +14,6 @@ public class TypeService {
   }
 
   public List<TypeDTO> getTypeList() {
-    return typeMapper.getAttackType();
+    return typeMapper.getTypeList();
   }
 }

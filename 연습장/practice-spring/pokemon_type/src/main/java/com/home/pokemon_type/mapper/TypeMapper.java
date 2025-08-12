@@ -7,5 +7,5 @@ import java.util.List;
 
 @Mapper
 public interface TypeMapper {
-  List<TypeDTO> getAttackType();
+  List<TypeDTO> getTypeList();
 }
