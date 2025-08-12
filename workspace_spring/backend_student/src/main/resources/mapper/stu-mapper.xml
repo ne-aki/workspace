@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.backend_student.mapper.StuMapper">
+  <resultMap id="student" type="com.green.backend_student.dto.StuDTO">
+    <id column="STU_NUM" property="stuNum" />
+    <result column="STU_NAME" property="stuName" />
+    <result column="STU_AGE" property="stuAge" />
+  </resultMap>
+
+  <resultMap id="class" type="com.green.backend_student.dto.ClassDTO">
+    <id column="CLASS_NUM" property="classNum" />
+    <result column="CLASS_NAME" property="className" />
+  </resultMap>
+
+  <select id="getClassName" resultMap="class">
+    SELECT
+      CLASS_NUM
+      , CLASS_NAME
+    FROM CLASS_INFO
+    ORDER BY CLASS_NUM
+  </select>
+
+  <select id="getStudentList" resultMap="student">
+    SELECT
+      STU_NUM
+      , STU_NAME
+      , STU_AGE
+    FROM STUDENT_INFO
+  </select>
+
+  <!--선택된 학생정보 조회-->
+  <select id="selectedStudent" resultMap="student">
+    SELECT
+      STU_NUM
+      , STU_NAME
+      , STU_AGE
+    FROM STUDENT_INFO
+    WHERE CLASS_NUM = #{classNum}
+  </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

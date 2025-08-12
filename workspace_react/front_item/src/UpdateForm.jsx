@@ -12,7 +12,9 @@ const UpdateForm = ({nav}) => {
     itemPrice : '',
     itemStatus : '',
     itemIntro : ''
-  })
+  });
+
+  //마운트 시 수정할 상품의 상세 정보를 
   useEffect(() => {
     axios.get(`/api/items/${itemNum}`)
     .then(res => setItemInfo(res.data))
@@ -48,7 +50,7 @@ const UpdateForm = ({nav}) => {
       axios.put(`/api/items/${itemNum}`, changedItem)
       .then(res => {
         alert('수정되었습니다.');
-        nav(-1);
+        nav(`item-detail/${itemNum}`);
       })
       .catch(e => console.log(e));
     }
@@ -62,7 +64,10 @@ const UpdateForm = ({nav}) => {
     <div className={styles.container}>
       <div>
         <p>상품 카테고리</p>
-        <select name="itemCategory" value={changedItem.itemCategory} onChange={e => handleChangedItem(e)}>
+        <select name="itemCategory"
+          value={changedItem.itemCategory}
+          onChange={e => handleChangedItem(e)}
+        >
           <option value="">선택</option>
           <option value="상의">상의</option>
           <option value="하의">하의</option>
@@ -82,9 +87,6 @@ const UpdateForm = ({nav}) => {
         <p>상품 가격</p>
         <input
           type="number"
-          max={999999999}
-          min={100}
-          step={100}
           name="itemPrice"
           value={changedItem.itemPrice}
           onChange={e => handleChangedItem(e)}
@@ -130,7 +132,7 @@ const UpdateForm = ({nav}) => {
         ></textarea>
       </div>
       <div className={styles.btn_div}>
-        <button type="button" onClick={e => nav(-1)}>취소</button>
+        <button type="button" onClick={e => nav(`item-detail/${itemNum}`)}>취소</button>
         <button
           type="button"
           onClick={e => changeBtn()}
