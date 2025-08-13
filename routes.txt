@@ -1,0 +1,13 @@
+<Routes>
+        {/* 일반 사용자가 접근하는 페이지들 */}
+        {/* 일반 사용자가 접근하는 페이지는 모두 UserLayout과 함께 열림 */}
+        {/* UserLayout의 Outlet 위치에 우리가 원하는 컴포넌트가 뜬다. */}
+        <Route path='/' element={<UserLayout />}>
+          {/* url : /list */}
+          <Route path='list' element={<BookList />} />
+          {/* url : /login */}
+          <Route path='login' element={<Login />} />
+
+          <Route path='join' element={<Join />} />
+        </Route>
+      </Routes>
