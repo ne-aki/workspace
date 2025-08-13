@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.db_board.mapper.ReplyMapper">
+	<resultMap id="reply" type="com.green.db_board.dto.ReplyDTO">
+    <id column="REPLY_NUM" property="replyNum" />
+    <result column="CONTENT" property="content" />
+    <result column="WRITER" property="writer" />
+    <result column="REG_DATE" property="regDate" />
+    <result column="BOARD_NUM" property="boardNum" />
+    <association property="boardDTO" resultMap="board" />
+  </resultMap>
+  <select id="getReplyList" resultMap="reply">
+    SELECT
+      REPLY_NUM
+      , R.CONTENT
+      , R.WRITER
+      , REG_DATE
+    FROM BOARD_REPLY R INNER JOIN BOARD B
+    ON R.BOARD_NUM = B.BOARD_NUM
+    ORDER BY REG_DATE DESC
+  </select>
+  <insert id="regReply">
+    INSERT INTO BOARD_REPLY (
+      BOARD_NUM
+      , WRITER
+      , CONTENT
+    ) VALUES (
+      #{boardNum}
+      , #{writer}
+      , #{content}
+    )
+  </insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -32,3 +32,42 @@
 .align_left {
   text-align: left;
 }
+
+.reg_reply_div {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.reg_reply_div > button {
+  margin: 0px;
+}
+
+.reg_reply_div > input {
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.reg_reply_div > input:first-child {
+  width: 100px;
+}
+
+.reg_reply_div > input:nth-child(2) {
+  width: 300px;
+}
+
+.reply_list_div {
+  width: 500px;
+  margin: auto;
+}
+
+.reply_writer_info {
+  display: flex;
+  gap: 15px;
+}
+
+.reply_content_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

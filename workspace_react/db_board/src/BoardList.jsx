@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './BoardList.module.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 const BoardList = ({nav}) => {
   const [boardListInfo, setBoardListInfo] = useState([]);
@@ -64,7 +65,7 @@ const BoardList = ({nav}) => {
                     </span>
                   </td>
                   <td>{board.writer}</td>
-                  <td>{board.createDate}</td>
+                  <td>{dayjs(board.createDate).format('YYYY-MM-DD HH:mm:ss')}</td>
                   <td>{board.readCnt}</td>
                 </tr>
               )

@@ -2,11 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { data, useParams } from 'react-router-dom'
 import styles from './BoardDetail.module.css'
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 const BoardDetail = ({nav}) => {
   const {boardNum} = useParams();
   console.log(boardNum);
-  const [board, setBoard] = useState({})
+  const [board, setBoard] = useState({});
+  const [replyList, setReplyList] = useState([]);
+  const [regReply, setRegReply] = useState({
+    writer : '',
+    content : '',
+    boardNum : boardNum
+  });
 
   useEffect(() => {
     axios.put(`/api/cnt-increment/${boardNum}`)
@@ -14,6 +21,12 @@ const BoardDetail = ({nav}) => {
     .catch(e => console.log(e));
     
   }, [nav])
+
+  useEffect(() => {
+    axios.get('/api/replies')
+    .then(res => setReplyList(res.data))
+    .catch(e => console.log(e));
+  }, [])
 
   //상세정보 조회 함수
   const getBoardDetail = () => {
@@ -40,6 +53,27 @@ const BoardDetail = ({nav}) => {
       .catch(error => console.log(error));
     }
   }
+
+  //댓글 정보를 저장할 함수
+  const handleRegReply = e => {setRegReply({
+    ...regReply,
+    [e.target.name] : e.target.value
+  })}
+
+  //버튼을 누르면 새로운 댓글을 등록하는 함수
+  const regReplyBtn = () => {
+    if(regReply.writer === '' || regReply.content === '') {
+      alert('작성자 또는 내용을 입력해 주세요.');
+      return;
+    }
+    axios.post('/api/replies', regReply)
+    .then(res => {
+      alert('댓글이 등록되었습니다.')
+    })
+    .catch(e => console.log(e))
+  }
+
+  console.log(regReply);
   
   return (
     <div className={styles.board_detail_container}>
@@ -56,7 +90,7 @@ const BoardDetail = ({nav}) => {
         <tbody>
           <tr>
             <td>작성일</td>
-            <td>{board.createDate}</td>
+            <td>{dayjs(board.createDate).format('YYYY-MM-DD HH:mm:ss')}</td>
             <td>작성자</td>
             <td>{board.writer}</td>
             <td>조회수</td>
@@ -82,6 +116,53 @@ const BoardDetail = ({nav}) => {
           <button type="button" className='bottom-btn' onClick={e => nav(`/board-update/${boardNum}`)}>수정</button>
           <button type="button" className='bottom-btn' onClick={e => deleteBtn()}>삭제</button>
         </p>
+      </div>
+      <div>
+        {/* 댓글 등록 div */}
+        <div className={styles.reg_reply_div}>
+          <input
+            type="text"
+            name="writer"
+            value={regReply.writer}
+            onChange={e => handleRegReply(e)}
+            placeholder='작성자'
+          />
+          <input
+            type="text"
+            name="content"
+            value={regReply.content}
+            onChange={e => handleRegReply(e)}
+            placeholder='댓글 내용 입력'
+            onKeyDown={e => {
+              if(e.key === 'Enter') {
+                regReplyBtn();
+              }
+            }}
+          />
+          <button
+            type="button"
+            className='bottom-btn'
+            onClick={e => regReplyBtn()}
+          >댓글등록</button>
+        </div>
+        {/* 댓글 목록 div */}
+        {
+          replyList.map((reply, i) => {
+            return (
+              <div className={styles.reply_list_div}>
+                <div className={styles.reply_writer_info}>
+                  <p>{reply.writer}</p>
+                  <p>{dayjs(reply.regDate).format('YYYY.MM.DD')}</p>
+                </div>
+                <div className={styles.reply_content_info}>
+                  <p>{reply.content}</p>
+                  <button type="button" className='bottom-btn'>삭제</button>
+                </div>
+                <hr />
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   )
