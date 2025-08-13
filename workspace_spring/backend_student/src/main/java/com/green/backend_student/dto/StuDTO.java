@@ -12,4 +12,5 @@ public class StuDTO {
   private String stuName;
   private int stuAge;
   private int classNum;
+  private ClassDTO classDTO;
 }

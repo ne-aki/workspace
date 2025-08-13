@@ -19,11 +19,8 @@ public class StuService {
     return stuMapper.getClassName();
   }
 
-  public List<StuDTO> getStudentList() {
-    return stuMapper.getStudentList();
+  public List<StuDTO> getStudentList(ClassDTO classDTO) {
+    return stuMapper.getStudentList(classDTO);
   }
 
-  public List<StuDTO> selectedStudents(int classNum) {
-    return stuMapper.selectedStudents(classNum);
-  }
 }

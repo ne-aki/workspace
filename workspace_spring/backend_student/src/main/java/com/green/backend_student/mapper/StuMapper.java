@@ -9,6 +9,5 @@ import java.util.List;
 @Mapper
 public interface StuMapper {
   List<ClassDTO> getClassName();
-  List<StuDTO> getStudentList();
-  List<StuDTO> selectedStudents(int classNum);
+  List<StuDTO> getStudentList(ClassDTO classDTO);
 }

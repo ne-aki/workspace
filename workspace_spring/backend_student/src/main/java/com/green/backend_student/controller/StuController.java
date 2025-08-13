@@ -25,11 +25,15 @@ public class StuController {
 
   @GetMapping("students")
   public List<StuDTO> getStudentList() {
-    return stuService.getStudentList();
+    ClassDTO classDTO = new ClassDTO();
+    return stuService.getStudentList(classDTO);
   }
 
+  //학과별 학생 목록 조회
   @GetMapping("students/{classNum}")
-  public List<StuDTO> selectedStudents(@PathVariable("classNum") int classNum) {
-    return stuService.selectedStudents(classNum);
+  public List<StuDTO> getStuListByClassNum(@PathVariable("classNum") int classNum) {
+    ClassDTO classDTO = new ClassDTO();
+    classDTO.setClassNum(classNum);
+    return stuService.getStudentList(classDTO);
   }
 }

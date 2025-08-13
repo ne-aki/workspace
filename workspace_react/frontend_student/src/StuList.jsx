@@ -9,30 +9,33 @@ const StuList = () => {
 
   const [selectedStudent, setSelectedStudent] = useState([])
 
+  //학급목록과 학생목록을 동시에 조회
   useEffect(() => {
-    axios.get('/api/classes')
-    .then(res => setClassList(res.data))
+    axios.all([axios.get('/api/classes'), axios.get('/api/students')])
+    .then(axios.spread((res1, res2) => {
+      console.log(res1.data);
+      console.log(res2.data);
+      setClassList(res1.data);
+      setStuList(res2.data);
+    }))
     .catch(e => console.log(e));
   }, []);
 
-  useEffect(() => {
-    axios.get('/api/students')
-    .then(res => setStuList(res.data))
-    .catch(e => console.log(e));
-  }, []);
-
-  const handleSelectedStudent = e => {
-    axios.get(`api/students/${e.target.value}`)
-    .then(res => setSelectedStudent(res.data))
+  //셀렉트 박스의 값이 바뀌면 학생 목록을 다시 조회하는 함수
+  const getStuList = classNum => {
+    //매개변수는 선택한 classNum이다.
+    axios.get(`api/students/${classNum}`) //  /api/students/
+    .then(res => {
+      //console.log(res.data);
+      setStuList(res.data);
+    })
     .catch(e => console.log(e))
   }
-  
-  console.log(classList);
 
   return (
     <div>
-      <select name="className" value={selectedStudent} onChange={e => handleSelectedStudent(e)}>
-        <option value={[]}>전체</option>
+      <select onChange={e => getStuList(e.target.value)}>
+        <option value={'0'}>전체</option>
         {
           classList.map((classInfo, i) => {
             return (
@@ -41,7 +44,7 @@ const StuList = () => {
           })
         }
       </select>
-      <table>
+      <table border={1} width='500'>
         <colgroup>
           <col width='25%' />
           <col width='25%' />
@@ -62,7 +65,7 @@ const StuList = () => {
               return (
                 <tr key={i}>
                   <td>{i + 1}</td>
-                  <td></td>
+                  <td>{stuInfo.classDTO.className}</td>
                   <td>{stuInfo.stuName}</td>
                   <td>{stuInfo.stuAge}</td>
                 </tr>
