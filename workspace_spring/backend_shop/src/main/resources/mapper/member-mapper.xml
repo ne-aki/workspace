@@ -15,6 +15,25 @@
     <result column="MEM_ROLE" property="memRole" />
     <result column="JOIN_DATE" property="joinDate" />
   </resultMap>
+  <insert id="regMember">
+    INSERT INTO (
+      MEM_ID
+      , MEM_PW
+      , MEM_NAME
+      , MEM_TEL
+      , MEM_EMAIL
+      , MEM_ADDR
+      , ADDR_DETAIL
+    ) VALUES (
+      #{memId}
+      , #{memPw}
+      , #{memName}
+      , #{memTel}
+      , #{memEmail}
+      , #{memAddr}
+      , #{addrDetail}
+    )
+  </insert>
 </mapper>
 
 

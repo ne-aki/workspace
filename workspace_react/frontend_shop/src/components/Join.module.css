@@ -1,0 +1,8 @@
+.flex_div > div {
+  display: flex;
+  gap: 10px;
+}
+
+.container * {
+  margin: 5px 0px;
+}

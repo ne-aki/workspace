@@ -34,3 +34,8 @@
   font-size: 2.5rem;
   letter-spacing: 15px;
 }
+
+.login_div > span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
