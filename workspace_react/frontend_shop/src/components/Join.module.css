@@ -3,12 +3,18 @@
   gap: 10px;
 }
 
-.container * {
+.container > div {
+  margin: 20px 0px;
+}
+
+.container > div > * {
   margin: 5px 0px;
 }
+
+.container
 
 .error {
   color: red;
   font-size: 0.8rem;
-  margin-top: -7px;
+  margin-top: -3px;
 }

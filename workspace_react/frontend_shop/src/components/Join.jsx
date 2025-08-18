@@ -99,7 +99,7 @@ const Join = ({isOpenJoin, onClose}) => {
         //회원가입 버튼 활성화
         setIsDisAble(false)
       } else {
-        alert('이미 사용중인 아아디입니다.');
+        alert('이미 사용중인 ID입니다.');
       }
     })
     .catch(e => console.log(e));
@@ -130,6 +130,8 @@ const Join = ({isOpenJoin, onClose}) => {
           memAddr : '',
           addrDetail : ''
         });
+        setErrorMsg('');
+        setErrorPwMsg('');
       }}
     >
       <div className={styles.container}>
