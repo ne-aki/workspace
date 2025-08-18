@@ -15,8 +15,8 @@
     <result column="MEM_ROLE" property="memRole" />
     <result column="JOIN_DATE" property="joinDate" />
   </resultMap>
-  <insert id="regMember">
-    INSERT INTO (
+  <insert id="join">
+    INSERT INTO SHOP_MEMBER(
       MEM_ID
       , MEM_PW
       , MEM_NAME
@@ -28,14 +28,18 @@
       #{memId}
       , #{memPw}
       , #{memName}
-      , #{memTel}
+      , CONCAT(#{memTelArr[0]}, '-', #{memTelArr[1]}, '-', #{memTelArr[2]})
       , #{memEmail}
       , #{memAddr}
       , #{addrDetail}
     )
   </insert>
+  <select id="checkMemId" resultType="String">
+    SELECT MEM_ID
+    FROM SHOP_MEMBER
+    WHERE MEM_ID = #{memId}
+  </select>
 </mapper>
-
 
 
 

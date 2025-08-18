@@ -12,7 +12,16 @@ public class MemberService {
     this.memberMapper = memberMapper;
   }
 
-  public int regMember(MemberDTO memberDTO) {
-    return memberMapper.regMember(memberDTO);
+  //회원가입
+  public int join(MemberDTO memberDTO) {
+    return memberMapper.join(memberDTO);
+  }
+
+  //아이디 사용 가능 여부 확인
+  //사용가능 : RETURN TRUE
+  public boolean isUsableId(String memId) {
+    //조회된 데이터가 없으면 null -> 사용 가능한 id
+    String selectedId = memberMapper.checkMemId(memId);
+    return selectedId == null;
   }
 }

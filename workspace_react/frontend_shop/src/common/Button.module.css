@@ -33,3 +33,8 @@
   cursor: pointer;
   background-color: #146941;
 }
+
+.disabled{
+  opacity: 0.3;
+  cursor: default !important;
+}

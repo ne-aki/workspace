@@ -5,5 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface MemberMapper {
-  int regMember(MemberDTO memberDTO);
+  int join(MemberDTO memberDTO);
+  String checkMemId(String memId);
 }
