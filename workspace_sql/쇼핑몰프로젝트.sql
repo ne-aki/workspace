@@ -30,6 +30,7 @@ INSERT INTO book_category VALUES (2, '인터넷/IT');
 INSERT INTO book_category VALUES (3, '자기계발');
 COMMIT;
 
+#도서 테이블
 CREATE TABLE BOOK (
 	BOOK_NUM INT PRIMARY KEY AUTO_INCREMENT
 	, TITLE VARCHAR(20) NOT NULL
@@ -41,8 +42,11 @@ CREATE TABLE BOOK (
 );
 
 SELECT * FROM shop_member;
-DELETE FROM shop_member
+
+
 WHERE MEM_ID = '';
 
 SELECT * FROM book;
+
+SELECT * FROM book_category;
 

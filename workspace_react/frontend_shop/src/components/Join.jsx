@@ -47,7 +47,7 @@ const Join = ({isOpenJoin, onClose}) => {
                           e.target.value + joinData.secondEmail
                           :
                           joinData.firstEmail + e.target.value
-      })
+      });
     }
 
     //이메일을 제외한 다른 데이터를 변경했으면
