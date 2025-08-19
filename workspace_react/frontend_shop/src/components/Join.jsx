@@ -5,13 +5,18 @@ import Button from '../common/Button'
 import Select from '../common/Select'
 import axios from 'axios'
 import { useState } from 'react'
+import { handleErrorMsg } from '../validate/joinValidate'
+import { useDaumPostcodePopup } from 'react-daum-postcode'
 
 const Join = ({isOpenJoin, onClose}) => {
-  //아이디 유효성 검사 결과를 저장할 state 변수
-  const [errorMsg, setErrorMsg] = useState('');
+  //다음 주소록 팝업 생성 함수
+  const open = useDaumPostcodePopup('//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
 
-  //비밀번호 유효성 결과 메시지를 저장할 state 변수
-  const [errorPwMsg, setErrorPwMsg] = useState('');
+  //유효성 검사 결과 에러 메시지를 저장할 state 변수
+  const [errorMsg, setErrorMsg] = useState({
+    memId : '',
+    memPw : ''
+  });
 
   //회원가입 버튼 사용 가능 여부를 저장하는 state변수
   const [isDisable, setIsDisAble] = useState(true);
@@ -72,6 +77,11 @@ const Join = ({isOpenJoin, onClose}) => {
         memAddr : '',
         addrDetail : ''
       });
+      setErrorMsg({
+        memId : '',
+        memPw : '',
+        confirmPw : ''
+      })
     })
     .catch(e => console.log(e))
   }
@@ -81,7 +91,7 @@ const Join = ({isOpenJoin, onClose}) => {
 
   //연락처 변경 시 실행 함수
   const handlememTelArr = (e, index) => {{
-      joinData.memTelArr.splice(index, 1, e.target.value)
+      joinData.memTelArr.splice(index, 1, e.target.value);
       setJoinData({
         ...joinData,
         memTelArr : joinData.memTelArr
@@ -103,6 +113,17 @@ const Join = ({isOpenJoin, onClose}) => {
       }
     })
     .catch(e => console.log(e));
+  }
+
+  //주소록 띄우기 함수
+  const handlePost = () => {
+    open({ onComplete : (data) => {
+      //매개변수 data 안에 선택한 주소의 모든 정보가 객체형태로 들어있음
+      setJoinData({
+        ...joinData,
+        memAddr : data.address //도로명 주소
+      });
+    }})
   }
 
   return (
@@ -130,8 +151,11 @@ const Join = ({isOpenJoin, onClose}) => {
           memAddr : '',
           addrDetail : ''
         });
-        setErrorMsg('');
-        setErrorPwMsg('');
+        setErrorMsg({
+          memId : '',
+          memPw : '',
+          confirmPw : ''
+        });
       }}
     >
       <div className={styles.container}>
@@ -145,22 +169,11 @@ const Join = ({isOpenJoin, onClose}) => {
               onChange={e => {
                 handleJoinData(e);
                 setIsDisAble(true);
-
-                //유효성 검사
-                //아이디 유효성 검사(정규식 사용)
-
-                //4~8글자, 영문과 숫자만 가능
-                const memIdRegex = /^[A-Za-z0-9]{4,8}$/;
-                //if(e.target.value === '') {
-                if(!e.target.value) { //빈 문자열이면...
-                  setErrorMsg('아이디는 필수입력입니다.');
-                } else if(e.target.value.length < 4 || e.target.value.length > 8) {
-                  setErrorMsg('아이디를 4~8자로 입력해 주세요.');
-                } else if(!memIdRegex.test(e.target.value)) {
-                  setErrorMsg('아이디는 영문, 숫자만 가능합니다.');
-                } else {
-                  setErrorMsg('');
-                }
+                //유효성 결과 세팅
+                setErrorMsg({
+                  ...errorMsg,
+                  memId : handleErrorMsg(e)
+                });
               }}
             />
             <Button
@@ -170,7 +183,7 @@ const Join = ({isOpenJoin, onClose}) => {
               onClick={e => checkId()}
             />
           </div>
-          <p className={styles.error}>{errorMsg}</p>
+          <p className={styles.error}>{errorMsg.memId}</p>
         </div>
         <div className="">
           <p>비밀번호</p>
@@ -182,20 +195,14 @@ const Join = ({isOpenJoin, onClose}) => {
             onChange={e => {
               handleJoinData(e);
               
-              const memPwRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$/
-
-              if(!e.target.value) {
-                setErrorPwMsg('비밀번호는 필수입력 사항입니다.')
-              } else if(e.target.value.length < 6 || e.target.value.length > 12) {
-                setErrorPwMsg('비밀번호를 6~12자로 입력해 주세요.')
-              } else if(!memPwRegex.test(e.target.value)) {
-                setErrorPwMsg('비밀번호는 영문 + 숫자 조합으로 입력해 주세요.')
-              } else {
-                setErrorPwMsg('');
-              }
+              //유효성 검사
+              setErrorMsg({
+                ...errorMsg,
+                memPw : handleErrorMsg(e),
+              });
             }}
           />
-          <p className={styles.error}>{errorPwMsg}</p>
+          <p className={styles.error}>{errorMsg.memPw}</p>
         </div>
         <div className="">
           <p>비밀번호 확인</p>
@@ -204,8 +211,17 @@ const Join = ({isOpenJoin, onClose}) => {
             type='password'
             name='confirmPw'
             value={joinData.confirmPw}
-            onChange={e => handleJoinData(e)}
+            onChange={e => {
+              handleJoinData(e);
+
+              //유효성 검사
+              setErrorMsg({
+                ...errorMsg,
+                confirmPw : handleErrorMsg(e, joinData)
+              });
+            }}
           />
+          <p className={styles.error}>{errorMsg.confirmPw}</p>
         </div>
         <div className="">
           <p>회원명</p>
@@ -271,11 +287,17 @@ const Join = ({isOpenJoin, onClose}) => {
               name='memAddr'
               value={joinData.memAddr}
               onChange={e => handleJoinData(e)}
+              readOnly={true}
+              onClick={() => handlePost()}
             />
             <Button
               size='50%'
               title='검 색'
               color='green'
+              onClick={
+                //onComplete는 쓰는 이름이 정해져있음(무조건 onComplete로 씀)
+                () => handlePost()
+              }
             />
           </div>
           <p>
