@@ -26,7 +26,7 @@ function App() {
         {/* 관리자페이지는 AdminLayout이랑 함께 열린다. */}
         <Route path='/admin' element={<AdminLayout />}>
           {/* 도서 등록 페이지, url : /admin/reg-book */}
-          <Route path='reg-book' element={<RegBook2 />} />
+          <Route path='reg-book' element={<RegBook />} />
           {/* 카테고리 관리 페이지, url : /admin/cate-manage */}
           <Route path='cate-manage' element={<CategoryManage />} />
         </Route>

@@ -20,7 +20,7 @@ public class BookController {
   public int regBook(@RequestBody BookDTO bookDTO) {
     //중괄호에 변수가 들어옴
     //전달 받은 데이터가 a, b 두개면 log.info("내용 {} {}", a, b)
-    log.info("전달받은 데이터{}", bookDTO.toString());
+    log.info("전달받은 데이터{}", bookDTO);
     //log.info(bookDTO.toString());
     return bookService.regBook(bookDTO);
   }

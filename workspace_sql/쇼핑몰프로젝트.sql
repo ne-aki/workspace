@@ -41,6 +41,8 @@ CREATE TABLE BOOK (
 	, CATE_NUM INT REFERENCES book_category (CATE_NUM)
 );
 
+DELETE FROM book;
+
 SELECT * FROM shop_member;
 
 
