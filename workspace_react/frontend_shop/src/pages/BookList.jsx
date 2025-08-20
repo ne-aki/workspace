@@ -1,8 +1,42 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import PageTitle from '../common/PageTitle';
+import styles from './BookList.module.css'
+import { useNavigate } from 'react-router-dom';
 
 const BookList = () => {
+  const [bookList, setBookList] = useState([]);
+  const nav = useNavigate();
+
+  useEffect(() => {
+    axios.get('/api/books')
+    .then(res => {
+      //console.log(res.data);
+      setBookList(res.data);
+    })
+    .catch(e => console.log(e));
+  }, []);
   return (
-    <div>도서 목록 페이지입니다.</div>
+    <div className={styles.container}>
+      <PageTitle
+        title='도서 목록'
+      />
+      <div className={styles.list}>
+        {
+          bookList.map((book, i) => {
+            return(
+              <div key={i} onClick={() => nav(`/detail/${book.bookNum}`)}>
+                <div>
+                  <img src="./마인크래프트/마인_메인.jpg" className={styles.img_div} />
+                </div>
+                <p>{book.title}</p>
+                <p>{'￦' + book.price.toLocaleString()}</p>
+              </div>
+            )
+          })
+        }
+      </div>
+    </div>
   )
 }
 

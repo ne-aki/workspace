@@ -1,3 +1,4 @@
+
 export const handleRegBookErrorMsg = (e, priceRegex) => {
   let errorStr = '';
 
@@ -5,11 +6,7 @@ export const handleRegBookErrorMsg = (e, priceRegex) => {
 
   switch (e.target.name) {
     case 'cateNum' : 
-      if (e.target.value === '') {
-        errorStr = '카테고리를 선택해 주세요.';
-      } else {
-        errorStr = '';
-      }
+      e.target.value === '' ? errorStr = '가테고리를 선택해 주세요.' : errorStr = '';
       break;
     case 'title' :
       if (e.target.value === '') {

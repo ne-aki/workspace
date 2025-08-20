@@ -12,8 +12,9 @@
     <result column="REG_DATE" property="regDate" />
     <result column="BOOK_INTRO" property="bookIntro" />
     <result column="CATE_NUM" property="cateNum" />
-    <association property="BookCategoryDTO" resultMap="category" />
+<!--    <association property="BookCategoryDTO" resultMap="bookCategory" />-->
   </resultMap>
+  <!--도서 등록-->
   <insert id="regBook">
     INSERT INTO BOOK (
       CATE_NUM
@@ -29,6 +30,24 @@
       , #{bookIntro}
     )
   </insert>
+  <select id="getBookList" resultMap="book">
+    SELECT
+      BOOK_NUM
+      , TITLE
+      , PRICE
+    FROM BOOK
+    ORDER BY REG_DATE DESC
+  </select>
+  <select id="getBookDetail" resultMap="book">
+    SELECT
+      BOOK_NUM
+      , TITLE
+      , PUBLISHER
+      , PRICE
+      , BOOK_INTRO
+    FROM BOOK
+    WHERE BOOK_NUM = #{bookNum}
+  </select>
 </mapper>
 
 

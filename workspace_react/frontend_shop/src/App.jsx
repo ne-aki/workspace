@@ -5,6 +5,8 @@ import BookList from './pages/BookList'
 import AdminLayout from './layout/AdminLayout'
 import RegBook from './pages/RegBook'
 import CategoryManage from './pages/CategoryManage'
+import RegBook2 from './pages/RegBook2'
+import BookDetail from './pages/BookDetail'
 
 function App() {
   
@@ -17,11 +19,14 @@ function App() {
         <Route path='/' element={<UserLayout />}>
           {/* 도서 목록 페이지, url : /list */}
           <Route path='list' element={<BookList />} />
+          {/* 도서 상세 페이지, url : /detail */}
+          <Route path='detail/:bookNum' element={<BookDetail />} />
+          
         </Route>
         {/* 관리자페이지는 AdminLayout이랑 함께 열린다. */}
         <Route path='/admin' element={<AdminLayout />}>
           {/* 도서 등록 페이지, url : /admin/reg-book */}
-          <Route path='reg-book' element={<RegBook />} />
+          <Route path='reg-book' element={<RegBook2 />} />
           {/* 카테고리 관리 페이지, url : /admin/cate-manage */}
           <Route path='cate-manage' element={<CategoryManage />} />
         </Route>
