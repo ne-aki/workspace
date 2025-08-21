@@ -59,6 +59,7 @@
 .reply_list_div {
   width: 500px;
   margin: auto;
+  border-bottom: 1px solid darkgray;
 }
 
 .reply_writer_info {

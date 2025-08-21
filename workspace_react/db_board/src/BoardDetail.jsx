@@ -23,10 +23,10 @@ const BoardDetail = ({nav}) => {
   }, [nav])
 
   useEffect(() => {
-    axios.get('/api/replies')
+    axios.get(`/api/replies/${boardNum}`)
     .then(res => setReplyList(res.data))
     .catch(e => console.log(e));
-  }, [])
+  }, [regReply])
 
   //상세정보 조회 함수
   const getBoardDetail = () => {
@@ -68,7 +68,12 @@ const BoardDetail = ({nav}) => {
     }
     axios.post('/api/replies', regReply)
     .then(res => {
-      alert('댓글이 등록되었습니다.')
+      alert('댓글이 등록되었습니다.');
+      setRegReply({
+        writer : '',
+        content : '',
+        boardNum : boardNum
+      })
     })
     .catch(e => console.log(e))
   }
@@ -146,10 +151,11 @@ const BoardDetail = ({nav}) => {
           >댓글등록</button>
         </div>
         {/* 댓글 목록 div */}
+        <h3>댓글 {replyList.length}개</h3>
         {
           replyList.map((reply, i) => {
             return (
-              <div className={styles.reply_list_div}>
+              <div className={styles.reply_list_div} key={i}>
                 <div className={styles.reply_writer_info}>
                   <p>{reply.writer}</p>
                   <p>{dayjs(reply.regDate).format('YYYY.MM.DD')}</p>
@@ -158,7 +164,6 @@ const BoardDetail = ({nav}) => {
                   <p>{reply.content}</p>
                   <button type="button" className='bottom-btn'>삭제</button>
                 </div>
-                <hr />
               </div>
             )
           })

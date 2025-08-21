@@ -28,5 +28,15 @@ function f1() {
   return arr2[0] + arr2[1];
 }
 console.log(f1());
+const aaa = {
+  a : 'ds',
+  b : 'dm',
+  c : 'wklf'
+}
+
+const bbb = ['dk', 'sdk', 'ㅇ라']
+
+console.log(bbb.length);
+console.log(aaa.a);
 
 

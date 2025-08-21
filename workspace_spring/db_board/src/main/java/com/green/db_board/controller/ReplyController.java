@@ -15,9 +15,9 @@ public class ReplyController {
     this.replyService = replyService;
   }
 
-  @GetMapping("")
-  public List<ReplyDTO> getReplyList() {
-    return replyService.getReplyList();
+  @GetMapping("/{boardNum}")
+  public List<ReplyDTO> getReplyList(@PathVariable("boardNum") int boardNum) {
+    return replyService.getReplyList(boardNum);
   }
 
   @PostMapping("")

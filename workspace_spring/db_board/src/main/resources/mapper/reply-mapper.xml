@@ -10,7 +10,7 @@
     <result column="WRITER" property="writer" />
     <result column="REG_DATE" property="regDate" />
     <result column="BOARD_NUM" property="boardNum" />
-    <association property="boardDTO" resultMap="board" />
+<!--    <association property="boardDTO" resultMap="board" />-->
   </resultMap>
   <select id="getReplyList" resultMap="reply">
     SELECT
@@ -18,8 +18,10 @@
       , R.CONTENT
       , R.WRITER
       , REG_DATE
+      , R.BOARD_NUM
     FROM BOARD_REPLY R INNER JOIN BOARD B
     ON R.BOARD_NUM = B.BOARD_NUM
+    WHERE R.BOARD_NUM = #{boardNum}
     ORDER BY REG_DATE DESC
   </select>
   <insert id="regReply">
@@ -33,6 +35,11 @@
       , #{content}
     )
   </insert>
+  <!--댓글 개수 조회-->
+  <select id="getReplyCnt" resultType="int">
+    SELECT REPLY_NUM
+    FROM BOARD_REPLY
+  </select>
 </mapper>
 
 

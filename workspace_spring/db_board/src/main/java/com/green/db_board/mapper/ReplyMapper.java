@@ -7,6 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface ReplyMapper {
-  List<ReplyDTO> getReplyList();
+  List<ReplyDTO> getReplyList(int boardNum);
   int regReply(ReplyDTO replyDTO);
 }

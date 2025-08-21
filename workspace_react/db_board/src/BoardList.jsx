@@ -42,6 +42,7 @@ const BoardList = ({nav}) => {
             <td>작성자</td>
             <td>작성일</td>
             <td>조회수</td>
+            <td>댓글</td>
           </tr>
         </thead>
         <tbody>
@@ -67,6 +68,7 @@ const BoardList = ({nav}) => {
                   <td>{board.writer}</td>
                   <td>{dayjs(board.createDate).format('YYYY-MM-DD HH:mm:ss')}</td>
                   <td>{board.readCnt}</td>
+                  <td></td>
                 </tr>
               )
             })

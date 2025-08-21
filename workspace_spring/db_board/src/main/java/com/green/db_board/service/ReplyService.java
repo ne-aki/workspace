@@ -14,8 +14,8 @@ public class ReplyService {
     this.replyMapper = replyMapper;
   }
 
-  public List<ReplyDTO> getReplyList() {
-    return replyMapper.getReplyList();
+  public List<ReplyDTO> getReplyList(int boardNum) {
+    return replyMapper.getReplyList(boardNum);
   }
 
   public int regReply(ReplyDTO replyDTO) {
