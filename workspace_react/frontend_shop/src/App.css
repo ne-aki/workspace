@@ -58,5 +58,10 @@ table {
 	font-family: 'TheJamsil5Bold';
 }
 
+.error-msg {
+  color: red;
+  font-size: 0.8rem;
+}
+
 
 

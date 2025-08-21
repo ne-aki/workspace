@@ -10,4 +10,5 @@ public interface BookMapper {
   int regBook(BookDTO bookDTO);
   List<BookDTO> getBookList();
   BookDTO getBookDetail(int bookNum);
+
 }

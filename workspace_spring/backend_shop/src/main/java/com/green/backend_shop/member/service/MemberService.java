@@ -22,4 +22,8 @@ public class MemberService {
     String selectedId = memberMapper.checkMemId(memId);
     return selectedId == null;
   }
+
+  public MemberDTO login(MemberDTO memberDTO) {
+    return memberMapper.login(memberDTO);
+  }
 }

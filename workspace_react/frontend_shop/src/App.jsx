@@ -17,10 +17,10 @@ function App() {
         {/* 일반 사용자가 접근하는 페이지는 모두 UserLayout과 함께 열림 */}
         {/* UserLayout의 Outlet 위치에 우리가 원하는 컴포넌트가 뜬다. */}
         <Route path='/' element={<UserLayout />}>
-          {/* 도서 목록 페이지, url : /list */}
-          <Route path='list' element={<BookList />} />
+          {/* 도서 목록 페이지, url : / */}
+          <Route path='' element={<BookList />} />
           {/* 도서 상세 페이지, url : /detail */}
-          <Route path='detail/:bookNum' element={<BookDetail />} />
+          <Route path='book-detail/:bookNum' element={<BookDetail />} />
           
         </Route>
         {/* 관리자페이지는 AdminLayout이랑 함께 열린다. */}

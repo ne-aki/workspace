@@ -24,4 +24,13 @@ public class MemberController {
     //사용가능 : return true;
     return memberService.isUsableId(memId);
   }
+
+  //로그인 api
+  //get 방식은 주로 리액트에서 하나의 데이터가 넘어온다. -> 문제 없음
+  //get 방식 사용 중 종종 리액트에서 넘어오는 데이터가 여러개 있는 경우가 있다.
+  @GetMapping("/login")
+  public MemberDTO login(MemberDTO memberDTO) {
+    System.out.println(memberDTO);
+    return memberService.login(memberDTO);
+  }
 }

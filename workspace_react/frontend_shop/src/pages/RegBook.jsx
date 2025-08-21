@@ -5,6 +5,7 @@ import Input from '../common/Input'
 import Button from '../common/Button'
 import axios from 'axios'
 import { handleRegBookErrorMsg } from '../validate/regBookValidate'
+import PageTitle from '../common/PageTitle'
 
 const RegBook = () => {
   const num = '10000';
@@ -115,7 +116,7 @@ const RegBook = () => {
 
   return (
     <div className={styles.container}>
-      <h2>도서 등록</h2>
+      <PageTitle title='도서 등록' />
       <div className={styles.list}>
         <p>도서 카테고리</p>
         <Select

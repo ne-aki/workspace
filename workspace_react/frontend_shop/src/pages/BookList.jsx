@@ -18,24 +18,21 @@ const BookList = () => {
   }, []);
   return (
     <div className={styles.container}>
-      <PageTitle
-        title='도서 목록'
-      />
-      <div className={styles.list}>
-        {
-          bookList.map((book, i) => {
-            return(
-              <div key={i} onClick={() => nav(`/detail/${book.bookNum}`)}>
-                <div>
-                  <img src="./마인크래프트/마인_메인.jpg" className={styles.img_div} />
-                </div>
+      {
+        bookList.map((book, i) => {
+          return(
+            <div key={i} onClick={() => nav(`/book-detail/${book.bookNum}`)}>
+              <div className={styles.img_div}>
+                <img src="/마인크래프트/마인_메인.jpg" />
+              </div>
+              <div className={styles.info}>
                 <p>{book.title}</p>
                 <p>{'￦' + book.price.toLocaleString()}</p>
               </div>
-            )
-          })
-        }
-      </div>
+            </div>
+          )
+        })
+      }
     </div>
   )
 }
