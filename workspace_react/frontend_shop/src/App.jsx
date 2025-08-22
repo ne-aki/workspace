@@ -7,6 +7,7 @@ import RegBook from './pages/RegBook'
 import CategoryManage from './pages/CategoryManage'
 import RegBook2 from './pages/RegBook2'
 import BookDetail from './pages/BookDetail'
+import CartList from './pages/CartList'
 
 function App() {
   
@@ -21,6 +22,8 @@ function App() {
           <Route path='' element={<BookList />} />
           {/* 도서 상세 페이지, url : /detail */}
           <Route path='book-detail/:bookNum' element={<BookDetail />} />
+          {/* 장바구니 목록 페이지, url : /cart-list */}
+          <Route path='cart-list' element={<CartList />} />
           
         </Route>
         {/* 관리자페이지는 AdminLayout이랑 함께 열린다. */}

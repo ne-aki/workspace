@@ -51,6 +51,39 @@ CREATE TABLE SHOP_CART (
 	, CART_DATE DATETIME DEFAULT SYSDATE()
 );
 
+
+#서브쿼리
+INSERT INTO shop_cart (
+	BOOK_NUM
+	, CART_CNT
+	, MEM_ID
+	, TOTAL_PRICE
+) VALUES (
+	1
+	, 3
+	, 'dlrmsgud1'
+	, (SELECT PRICE
+		FROM book
+		WHERE BOOK_NUM = 5) * 3
+);
+
+#장바구니에 저장된 상품명, 가격, 수량, 총가격, 등록일
+SELECT
+	CART_NUM
+	, CART_CNT
+	, TOTAL_PRICE
+	, CART_DATE
+	, TITLE
+	, PRICE
+	, C.BOOK_NUM
+FROM shop_cart C
+INNER JOIN book B
+ON C.BOOK_NUM = B.BOOK_NUM
+WHERE MEM_ID = 'dlrmsgud1'
+ORDER BY CART_DATE DESC;
+
+SELECT * FROM book;
+
 DELETE FROM book;
 
 SELECT * FROM shop_member;
@@ -62,10 +95,11 @@ SELECT * FROM book;
 
 SELECT * FROM book_category;
 
+SELECT * FROM shop_cart;
+
 UPDATE shop_member
 SET
 	MEM_PW = '1111'
 	, MEM_ROLE = 'ADMIN'
 WHERE MEM_ID = 'admin';
 COMMIT;
-
