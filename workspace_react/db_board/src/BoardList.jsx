@@ -50,7 +50,7 @@ const BoardList = ({nav}) => {
             boardListInfo.length === 0
             ?
             <tr>
-              <td colSpan={5}>조회된 게시글이 없습니다.</td>
+              <td colSpan={6}>조회된 게시글이 없습니다.</td>
             </tr>
             :
             boardListInfo.map((board, i) => {
