@@ -6,6 +6,7 @@ import dayjs from 'dayjs';
 
 const BoardList = ({nav}) => {
   const [boardListInfo, setBoardListInfo] = useState([]);
+  const [selectSearch, setSelectSearch] = useState('');
 
   useEffect(() => {
     axios.get('/api/boards')
@@ -27,9 +28,9 @@ const BoardList = ({nav}) => {
     <div className={styles.board_list_container}>
       <h1>자유게시판</h1>
       <div className={styles.search_div}>
-        <select name="">
-          <option value="">제목</option>
-          <option value="">작성자</option>
+        <select value={selectSearch} onChange={e => setSelectSearch(e.target.value)}>
+          <option value="title">제목</option>
+          <option value="writer">작성자</option>
         </select>
         <input type="text" name="" />
         <button type="button">검색</button>
