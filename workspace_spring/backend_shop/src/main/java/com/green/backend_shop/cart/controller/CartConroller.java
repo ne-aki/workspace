@@ -16,9 +16,9 @@ public class CartConroller {
   private final CartService cartService;
 
   @PostMapping("")
-  public int insertCart(@RequestBody CartDTO cartDTO) {
+  public void insertCart(@RequestBody CartDTO cartDTO) {
     log.info(cartDTO.toString());
-    return cartService.insertCart(cartDTO);
+    cartService.addCart(cartDTO);
   }
 
   //장바구니 목록 조회 api

@@ -5,26 +5,40 @@ import Input from '../common/Input'
 import axios from 'axios'
 import styles from './CartList.module.css'
 import dayjs from 'dayjs'
+import { useNavigate } from 'react-router-dom'
 
 const CartList = () => {
-  const [cartList, setCartList] = useState([]);
+  const nav = useNavigate();
+  
+  //로그인한 회원 ID
   const loginInfo = sessionStorage.getItem('loginInfo');
-  const loginData = JSON.parse(loginInfo);
-  console.log(loginData.memId);
 
+  
+  
+
+  const [cartList, setCartList] = useState([]);
+  
   useEffect(() => {
-    axios.get(`/api/carts/${loginData.memId}`)
+    //장바구니 페이지를 들어왔는데, 만약 로그인 되어있지 않으면 강제로 상품 목록 페이지로 이동시키기
+    if(loginInfo === null) {
+      alert('접근 권한이 없습니다.');
+      nav('/');
+      return;
+    }
+    //JSON -> 객체 변환
+    const memId = JSON.parse(loginInfo).memId;
+    axios.get(`/api/carts/${memId}`)
     .then(res => {
       console.log(res.data);
       setCartList(res.data);
     })
     .catch(e => console.log(e))
-  }, []);
+  }, [loginInfo]);
 
   let total = 0;
 
   for(const e of cartList) {
-    total = total = e.totalPrice
+    total = total + e.totalPrice
   }
 
   return (
@@ -35,6 +49,16 @@ const CartList = () => {
         />
       </div>
       <table className={styles.cart_table}>
+        <colgroup>
+          <col width='3%' />
+          <col width='3%' />
+          <col width='*' />
+          <col width='10%' />
+          <col width='20%' />
+          <col width='10%' />
+          <col width='20%' />
+          <col width='7%' />
+        </colgroup>
         <thead>
           <tr>
             <td>
@@ -59,13 +83,17 @@ const CartList = () => {
                   </td>
                   <td>{cartList.length - i}</td>
                   <td>
-                    <div className={styles.img_div}><img src="/마인크래프트/마인_메인.jpg" alt="" /></div>
-                    {cart.bookDTO.title}
+                    <div className={styles.item_info}>
+                      <img src="/마인크래프트/마인_메인.jpg" alt="" />
+                      <p>{cart.bookDTO.title}</p>
+                    </div>
                   </td>
                   <td>{cart.bookDTO.price.toLocaleString()}</td>
                   <td>
-                    <Input value={cart.cartCnt} type='number' />
-                    <Button title='수량변경' color='green' />
+                    <div className={styles.cnt_div}>
+                      <Input value={cart.cartCnt} type='number' size='50%' />
+                      <Button title='수량변경' color='green' size='50%' />
+                    </div>
                   </td>
                   <td>{cart.totalPrice.toLocaleString()}</td>
                   <td>{dayjs(cart.cartDate).format('YYYY-MM-DD HH:mm')}</td>
@@ -80,7 +108,7 @@ const CartList = () => {
           }
         </tbody>
       </table>
-      <div>
+      <div className={styles.buy_div}>
         <div>
           <p>구매가격</p>
           <p>{total.toLocaleString()}</p>

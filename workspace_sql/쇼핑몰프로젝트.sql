@@ -41,6 +41,15 @@ CREATE TABLE BOOK (
 	, CATE_NUM INT REFERENCES book_category (CATE_NUM)
 );
 
+#도서 이미지 정보 테이블
+CREATE TABLE BOOK_IMG (
+	IMG_NUM INT PRIMARY KEY AUTO_INCREMENT
+	, ORIGIN_IMG_NAME VARCHAR(100) #원본 파일명
+	, ATTACHED_IMG_NAME VARCHAR(100) #첨부된 파일명
+	, BOOK_NUM INT REFERENCES book (BOOK_NUM) ON DELETE CASCADE #이미지의 원본 도서 번호
+	, IS_MAIN VARCHAR(3) #메인이미지 : 'Y', 서브이미지 : 'N'
+);
+
 #장바구니 테이블
 CREATE TABLE SHOP_CART (
 	CART_NUM INT PRIMARY KEY AUTO_INCREMENT
@@ -103,3 +112,31 @@ SET
 	, MEM_ROLE = 'ADMIN'
 WHERE MEM_ID = 'admin';
 COMMIT;
+
+UPDATE shop_cart
+SET
+	CART_CNT = CART_CNT + 2
+	, TOTAL_PRICE = (
+		SELECT PRICE
+		FROM book
+		WHERE BOOK_NUM = 1
+	) * CART_CNT
+WHERE MEM_ID = ''
+AND BOOK_NUM = 1;
+
+SELECT PRICE
+FROM book
+WHERE BOOK_NUM = 1;
+
+#숫자에는 NULL값이 못 들어옴
+SELECT MEM_ID
+FROM shop_cart
+WHERE BOOK_NUM = 18
+AND MEM_ID = 'dlrmsgud1';
+
+DELETE FROM shop_cart;
+COMMIT;
+
+#장바구니에 존재 여부 : 책번호, 회원아이디
+#INSERT : 책번호, 회원아이디, 수량
+#UPDATE : 책번호 , 회원아이디, 수량

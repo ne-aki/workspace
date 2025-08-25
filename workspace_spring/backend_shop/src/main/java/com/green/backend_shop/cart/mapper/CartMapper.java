@@ -7,10 +7,14 @@ import java.util.List;
 
 @Mapper
 public interface CartMapper {
-  int insertCart(CartDTO cartDTO);
+  void insertCart(CartDTO cartDTO);
 
   //장바구니 목록 조회
   List<CartDTO> getCartList(String memId);
+  //장바구니에 등록하려는 상품이 현재 등록되어 있는지 확인
+  String getCartNum(CartDTO cartDTO);
+  //장바구니 상품 수정
+  void updateCartCnt(CartDTO cartDTO);
   //장바구니 목록 하나 삭제
   int deleteCart(int cartNum);
 }

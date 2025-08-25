@@ -1,13 +1,22 @@
-.img_div {
+.item_info {
   width: 100px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-.img_div > img {
+.item_info > img {
   width: 100%;
 }
 
 .cart_table {
+  text-align: center;
   width: 100%;
+}
+
+.cart_table td {
+  padding: 6px;
+  vertical-align: middle;
 }
 
 .cart_table > thead {
@@ -32,3 +41,31 @@
   background-color: #d3e4fd;
 }
 
+.buy_div {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  margin: 20px 0px;
+}
+
+.buy_div > div {
+  display: flex;
+}
+
+.buy_div > div > p:first-child {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.buy_div > div p:last-child {
+  border-bottom: 1px solid #0d6efd;
+}
+
+.buy_div p {
+  padding: 15px;
+}
+
+.cnt_div {
+  display: flex;
+  gap: 8px;
+}

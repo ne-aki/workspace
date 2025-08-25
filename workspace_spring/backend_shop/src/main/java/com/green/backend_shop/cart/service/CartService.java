@@ -12,8 +12,22 @@ import java.util.List;
 public class CartService {
   private final CartMapper cartMapper;
 
-  public int insertCart(CartDTO cartDTO) {
-    return cartMapper.insertCart(cartDTO);
+  //장바구니 등록
+  //현재 장바구니에 등록할 도서에 존재하면 수량을 업데이트
+  //존재하지 않으면 등록
+  public void addCart(CartDTO cartDTO) {
+    //현재 성택한 상품이 장바구니에 있는지 확인
+    //장바구니에 담으려는 상품이 존재하지 않으면 result = null
+    String result = cartMapper.getCartNum(cartDTO);
+    //현재 내 장바구니에 없는 상품이면 장바구니에 등록
+    if (result == null) {
+      cartMapper.insertCart(cartDTO); //insert
+    }
+    //현재 내 장바구니에 있는 상품이면 장바구니의 수량을 업데이트
+    else {
+      cartMapper.updateCartCnt(cartDTO);
+    }
+    //System.out.println("result = " + result);
   }
 
   //장바구니 목록 조회
