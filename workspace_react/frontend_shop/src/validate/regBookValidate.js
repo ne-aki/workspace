@@ -39,6 +39,7 @@ export const handleRegBookErrorMsg = (e, priceRegex) => {
       if (e.target.value.length > 50) {
         errorStr = '50자 이내로 입력해 주세요.';
       }
+      break;
   }
 
   return errorStr;

@@ -35,7 +35,7 @@ const BookDetail = () => {
 
   //장바구니 등록 함수
   const addCart = () => {
-    //로그인 안 했으면
+    //로그인 안 했으면  
     if (sessionStorage.getItem('loginInfo') === null) {
       alert('장바구니는 로그인이 필요한 서비스입니다.');
       return;

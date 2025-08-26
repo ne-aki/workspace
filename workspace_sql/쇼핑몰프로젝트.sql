@@ -30,7 +30,7 @@ INSERT INTO book_category VALUES (2, '인터넷/IT');
 INSERT INTO book_category VALUES (3, '자기계발');
 COMMIT;
 
-#도서 테이블
+#도서 정보 테이블
 CREATE TABLE BOOK (
 	BOOK_NUM INT PRIMARY KEY AUTO_INCREMENT
 	, TITLE VARCHAR(20) NOT NULL
@@ -140,3 +140,30 @@ COMMIT;
 #장바구니에 존재 여부 : 책번호, 회원아이디
 #INSERT : 책번호, 회원아이디, 수량
 #UPDATE : 책번호 , 회원아이디, 수량
+
+#BOOK_IMG 테이블에 데이터 추가
+INSERT INTO book_img (ORIGIN_IMG_NAME, ATTACHED_IMG_NAME, BOOK_NUM, IS_MAIN)
+VALUES
+('abc.jpg', 'aaa-bbb.jpg', 1, 'Y'),
+('abc.jpg', 'aaa-bbb.jpg', 1, 'Y'),
+('abc.jpg', 'aaa-bbb.jpg', 1, 'Y');
+
+SELECT * FROM book_img;
+
+ROLLBACK;
+
+SELECT * FROM book;
+
+#다음에 들어간 BOOK_NUM을 조회 (최대 BOOK_NUM + 1)
+SELECT IFNULL(MAX(BOOK_NUM), 0) + 1
+FROM book;
+
+DELETE FROM book_img;
+DELETE FROM book;
+DELETE FROM shop_cart;
+COMMIT;
+SELECT * FROM book;
+SELECT * FROM book_img;
+DELETE FROM book
+WHERE book_num = 6;
+
