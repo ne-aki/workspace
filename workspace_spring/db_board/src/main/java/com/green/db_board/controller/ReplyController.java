@@ -24,4 +24,9 @@ public class ReplyController {
   public int regReply(@RequestBody ReplyDTO replyDTO) {
     return replyService.regReply(replyDTO);
   }
+
+  @DeleteMapping("/{replyNum}")
+  public int deleteReply(@PathVariable("replyNum") int replyNum) {
+    return replyService.deleteReply(replyNum);
+  }
 }

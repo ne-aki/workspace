@@ -20,13 +20,14 @@ const BoardDetail = ({nav}) => {
     .then(res => {getBoardDetail()})
     .catch(e => console.log(e));
     
-  }, [nav])
+  }, [nav]);
 
+  //댓글 목록 조회
   useEffect(() => {
     axios.get(`/api/replies/${boardNum}`)
     .then(res => setReplyList(res.data))
     .catch(e => console.log(e));
-  }, [regReply])
+  }, [regReply]);
 
   //상세정보 조회 함수
   const getBoardDetail = () => {
@@ -74,6 +75,19 @@ const BoardDetail = ({nav}) => {
         content : '',
         boardNum : boardNum
       })
+    })
+    .catch(e => console.log(e))
+  }
+
+  //댓글 삭제 버튼
+  const deleteReply = (replyNum) => {
+    const isDeleteReply = confirm('댓글을 삭제하시겠습니까?');
+    if (!isDeleteReply) {
+      return;
+    }
+    axios.delete(`/api/replies/${replyNum}`)
+    .then(res => {
+      alert('삭제되었습니다.');
     })
     .catch(e => console.log(e))
   }
@@ -162,7 +176,11 @@ const BoardDetail = ({nav}) => {
                 </div>
                 <div className={styles.reply_content_info}>
                   <p>{reply.content}</p>
-                  <button type="button" className='bottom-btn'>삭제</button>
+                  <button
+                    type="button"
+                    className='bottom-btn'
+                    onClick={e => deleteReply(reply.replyNum)}
+                  >삭제</button>
                 </div>
               </div>
             )

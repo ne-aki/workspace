@@ -21,4 +21,8 @@ public class ReplyService {
   public int regReply(ReplyDTO replyDTO) {
     return replyMapper.regReply(replyDTO);
   }
+
+  public int deleteReply(int replyNum) {
+    return replyMapper.deleteReply(replyNum);
+  }
 }

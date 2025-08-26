@@ -9,4 +9,5 @@ import java.util.List;
 public interface ReplyMapper {
   List<ReplyDTO> getReplyList(int boardNum);
   int regReply(ReplyDTO replyDTO);
+  int deleteReply(int replyNum);
 }

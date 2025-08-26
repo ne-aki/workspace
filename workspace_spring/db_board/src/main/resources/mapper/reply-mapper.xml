@@ -40,6 +40,10 @@
     SELECT REPLY_NUM
     FROM BOARD_REPLY
   </select>
+  <delete id="deleteReply">
+    DELETE FROM BOARD_REPLY
+    WHERE REPLY_NUM = #{replyNum}
+  </delete>
 </mapper>
 
 
