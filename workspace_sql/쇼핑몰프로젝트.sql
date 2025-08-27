@@ -199,3 +199,4 @@ FROM book_img
 WHERE BOOK_NUM = 1
 AND IS_MAIN = 'N';
 
+SELECT * FROM shop_member;
