@@ -15,7 +15,7 @@ public class FileUploadUtil {
   public static BookImgDTO fileUpload (MultipartFile img) {
     // 1) 파일 업로드 경로 지정
     //자바에서 특수문자를 문자 취급 하려면 "\+특수기호"로 넣어야 함
-    String uploadPath = "D:\\01-STUDY\\dev\\workspace\\workspace_spring\\backend_shop\\src\\main\\resources\\upload\\";
+    String uploadPath = "D:\\01-STUDY\\dev\\workspace\\workspace_spring\\backend_shop\\src\\main\\resources\\static\\upload\\";
     // 2) 파일명 중복 방지를 위해 업로드 파일명을 세팅
     // ex> 원본 파일명 : java.jpg -> sdlfajsdlfjaw.jpg
     // ex> 원본 파일명 : java.txt -> sdfwgdfhdhtj.txt

@@ -69,4 +69,7 @@ public class BookController {
           @PathVariable("bookNum") int bookNum) {
     return bookService.getBookDetail(bookNum);
   }
+
+
+
 }
