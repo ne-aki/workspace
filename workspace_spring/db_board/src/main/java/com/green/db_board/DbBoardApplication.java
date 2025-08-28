@@ -1,3 +1,4 @@
+//한거 없음
 package com.green.db_board;
 
 import org.springframework.boot.SpringApplication;

@@ -1,3 +1,4 @@
+#한거 없음
 #게시판 프로젝트 테이블
 CREATE TABLE board (
 	BOARD_NUM INT PRIMARY KEY AUTO_INCREMENT
