@@ -66,7 +66,8 @@ public class BookController {
 
   @GetMapping("/{bookNum}")
   public BookDTO getBookDetail(
-          @PathVariable("bookNum") int bookNum) {
+          @PathVariable("bookNum") int bookNum
+  ) {
     return bookService.getBookDetail(bookNum);
   }
 

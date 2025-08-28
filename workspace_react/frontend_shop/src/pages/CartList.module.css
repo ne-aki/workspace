@@ -1,17 +1,22 @@
 .item_info {
-  width: 100px;
+  width: 100%;
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.item_info > img {
+.img_div {
+  width: 100px;
+}
+
+.img_div > img {
   width: 100%;
 }
 
 .cart_table {
   text-align: center;
   width: 100%;
+  font-size: 0.8rem;
 }
 
 .cart_table td {

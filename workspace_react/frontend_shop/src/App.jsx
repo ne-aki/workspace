@@ -8,6 +8,8 @@ import CategoryManage from './pages/CategoryManage'
 import RegBook2 from './pages/RegBook2'
 import BookDetail from './pages/BookDetail'
 import CartList from './pages/CartList'
+import PersonalLayout from './layout/PersonalLayout'
+import Checkbox from './components/Checkbox'
 
 function App() {
   
@@ -22,9 +24,13 @@ function App() {
           <Route path='' element={<BookList />} />
           {/* 도서 상세 페이지, url : /detail */}
           <Route path='book-detail/:bookNum' element={<BookDetail />} />
-          {/* 장바구니 목록 페이지, url : /cart-list */}
-          <Route path='cart-list' element={<CartList />} />
-          
+          {/* 체크박스 예제 컴포넌트 */}
+          <Route path='chk' element={ <Checkbox /> } />
+        </Route>
+        {/* 마이페이지 layout */}
+        <Route path='/user' element={<PersonalLayout />}>
+          {/* 장바구니 목록 */}
+          <Route path='cart-list' element={ <CartList /> } />
         </Route>
         {/* 관리자페이지는 AdminLayout이랑 함께 열린다. */}
         <Route path='/admin' element={<AdminLayout />}>

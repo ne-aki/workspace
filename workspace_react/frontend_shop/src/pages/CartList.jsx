@@ -17,6 +17,12 @@ const CartList = () => {
   
 
   const [cartList, setCartList] = useState([]);
+
+  //선택한 체크박스 밗을 저장할 state 변수
+  //모든 체크박스가 선택한 채로 화면이 나오려면 조회한 모든 cartNum이 초기값으로 세팅되어야 함
+  const [checkData, setCheckData] = useState([]);
+
+  console.log(checkData);
   
   useEffect(() => {
     //장바구니 페이지를 들어왔는데, 만약 로그인 되어있지 않으면 강제로 상품 목록 페이지로 이동시키기
@@ -31,6 +37,13 @@ const CartList = () => {
     .then(res => {
       console.log(res.data);
       setCartList(res.data);
+
+      //체크박스 초기값 세팅
+      const arr = [];
+      for (const e of res.data) {
+        arr.push(e.cartNum);
+      }
+      setCheckData(arr)
     })
     .catch(e => console.log(e))
   }, [loginInfo]);
@@ -39,6 +52,20 @@ const CartList = () => {
 
   for(const e of cartList) {
     total = total + e.totalPrice
+  }
+
+  //체크박스 값 변경 시 실행 함수
+  const handleCheckbox = (e) => {
+    //체크가 됐다면...
+    //cartNum을 숫자로 변환해서 저장  parseInt(문자열)
+    if (e.target.checked) {
+      setCheckData([...checkData, parseInt(e.target.value)]);
+    }
+    //체크가 해제 됐다면...
+    else {
+      const result = checkData.filter((cartNum) => {return cartNum != e.target.value});
+      setCheckData(result);
+    }
   }
 
   return (
@@ -56,13 +83,13 @@ const CartList = () => {
           <col width='10%' />
           <col width='20%' />
           <col width='10%' />
-          <col width='20%' />
+          <col width='12%' />
           <col width='7%' />
         </colgroup>
         <thead>
           <tr>
             <td>
-              {/* <input type="checkbox" checked={true} onChange={''} /> */}
+              <input type="checkbox" checked={''} onChange={''} />
             </td>
             <td>No</td>
             <td>도서정보</td>
@@ -79,12 +106,19 @@ const CartList = () => {
               return(
                 <tr key={i}>
                   <td>
-                    {/* <input type="checkbox" checked={true} onChange={''} /> */}
+                    <input
+                      type="checkbox"
+                      checked={checkData.includes(cart.cartNum)}
+                      value={cart.cartNum}
+                      onChange={e => handleCheckbox(e)}
+                    />
                   </td>
                   <td>{cartList.length - i}</td>
                   <td>
                     <div className={styles.item_info}>
-                      <img src="/마인크래프트/마인_메인.jpg" alt="" />
+                      <div className={styles.img_div}>
+                        <img src={`http://localhost:8080/upload/${cart.bookDTO.imgList[0].attachedImgName}`} />
+                      </div>
                       <p>{cart.bookDTO.title}</p>
                     </div>
                   </td>
@@ -92,13 +126,13 @@ const CartList = () => {
                   <td>
                     <div className={styles.cnt_div}>
                       <Input value={cart.cartCnt} type='number' size='50%' />
-                      <Button title='수량변경' color='green' size='50%' />
+                      <Button title='변경' color='green' size='50%' />
                     </div>
                   </td>
                   <td>{cart.totalPrice.toLocaleString()}</td>
                   <td>{dayjs(cart.cartDate).format('YYYY-MM-DD HH:mm')}</td>
                   <td>
-                    <Button title='삭제' color='gray'
+                    <Button title='삭제' color='gray' size='100%'
                       onClick={e => deleteCart()}
                     />
                   </td>

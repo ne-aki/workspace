@@ -52,17 +52,21 @@
   <!--장바구니 목록 조회-->
   <select id="getCartList" resultMap="cart">
     SELECT
-      CART_NUM
+    CART_NUM
       , CART_CNT
       , TOTAL_PRICE
       , CART_DATE
       , TITLE
       , PRICE
       , C.BOOK_NUM
+      , ATTACHED_IMG_NAME
     FROM shop_cart C
     INNER JOIN book B
     ON C.BOOK_NUM = B.BOOK_NUM
+    INNER JOIN book_img I
+    ON I.BOOK_NUM = C.BOOK_NUM
     WHERE MEM_ID = #{memId}
+    AND IS_MAIN = 'Y'
     ORDER BY CART_DATE DESC
   </select>
   <delete id="deleteCart">

@@ -12,6 +12,8 @@ const BookDetail = () => {
 
   const [cnt, setCnt] = useState(1);
 
+  const [isMain, setIsMain] = useState('')
+
   const {bookNum} = useParams();
 
   const loginInfo = sessionStorage.getItem('loginInfo');
@@ -21,13 +23,13 @@ const BookDetail = () => {
   const totalPrice = bookDetail.price && '￦' + (bookDetail.price * cnt).toLocaleString();
 
   
-  //console.log(bookNum);
+  // console.log(bookNum);
   
 
   useEffect(() => {
-    axios.get(`/api/books/${bookNum}`)
+    axios.get(`/api/books/${bookNum}`, {params:{bookNum:bookNum, isMain:isMain}})
     .then(res => {
-      //console.log(res.data);
+      console.log(res.data);
       setBookDetail(res.data);
     })
     .catch(e => console.log(e));
@@ -49,7 +51,7 @@ const BookDetail = () => {
       const result = confirm('장바구니에 상품을 담았습니다.\n 장바구니 페이지로 이동할까요?');
       if (result) {
         //장바구니 페이지로 이동
-        nav('/cart-list');
+        nav('/user/cart-list');
       }
     })
     .catch(e => console.log(e));
@@ -57,12 +59,23 @@ const BookDetail = () => {
 
   // console.log(cnt);
   // console.log(bookDetail);
+  console.log(bookDetail.imgList);
 
   return (
     <div className={styles.container}>
       <div className={styles.main_info}>
         <div className={styles.main_img_div}>
-          <img src="/마인크래프트/마인_메인.jpg" alt="ㅁ" />
+          {
+            bookDetail.imgList &&
+            bookDetail.imgList.map((img, i) => {
+              if (img.isMain === 'Y') {
+                return (
+                  <img src={`http://localhost:8080/upload/${img.attachedImgName}`} key={i} />
+                )
+              }
+            })
+          }
+          
         </div>
         <div className={styles.content}>
           <table className={styles.content_table}>
@@ -124,7 +137,16 @@ const BookDetail = () => {
         <p>{bookDetail.bookIntro}</p>
       </div>
       <div className={styles.detail_img_div}>
-        <img src="/마인크래프트/마인_상세1.jpg" alt="d" />
+        {
+          bookDetail.imgList &&
+          bookDetail.imgList.map((img, i) => {
+            if (img.isMain === 'N') {
+              return (
+                <img src={`http://localhost:8080/upload/${img.attachedImgName}`} key={i} />
+              )
+            }
+          })
+        }
       </div>
     </div>
   )
