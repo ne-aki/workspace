@@ -32,4 +32,11 @@ public class CartConroller {
   public int deleteCart(@PathVariable("cartNum") int cartNum) {
     return cartService.deleteCart(cartNum);
   }
+
+  @PutMapping("")
+  public int updateCnt(
+          @RequestBody CartDTO cartDTO
+  ) {
+    return cartService.updateCart(cartDTO);
+  }
 }

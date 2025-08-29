@@ -39,4 +39,9 @@ public class CartService {
   public int deleteCart(int cartNum) {
     return cartMapper.deleteCart(cartNum);
   }
+
+  //장바구니 상품 수량 변경
+  public int updateCart(CartDTO cartDTO) {
+    return cartMapper.updateCart(cartDTO);
+  }
 }
