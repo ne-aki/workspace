@@ -5,6 +5,7 @@ import com.green.backend_shop.book.dto.BookImgDTO;
 import com.green.backend_shop.book.mapper.BookMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ import java.util.List;
 public class BookService {
   private final BookMapper bookMapper;
 
+  //도서등록
+  @Transactional(rollbackFor = Exception.class)
   public void regBook(BookDTO bookDTO, List<BookImgDTO> bookImgList) {
     //BOOK, BOOK_IMG 테이블의 INSERT를 위해 가져온 두 데이터 (bookDTO, bookImgList에는 현재 bookNum이 없는 상태이다.
     //그래서 쿼리 실행 전 bookDTO, bookImgList 두 변수에 bookNum 데이터를 추가해야 한다.

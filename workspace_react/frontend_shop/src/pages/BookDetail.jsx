@@ -16,9 +16,7 @@ const BookDetail = () => {
 
   const {bookNum} = useParams();
 
-  const loginInfo = sessionStorage.getItem('loginInfo');
-
-  const result = JSON.parse(loginInfo);
+  
 
   const totalPrice = bookDetail.price && '￦' + (bookDetail.price * cnt).toLocaleString();
 
@@ -37,6 +35,9 @@ const BookDetail = () => {
 
   //장바구니 등록 함수
   const addCart = () => {
+    const loginInfo = sessionStorage.getItem('loginInfo');
+
+    const result = JSON.parse(loginInfo);
     //로그인 안 했으면  
     if (sessionStorage.getItem('loginInfo') === null) {
       alert('장바구니는 로그인이 필요한 서비스입니다.');
@@ -53,6 +54,27 @@ const BookDetail = () => {
         //장바구니 페이지로 이동
         nav('/user/cart-list');
       }
+    })
+    .catch(e => console.log(e));
+  }
+
+  //구매 버튼
+  const buyBook = () => {
+    const loginInfo = sessionStorage.getItem('loginInfo');
+
+    const result = JSON.parse(loginInfo);
+    //로그인 안 했으면  
+    if (sessionStorage.getItem('loginInfo') === null) {
+      alert('로그인 해 주세요.');
+      return;
+    }
+    axios.post('/api/buys', {
+      bookNum : bookNum,
+      memId : result.memId,
+      buyCnt : cnt
+    })
+    .then(res => {
+      alert('구매 성공')
     })
     .catch(e => console.log(e));
   }
@@ -129,6 +151,7 @@ const BookDetail = () => {
             <Button
               title='구매하기'
               size='50%'
+              onClick={e => buyBook()}
             />
           </div>
         </div>

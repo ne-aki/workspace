@@ -47,7 +47,8 @@ const CartList = () => {
   //조회한 장바구니 목록 전체 가격의 합을 저장할 변수
   let price = useRef(0); //price = {current : 0}
 
-  console.log(checkData);
+  //쉼표로 출력하면 출력데이터마다 공백으로 구분
+  console.log('checkData', checkData);
   
   useEffect(() => {
     //장바구니 페이지를 들어왔는데, 만약 로그인 되어있지 않으면 강제로 상품 목록 페이지로 이동시키기
@@ -142,6 +143,24 @@ const CartList = () => {
       'cartNum' : cartNum
     })
     .then(res => setReload(reload + 1))
+    .catch(e => console.log(e));
+  }
+
+  //선택 구매
+  const buyAll = () => {
+    //sessionStorage에 저장된 로그인 정보
+    const loginInfo = sessionStorage.getItem('loginInfo')
+    //로그인 정보에서 memId만 추출
+    const memId = JSON.parse(loginInfo).memId
+    axios.post('/api/buys/all', {
+      memId : memId,
+      cartNumList : checkData
+    })
+    .then(res => {
+      alert('선택한 도서를 구매했습니다.');
+      //reload값이 변경되면 장바구니 목록 조회 기능이 있는 useEffect가 재실행된다.
+      setReload(reload + 1);
+    })
     .catch(e => console.log(e));
   }
 
@@ -273,6 +292,7 @@ const CartList = () => {
         </div>
         <Button
           title='선택 구매'
+          onClick={e => buyAll()}
         />
       </div>
     </div>

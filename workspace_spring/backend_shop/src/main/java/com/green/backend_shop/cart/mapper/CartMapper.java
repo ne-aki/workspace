@@ -1,5 +1,6 @@
 package com.green.backend_shop.cart.mapper;
 
+import com.green.backend_shop.buy.dto.BuyDTO;
 import com.green.backend_shop.cart.dto.CartDTO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -19,4 +20,6 @@ public interface CartMapper {
   int deleteCart(int cartNum);
   //장바구니 수량 변경
   int updateCart(CartDTO cartDTO);
+  //장바구니 삭제(장바구니 목록페이지)
+  int deleteCartAll(BuyDTO buyDTO);
 }
