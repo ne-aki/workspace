@@ -2,12 +2,14 @@ package com.green.db_board.controller;
 
 import com.green.db_board.dto.BoardDTO;
 import com.green.db_board.service.BoardService;
+import lombok.extern.log4j.Log4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/boards")
+@Log4j
 public class BoardController {
   private BoardService boardService;
   public BoardController(BoardService boardService) {
