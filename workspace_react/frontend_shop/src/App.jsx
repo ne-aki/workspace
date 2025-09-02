@@ -10,6 +10,8 @@ import BookDetail from './pages/BookDetail'
 import CartList from './pages/CartList'
 import PersonalLayout from './layout/PersonalLayout'
 import Checkbox from './components/Checkbox'
+import BuyListForUser from './pages/BuyListForUser'
+import BuyList from './pages/BuyList'
 
 function App() {
   
@@ -31,6 +33,8 @@ function App() {
         <Route path='/user' element={<PersonalLayout />}>
           {/* 장바구니 목록 */}
           <Route path='cart-list' element={ <CartList /> } />
+          {/* 구매 내역 */}
+          <Route path='buy-list' element={ <BuyListForUser /> } />
         </Route>
         {/* 관리자페이지는 AdminLayout이랑 함께 열린다. */}
         <Route path='/admin' element={<AdminLayout />}>
@@ -38,6 +42,8 @@ function App() {
           <Route path='reg-book' element={<RegBook />} />
           {/* 카테고리 관리 페이지, url : /admin/cate-manage */}
           <Route path='cate-manage' element={<CategoryManage />} />
+          {/* 구매이력 조회 페이지 */}
+          <Route path='buy-list' element={ <BuyList /> } />
         </Route>
       </Routes>
     </>

@@ -1,6 +1,13 @@
 import React from 'react'
 import styles from './SideMenu.module.css'
-import { useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+
+//NavLink
+//현재 url과 링크의 경로가 일치할 때 자동으로 active 클래스를 추가.
+//이를 이용해서 현재 어느 페이지에 있는지 시각적인 디자인 요소를 추가할 수 있음
+//NavLink 컴포넌트의 className 속성에는 화살표 함수를 작성할 수 있고,
+//이 함수의 매개변수에는 객체가 하나 전달됨.
+//매개변수로 전달되는 객체의 isActive 키는 현재 접속한 url과 NavLink 컴포넌트의 to 속성에 작성한 url이 일치하면 true를 리턴한다.
 
 const SideMenu = () => {
   //useLocation hook은 현재 url의 정보를 객체로 리턴한다.
@@ -27,9 +34,13 @@ const SideMenu = () => {
             마이페이지
           </p>
           <ul className={styles.side_menu}>
-            <li className={styles.active}>장바구니</li>
-            <li>구매 내역</li>
-            <li>내 정보 관리</li>
+            <li className={styles.menu_li}>
+              <NavLink to={'/user/cart-list'} className={({isActive}) => isActive ? styles.active : undefined}>장바구니</NavLink>
+            </li>
+            <li className={styles.menu_li}>
+              <NavLink to={'/user/buy-list'} className={({isActive}) => isActive ? styles.active : undefined}>구매 내역</NavLink>
+            </li>
+            <li className={styles.menu_li}>내 정보 관리</li>
           </ul>
         </div>
         :
@@ -42,9 +53,13 @@ const SideMenu = () => {
           상품관리
         </p>
         <ul className={styles.side_menu}>
-          <li>카테고리관리</li>
-          <li className={styles.active}>도서등록</li>
-          <li>도서관리</li>
+          <li className={styles.menu_li}>
+            <NavLink to={'/admin/cate-manage'} className={({isActive}) => isActive ? styles.active : undefined}>카테고리관리</NavLink>
+          </li>
+          <li className={styles.menu_li}>
+            <NavLink to={'/admin/reg-book'} className={({isActive}) => isActive ? styles.active : undefined}>도서등록</NavLink>
+          </li>
+          <li className={styles.menu_li}>도서관리</li>
         </ul>
       </div>
       <div className={styles.menu_category}>
@@ -55,9 +70,9 @@ const SideMenu = () => {
           고객관리
         </p>
         <ul className={styles.side_menu}>
-          <li>고객정보관리</li>
-          <li>고객정보변경</li>
-          <li>게시판관리</li>
+          <li className={styles.menu_li}>고객정보관리</li>
+          <li className={styles.menu_li}>고객정보변경</li>
+          <li className={styles.menu_li}>게시판관리</li>
         </ul>
       </div>
       <div className={styles.menu_category}>
@@ -68,9 +83,11 @@ const SideMenu = () => {
           매출관리
         </p>
         <ul className={styles.side_menu}>
-          <li>월별매출관리</li>
-          <li>주간매출관리</li>
-          <li>연간매출관리</li>
+          <li className={styles.menu_li}>
+            <NavLink to={'/admin/buy-list'} className={({isActive}) => isActive ? styles.active : undefined}>구매이력조회</NavLink>
+          </li>
+          <li className={styles.menu_li}>주간매출관리</li>
+          <li className={styles.menu_li}>연간매출관리</li>
         </ul>
       </div>
         </>

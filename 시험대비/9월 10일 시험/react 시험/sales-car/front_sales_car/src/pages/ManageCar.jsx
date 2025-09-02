@@ -26,6 +26,11 @@ const ManageCar = () => {
     axios.post('/api/cars', regCar)
     .then(res => {
       alert('등록성공');
+      setRegCar({
+        manufacturer : '',
+        modelName : '',
+        price : ''
+      })
     })
     .catch(e => console.log(e));
   }
@@ -38,9 +43,10 @@ const ManageCar = () => {
       setCarList(res.data);
     })
     .catch(e => console.log(e));
-  }, []);
+  }, [regCar]);
 
-  //console.log(regCar);
+  // console.log(regCar);
+  // console.log(carList);
 
   return (
     <div>
