@@ -21,4 +21,9 @@ public class CarService {
   public List<CarDTO> getCarList() {
     return carMapper.getCarList();
   }
+
+  //모델명 조회
+  public List<CarDTO> getModelName() {
+    return carMapper.getModelName();
+  }
 }

@@ -11,4 +11,6 @@ public interface CarMapper {
   public void regCar(CarDTO carDTO);
   //차량 목록 조회
   public List<CarDTO> getCarList();
+  //모델명 조회
+  public List<CarDTO> getModelName();
 }

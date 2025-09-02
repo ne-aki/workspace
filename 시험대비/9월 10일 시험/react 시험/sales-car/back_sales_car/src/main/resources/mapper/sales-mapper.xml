@@ -5,7 +5,27 @@
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
 <mapper namespace="com.green.back_sales_car.sales.mapper.SalesMapper">
 	<resultMap id="sale" type="com.green.back_sales_car.sales.dto.SalesDTO">
+    <id column="SALES_NUM" property="salesNum" />
+    <result column="BUYER_NAME" property="buyerName" />
+    <result column="BUYER_TEL" property="buyerTel" />
+    <result column="COLOR" property="color" />
+    <result column="SALE_DATE" property="saleDate" />
+    <result column="MODEL_NUM" property="modelNum" />
   </resultMap>
+  <!--판매정보를 등록하는 쿼리-->
+  <insert id="regSalesInfo">
+    INSERT INTO SALES_INFO (
+      BUYER_NAME
+      , COLOR
+      , MODEL_NUM
+      , BUYER_TEL
+    ) VALUES (
+      #{buyerName}
+      , #{color}
+      , #{modelNum}
+      , #{buyerTel}
+    )
+  </insert>
 </mapper>
 
 

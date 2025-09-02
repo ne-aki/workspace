@@ -31,6 +31,13 @@
     FROM CAR_INFO
     ORDER BY MODEL_NUM DESC
   </select>
+  <!--모델명 조회 쿼리-->
+  <select id="getModelName" resultMap="car">
+    SELECT
+      MODEL_NUM
+      , MODEL_NAME
+    FROM CAR_INFO
+  </select>
 </mapper>
 
 

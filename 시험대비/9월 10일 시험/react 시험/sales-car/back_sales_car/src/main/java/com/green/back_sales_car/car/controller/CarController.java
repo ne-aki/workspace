@@ -27,4 +27,10 @@ public class CarController {
   public List<CarDTO> getCarList() {
     return carService.getCarList();
   }
+
+  //모델명 조회 api
+  @GetMapping("/get-model")
+  public List<CarDTO> getModelName() {
+    return carService.getModelName();
+  }
 }
