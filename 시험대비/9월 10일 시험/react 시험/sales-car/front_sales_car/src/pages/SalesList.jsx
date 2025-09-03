@@ -3,7 +3,7 @@ import styles from './SalesList.module.css'
 
 const SalesList = () => {
   return (
-    <div>SalesList</div>
+    <div>판매 목록</div>
   )
 }
 
