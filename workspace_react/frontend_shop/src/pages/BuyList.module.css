@@ -1,0 +1,45 @@
+.search_list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buy_list > table {
+  width: 100%;
+  text-align: center;
+}
+
+.buy_list > table td {
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+
+.search_list {
+  margin: 30px 0px;
+}
+
+.search_list input {
+  margin: 0px 5px;
+}
+
+.buy_list > p {
+  margin-bottom: 10px;
+}
+
+/* .buy_list > table td:first-child {
+  background-color: red;
+}
+.buy_list > table td:nth-child(2) {
+  background-color: orange;
+}
+.buy_list > table td:nth-child(3) {
+  background-color: yellow;
+}
+.buy_list > table td:nth-child(4) {
+  background-color: green;
+}
+.buy_list > table td:nth-child(5) {
+  background-color: blue;
+}
+.buy_list > table td:last-child {
+  background-color: purple;
+} */
