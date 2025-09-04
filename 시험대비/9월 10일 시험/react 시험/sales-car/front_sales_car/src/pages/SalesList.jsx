@@ -10,16 +10,51 @@ const SalesList = () => {
   useEffect(() => {
     axios.get('/api/sales-cars')
     .then(res => {
-      console.log(res.data);
+      //console.log(res.data);
       setSalesList(res.data);
     })
     .catch(e => console.log(e))
   }, []);
 
-  console.log(salesList)
+  //console.log(salesList);
 
   return (
-    <div>판매 목록</div>
+    <div>
+      <table border={1}>
+        <thead>
+          <tr>
+            <td rowSpan={2}>No</td>
+            <td colSpan={4}>구매자 정보</td>
+            <td colSpan={2}>차량정보</td>
+          </tr>
+          <tr>
+            <td>구매자명</td>
+            <td>연락처</td>
+            <td>구매일</td>
+            <td>색상</td>
+            <td>모델명</td>
+            <td>가격</td>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            salesList.map((salesInfo, i) => {
+              return (
+                <tr key={i}>
+                  <td>{salesList.length - i}</td>
+                  <td>{salesInfo.buyerName}</td>
+                  <td>{salesInfo.buyerTel}</td>
+                  <td>{salesInfo.saleDate}</td>
+                  <td>{salesInfo.color}</td>
+                  <td>{salesInfo.carDTO.modelName}</td>
+                  <td>{salesInfo.carDTO.price}</td>
+                </tr>
+              )
+            })
+          }
+        </tbody>
+      </table>
+    </div>
   )
 }
 

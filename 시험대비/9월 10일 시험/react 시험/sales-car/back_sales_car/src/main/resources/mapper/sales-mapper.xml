@@ -11,6 +11,7 @@
     <result column="COLOR" property="color" />
     <result column="SALE_DATE" property="saleDate" />
     <result column="MODEL_NUM" property="modelNum" />
+    <association property="carDTO" resultMap="com.green.back_sales_car.car.mapper.CarMapper.car" />
   </resultMap>
   <!--판매정보를 등록하는 쿼리-->
   <insert id="regSalesInfo">

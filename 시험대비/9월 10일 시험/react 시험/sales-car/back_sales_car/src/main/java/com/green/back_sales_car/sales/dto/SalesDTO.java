@@ -1,5 +1,6 @@
 package com.green.back_sales_car.sales.dto;
 
+import com.green.back_sales_car.car.dto.CarDTO;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -12,4 +13,5 @@ public class SalesDTO {
   private String color;
   private LocalDateTime saleDate;
   private int modelNum;
+  private CarDTO carDTO;
 }
