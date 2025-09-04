@@ -4,7 +4,7 @@
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
 <mapper namespace="com.green.back_sales_car.sales.mapper.SalesMapper">
-	<resultMap id="sale" type="com.green.back_sales_car.sales.dto.SalesDTO">
+	<resultMap id="sales" type="com.green.back_sales_car.sales.dto.SalesDTO">
     <id column="SALES_NUM" property="salesNum" />
     <result column="BUYER_NAME" property="buyerName" />
     <result column="BUYER_TEL" property="buyerTel" />
@@ -26,6 +26,22 @@
       , #{buyerTel}
     )
   </insert>
+
+  <!--판매정보 목록을 조회하는 쿼리-->
+  <select id="getSalesList" resultMap="sales">
+    SELECT
+      SALES_NUM
+      , BUYER_NAME
+      , BUYER_TEL
+      , SALE_DATE
+      , COLOR
+      , MODEL_NAME
+      , PRICE
+    FROM SALES_INFO S
+    INNER JOIN CAR_INFO C
+    ON S.MODEL_NUM = C.MODEL_NUM
+    ORDER BY SALES_NUM DESC
+  </select>
 </mapper>
 
 

@@ -4,6 +4,8 @@ import com.green.back_sales_car.sales.mapper.SalesMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class SalesService {
@@ -12,5 +14,10 @@ public class SalesService {
   //판매정보 등록
   public void regSalesInfo(SalesDTO salesDTO) {
     salesMapper.regSalesInfo(salesDTO);
+  }
+
+  //판매정보 목록 조회
+  public List<SalesDTO> getSalesList() {
+    return salesMapper.getSalesList();
   }
 }
