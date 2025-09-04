@@ -48,4 +48,9 @@ public class BuyService {
   public List<BuyDTOForAdmin> getBuyListForAdmin() {
     return buyMapper.getBuyListForAdmin();
   }
+
+  //관리자 상세목록 조회
+  public List<BuyDTO> getBuyDetail(int orderNum) {
+    return buyMapper.getBuyDetail(orderNum);
+  }
 }

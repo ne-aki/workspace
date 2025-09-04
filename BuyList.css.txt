@@ -1,0 +1,76 @@
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search_div{
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  background-color: rgba(235, 235, 235, 0.3);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.search_div p{
+  margin-bottom: 4px;
+}
+
+.search_div > div:nth-child(1),
+.search_div > div:nth-child(2){
+  width: 22%;
+}
+
+.search_div > div:nth-child(3){
+  width: 41%;
+}
+
+.buy_date_div{
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.buy_date_div > *{
+  text-align: center;
+  font-size: 0.8rem;
+
+}
+
+.buy_date_div > input{
+  padding: 2px;
+}
+
+.search_div > button{
+  align-self: end;
+}
+
+.list_table{
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.list_table td{
+  padding: 8px;
+}
+
+.list_table > thead > tr{
+  border-bottom: 2px solid #0d6efd;
+  font-weight: bold;
+}
+
+.list_table > tbody > tr{
+  border-bottom : 1px solid rgba(235, 235, 235, 0.5);
+}
+
+.list_table > tbody > tr:nth-child(even){
+  background-color: rgba(230, 230, 230, 0.5);
+}
+
+.list_table > tbody > tr:hover{
+  background-color: rgba(230, 230, 230, 0.7);
+}
