@@ -1,0 +1,47 @@
+.img_div {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  margin: 10px;
+}
+
+.img_div > p {
+  margin: auto;
+}
+
+.img_div > div {
+  width: 80px;
+}
+
+.img_div img {
+  width: 100%;
+}
+
+.buy_list_table td {
+  /* width: 100%; */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.buy_list_table tbody {
+  font-size: 0.8rem;
+}
+
+.buy_list_table thead tr {
+  background-color: lightskyblue;
+}
+
+.buy_list_table tbody tr:nth-child(odd) {
+  background-color: lightblue;
+}
+
+.buy_list_table tbody tr:nth-child(even) {
+  background-color: lightcyan;
+}
+
+.buy_list_table td {
+  border: 1px solid lightgray;
+}
+

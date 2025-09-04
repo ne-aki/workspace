@@ -15,7 +15,14 @@ const BuyListModal = ({detailList, isOpen, onClose}) => {
       title='구매상세내역'
       onClose={onClose}
     >
-      <table border={1}>
+      <table className={styles.buy_list_table}>
+        <colgroup>
+          <col width={'5%'} />
+          <col width={'*'} />
+          <col width={'15%'} />
+          <col width={'5%'} />
+          <col width={'15%'} />
+        </colgroup>
         <thead>
           <tr>
             <td>No</td>
@@ -33,8 +40,8 @@ const BuyListModal = ({detailList, isOpen, onClose}) => {
                   <td>{detailList.length - i}</td>
                   <td>
                     <div className={styles.img_div}>
-                      {detail.bookDTO.title}
-                      <img src={`http://localhost:8080/upload/${detail.bookDTO.imgList[0].attachedImgName}`} style={{width: '50px'}} />
+                      <p>{detail.bookDTO.title}</p>
+                      <div><img src={`http://localhost:8080/upload/${detail.bookDTO.imgList[0].attachedImgName}`} /></div>
                     </div>
                   </td>
                   <td>{detail.bookDTO.price}</td>
