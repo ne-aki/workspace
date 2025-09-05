@@ -1,6 +1,10 @@
 .container {
-  border: 1px solid black;
   height: 500px;
-  vertical-align: middle;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > p {
+  font-size: 4rem;
 }

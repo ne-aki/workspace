@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from './ManageCar.module.css'
 import axios from 'axios';
+import PageTitles from '../common/PageTitles';
+import Btn from '../common/Btn';
 
 const ManageCar = () => {
   //차량등록 입력데이터를 저장할 state 변수
@@ -51,10 +53,10 @@ const ManageCar = () => {
   return (
     <div>
       <div className={styles.reg_car}>
-        <h2>차량 등록</h2>
+        <PageTitles title={'차량 등록'} />
         <div className={styles.reg_info_div}>
           <div>
-            <p>제조사</p>
+            <span>제조사</span>
             <select name="manufacturer" value={regCar.manufacturer} onChange={e => handleRegCar(e)}>
               <option value="">선택</option>
               <option value="현대">현대</option>
@@ -62,19 +64,20 @@ const ManageCar = () => {
             </select>
           </div>
           <div>
-            <p>모델명</p>
+            <span>모델명</span>
             <input type="text" name="modelName" value={regCar.modelName} onChange={e => handleRegCar(e)} />
           </div>
           <div>
-            <p>차량가격</p>
+            <span>차량가격</span>
             <input type="text" name="price" value={regCar.price} onChange={e => handleRegCar(e)} />
           </div>
         </div>
         <div>
-          <button type="button" onClick={e => regBtn()}>등 록</button>
+          <Btn onClick={e => regBtn()} />
         </div>
       </div>
       <div className={styles.car_list}>
+        <PageTitles title={'등록된 차량 목록'} />
         <table>
           <colgroup>
             <col width='25%' />

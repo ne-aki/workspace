@@ -1,0 +1,11 @@
+.reg_info_div {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.reg_info_div select, .reg_info_div input {
+  height: 100%;
+  width: 200px;
+  margin-left: 10px;
+}

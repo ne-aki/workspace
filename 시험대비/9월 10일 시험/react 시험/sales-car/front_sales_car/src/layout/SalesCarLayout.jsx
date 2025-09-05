@@ -9,7 +9,7 @@ const SalesCarLayout = () => {
       <div>
         <Header />
       </div>
-      <div>
+      <div className={styles.content}>
         <Outlet />
       </div>
     </div>

@@ -1,0 +1,11 @@
+.common_btn {
+  color : white;
+  background-color: #555555;
+  border-radius: 7px;
+  border: none;
+  padding: 3px;
+}
+
+.common_btn:hover {
+  cursor: pointer;
+}
