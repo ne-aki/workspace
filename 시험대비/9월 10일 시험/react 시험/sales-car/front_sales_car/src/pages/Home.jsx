@@ -3,7 +3,7 @@ import styles from './Home.module.css'
 
 const Home = () => {
   return (
-    <div>차량 판매 정보 시스템</div>
+    <div className={styles.container}>차량 판매 정보 시스템</div>
   )
 }
 
