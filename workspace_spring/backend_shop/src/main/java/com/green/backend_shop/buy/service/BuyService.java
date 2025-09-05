@@ -2,6 +2,7 @@ package com.green.backend_shop.buy.service;
 
 import com.green.backend_shop.buy.dto.BuyDTO;
 import com.green.backend_shop.buy.dto.BuyDTOForAdmin;
+import com.green.backend_shop.buy.dto.SearchBuyDTO;
 import com.green.backend_shop.buy.mapper.BuyMapper;
 import com.green.backend_shop.cart.mapper.CartMapper;
 import lombok.RequiredArgsConstructor;
@@ -45,8 +46,8 @@ public class BuyService {
 
   }
   //관리자 구매이력조회 페이지의 구매목록조회
-  public List<BuyDTOForAdmin> getBuyListForAdmin() {
-    return buyMapper.getBuyListForAdmin();
+  public List<BuyDTOForAdmin> getBuyListForAdmin(SearchBuyDTO searchBuyDTO) {
+    return buyMapper.getBuyListForAdmin(searchBuyDTO);
   }
 
   //관리자 상세목록 조회

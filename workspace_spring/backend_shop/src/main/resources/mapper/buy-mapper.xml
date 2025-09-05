@@ -60,24 +60,41 @@
           FROM book
           WHERE BOOK_NUM = shop_buy.BOOK_NUM
         ) * BUY_CNT) PRICE
-    , MAX(BUY_DATE) BUY_DATE
-    , CASE COUNT(ORDER_NUM) - 1
+      , MAX(BUY_DATE) BUY_DATE
+      , CASE COUNT(ORDER_NUM) - 1
     WHEN 0 THEN MAX((
-    SELECT TITLE
-    FROM BOOK
-    WHERE BOOK_NUM = shop_buy.BOOK_NUM
+      SELECT TITLE
+      FROM BOOK
+      WHERE BOOK_NUM = shop_buy.BOOK_NUM
     ))
     ELSE CONCAT(MAX((
     SELECT TITLE
     FROM BOOK
     WHERE BOOK_NUM = shop_buy.BOOK_NUM
     ))
-    , ' 외 '
-    , COUNT(ORDER_NUM) - 1
-    , '건'
+      , ' 외 '
+      , COUNT(ORDER_NUM) - 1
+      , '건'
     )
     END TITLE
     FROM shop_buy
+    WHERE 1 = 1
+    <!--
+      if태그 안에 들어가는 test는 쌍따옴표 넣으면 짝이 이상하게 잡힐 수 있기 때문에 홀따옴표를 주로 쓴다.
+      또 test 안의 문법은 getter를 호출하기 때문에 자바 문법처럼 쓴다.
+    -->
+    <if test='orderNum != null and !orderNum.equals("")'>
+      AND order_num = #{orderNum}
+    </if>
+    <if test='memId != null and !memId.equals("")'>
+      AND MEM_ID LIKE CONCAT('%', #{memId}, '%')
+    </if>
+    <if test='fromDate != null and !fromDate.equals("")'>
+      AND BUY_DATE &gt;= #{fromDate}
+    </if>
+    <if test='toDate != null and !toDate.equals("")'>
+      AND BUY_DATE &lt;= #{toDate}
+    </if>
     GROUP BY ORDER_NUM
     ORDER BY BUY_DATE DESC
   </select>

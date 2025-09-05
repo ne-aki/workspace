@@ -8,6 +8,37 @@ import dayjs from 'dayjs';
 import BuyListModal from './BuyListModal';
 
 const BuyList = () => {
+  //입력한 검색 조건 데이터를 저장할 state 변수
+  const [searchData, setSearchData] = useState({
+    orderNum : '',
+    memId : '',
+    fromDate : '',
+    toDate : ''
+  });
+
+  //검색 데이터를 입력할 때마다 실행하는 함수
+  const handleSearchData = e => {
+    setSearchData({
+      ...searchData,
+      [e.target.name] : e.target.value
+    });
+  }
+
+  //검색 버튼 클릭 시 실행 함수
+  const doSearch = () => {
+    axios.get('/api/buys/buy-list-admin', {params : searchData})
+    .then(res => {
+      setBuyList(res.data);
+      setSearchData({
+        orderNum : '',
+        memId : '',
+        fromDate : '',
+        toDate : ''
+      })
+    })
+    .catch(e => console.log(e));
+  }
+
   //구매 상세 내역 모달의 보이기 여부를 저장할 변수
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,20 +78,40 @@ const BuyList = () => {
       <div className={styles.search_list}>
         <div>
           <span>주문번호</span>
-          <Input size='180px' />
+          <Input
+            size='180px'
+            name='orderNum'
+            value={searchData.orderNum}
+            onChange={e => handleSearchData(e)}
+          />
         </div>
         <div>
           <span>구매자ID</span>
-          <Input size='180px' />
+          <Input
+            size='180px'
+            name='memId'
+            value={searchData.memId}
+            onChange={e => handleSearchData(e)}
+          />
         </div>
         <div>
           <span>구매일시</span>
-          <Input type='date' />
+          <Input
+            type='date'
+            name='fromDate'
+            value={searchData.fromDate}
+            onChange={e => handleSearchData(e)}
+          />
           <span>-</span>
-          <Input type={'date'} />
+          <Input
+            type={'date'}
+            name='toDate'
+            value={searchData.toDate}
+            onChange={e => handleSearchData(e)}
+          />
         </div>
         <div>
-          <Button title='검색' />
+          <Button title='검색' onClick={e => doSearch()} />
         </div>
       </div>
       <div className={styles.buy_list}>

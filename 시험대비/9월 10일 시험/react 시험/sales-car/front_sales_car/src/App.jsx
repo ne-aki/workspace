@@ -8,17 +8,19 @@ import Home from './pages/Home'
 import ManageCar from './pages/ManageCar'
 import RegSalesInfo from './pages/RegSalesInfo'
 import SalesList from './pages/SalesList'
+import SalesCarLayout from './layout/SalesCarLayout'
 
 function App() {
 
   return (
     <>
-      <Header />
       <Routes>
-        <Route path='/' element={ <Home /> } />
-        <Route path='/manage-car' element={ <ManageCar /> } />
-        <Route path='/reg-sales-info' element={ <RegSalesInfo /> } />
-        <Route path='/sales-list' element={ <SalesList /> } />
+        <Route path='/' element={ <SalesCarLayout /> }>
+          <Route path='' element={ <Home /> } />
+          <Route path='manage-car' element={ <ManageCar /> } />
+          <Route path='reg-sales-info' element={ <RegSalesInfo /> } />
+          <Route path='sales-list' element={ <SalesList /> } />
+        </Route>
       </Routes>
     </>
   )
