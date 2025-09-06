@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styles from './SalesList.module.css'
 import axios from 'axios';
 import dayjs from 'dayjs';
+import Table from '../common/Table';
+import PageTitles from '../common/PageTitles';
 
 const SalesList = () => {
   //판매 목록을 저장할 state 변수
@@ -21,7 +23,8 @@ const SalesList = () => {
 
   return (
     <div>
-      <table border={1}>
+      <PageTitles title={'판매목록조회'} />
+      <Table>
         <thead>
           <tr>
             <td rowSpan={2}>No</td>
@@ -54,7 +57,7 @@ const SalesList = () => {
             })
           }
         </tbody>
-      </table>
+      </Table>
     </div>
   )
 }

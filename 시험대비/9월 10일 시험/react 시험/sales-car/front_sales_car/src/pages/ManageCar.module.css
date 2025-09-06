@@ -1,6 +1,7 @@
 .reg_info_div {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0px 10px;
   margin-bottom: 20px;
 }
 
@@ -8,4 +9,9 @@
   height: 100%;
   width: 200px;
   margin-left: 10px;
+}
+
+.btn_div {
+  text-align: right;
+  margin-right: 10px;
 }

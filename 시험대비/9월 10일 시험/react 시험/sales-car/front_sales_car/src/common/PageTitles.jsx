@@ -8,7 +8,8 @@ const PageTitles = ({title}) => {
         paddingBottom : '5px',
         margin : '15px 0px',
         width : '300px',
-        fontStyle : 'italic'
+        fontStyle : 'italic',
+        paddingLeft : '10px'
       }}
     >
       {title}

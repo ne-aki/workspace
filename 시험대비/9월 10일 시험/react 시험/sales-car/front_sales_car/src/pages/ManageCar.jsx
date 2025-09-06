@@ -3,6 +3,7 @@ import styles from './ManageCar.module.css'
 import axios from 'axios';
 import PageTitles from '../common/PageTitles';
 import Btn from '../common/Btn';
+import Table from '../common/Table';
 
 const ManageCar = () => {
   //차량등록 입력데이터를 저장할 state 변수
@@ -72,13 +73,13 @@ const ManageCar = () => {
             <input type="text" name="price" value={regCar.price} onChange={e => handleRegCar(e)} />
           </div>
         </div>
-        <div>
+        <div className={styles.btn_div}>
           <Btn onClick={e => regBtn()} />
         </div>
       </div>
       <div className={styles.car_list}>
         <PageTitles title={'등록된 차량 목록'} />
-        <table>
+        <Table>
           <colgroup>
             <col width='25%' />
             <col width='25%' />
@@ -113,7 +114,7 @@ const ManageCar = () => {
               })
             }
           </tbody>
-        </table>
+        </Table>
       </div>
     </div>
   )

@@ -1,0 +1,37 @@
+.common_table {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.common_table > thead {
+  color: white;
+}
+
+.common_table tr, .common_table td {
+  border: 1px solid white;
+}
+
+.common_table td {
+  padding: 7px;
+  vertical-align: middle;
+}
+
+.common_table > thead > tr:nth-child(odd) {
+  background-color: black;
+}
+
+.common_table > thead > tr:nth-child(even) {
+  background-color: #555555;
+}
+
+.common_table > thead > tr:first-child {
+  border-bottom: 2px solid white;
+}
+
+.common_table > tbody > tr:nth-child(odd) {
+  background-color: #bbbbbb;
+}
+
+.common_table > tbody > tr:nth-child(even) {
+  background-color: #dddddd;
+}

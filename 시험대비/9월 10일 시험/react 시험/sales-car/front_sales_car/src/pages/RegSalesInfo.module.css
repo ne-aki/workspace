@@ -1,0 +1,17 @@
+.reg_sales_table {
+  width: 700px;
+}
+
+.reg_sales_table input {
+  width: 350px;
+  padding: 5px;
+}
+
+.reg_sales_table select {
+  width: 150px;
+  padding: 5px;
+}
+
+.reg_sales_table td {
+  padding: 10px;
+}
