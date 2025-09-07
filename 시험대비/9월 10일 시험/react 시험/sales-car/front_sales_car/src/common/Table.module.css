@@ -16,6 +16,10 @@
   vertical-align: middle;
 }
 
+.common_table > thead {
+  font-weight: bold;
+}
+
 .common_table > thead > tr:nth-child(odd) {
   background-color: black;
 }

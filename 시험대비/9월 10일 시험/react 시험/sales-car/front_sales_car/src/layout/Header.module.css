@@ -12,10 +12,25 @@
   text-align: center;
   color: white;
   border: 1px solid white;
-  padding: 8px;
   font-size: 1.2rem;
 }
 
-.container > ul > li:hover {
-  cursor: pointer;
+.container > ul > li > a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.container > ul > li > a > p:hover {
+  background-color: #777777;
+  transition: all 0.3s;
+}
+
+.container > ul > li > a > p {
+  padding: 8px;
+}
+
+.active > p {
+  background-color: #555555;
+  padding: 8px;
 }

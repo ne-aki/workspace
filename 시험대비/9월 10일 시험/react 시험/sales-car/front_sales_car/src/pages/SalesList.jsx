@@ -24,40 +24,54 @@ const SalesList = () => {
   return (
     <div>
       <PageTitles title={'판매목록조회'} />
-      <Table>
-        <thead>
-          <tr>
-            <td rowSpan={2}>No</td>
-            <td colSpan={4}>구매자 정보</td>
-            <td colSpan={2}>차량정보</td>
-          </tr>
-          <tr>
-            <td>구매자명</td>
-            <td>연락처</td>
-            <td>구매일</td>
-            <td>색상</td>
-            <td>모델명</td>
-            <td>가격</td>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            salesList.map((salesInfo, i) => {
-              return (
-                <tr key={i}>
-                  <td>{salesList.length - i}</td>
-                  <td>{salesInfo.buyerName}</td>
-                  <td>{salesInfo.buyerTel}</td>
-                  <td>{dayjs(salesInfo.saleDate).format('YYYY.MM.DD HH:mm')}</td>
-                  <td>{salesInfo.color}</td>
-                  <td>{salesInfo.carDTO.modelName}</td>
-                  <td>{salesInfo.carDTO.price.toLocaleString() + '원'}</td>
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </Table>
+      <div className={styles.sales_list_table}>
+        <Table>
+          <thead>
+            <tr>
+              <td rowSpan={2}>No</td>
+              <td colSpan={4}>구매자 정보</td>
+              <td colSpan={2}>차량정보</td>
+            </tr>
+            <tr>
+              <td>구매자명</td>
+              <td>연락처</td>
+              <td>구매일</td>
+              <td>색상</td>
+              <td>모델명</td>
+              <td>가격</td>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              salesList.length == 0
+              ?
+              <tr>
+                <td colSpan={7}>조회된 데이터가 없습니다.</td>
+              </tr>
+              :
+              salesList.map((salesInfo, i) => {
+                return (
+                  <tr key={i}>
+                    <td>{salesList.length - i}</td>
+                    <td>{salesInfo.buyerName}</td>
+                    <td>
+                      {salesInfo.buyerTel === '' ? '-' : salesInfo.buyerTel}
+                    </td>
+                    <td>
+                      <p className={styles.change_width}>
+                        {dayjs(salesInfo.saleDate).format('YYYY.MM.DD HH:mm')}
+                      </p>
+                    </td>
+                    <td>{salesInfo.color}</td>
+                    <td>{salesInfo.carDTO.modelName}</td>
+                    <td>{salesInfo.carDTO.price.toLocaleString() + '원'}</td>
+                  </tr>
+                )
+              })
+            }
+          </tbody>
+        </Table>
+      </div>
     </div>
   )
 }

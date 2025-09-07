@@ -2,11 +2,11 @@
   display: flex;
   justify-content: space-between;
   margin: 0px 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .reg_info_div select, .reg_info_div input {
-  height: 100%;
+  padding: 5px;
   width: 200px;
   margin-left: 10px;
 }
@@ -14,4 +14,12 @@
 .btn_div {
   text-align: right;
   margin-right: 10px;
+}
+
+.reg_info_div > div {
+  display: flex;
+}
+
+.reg_info_div p {
+  margin-left: 12px;
 }
