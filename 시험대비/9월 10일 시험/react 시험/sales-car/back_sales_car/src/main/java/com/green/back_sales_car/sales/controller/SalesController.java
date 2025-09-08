@@ -17,6 +17,9 @@ public class SalesController {
 
   @PostMapping("")
   public void regSalesInfo(@RequestBody SalesDTO salesDTO) {
+    if (salesDTO.getBuyerTel().equals("")) {
+      salesDTO.setBuyerTel(null);
+    }
     salesService.regSalesInfo(salesDTO);
   }
 

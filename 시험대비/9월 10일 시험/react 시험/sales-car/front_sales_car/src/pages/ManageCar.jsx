@@ -81,7 +81,7 @@ const ManageCar = () => {
   const regBtn = () => {
     axios.post('/api/cars', regCar)
     .then(res => {
-      alert('등록성공');
+      alert('등록되었습니다.');
       setRegCar({
         manufacturer : '',
         modelName : '',

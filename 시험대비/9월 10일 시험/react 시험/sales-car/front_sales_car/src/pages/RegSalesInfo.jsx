@@ -207,7 +207,7 @@ const RegSalesInfo = () => {
           </tr>
         </tbody>
       </table>
-      <p>
+      <p className={styles.btn_div}>
         <Btn
           type="button"
           onClick={e => regSalesCar()}

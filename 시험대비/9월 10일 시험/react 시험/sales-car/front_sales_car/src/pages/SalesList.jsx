@@ -55,7 +55,7 @@ const SalesList = () => {
                     <td>{salesList.length - i}</td>
                     <td>{salesInfo.buyerName}</td>
                     <td>
-                      {salesInfo.buyerTel === '' ? '-' : salesInfo.buyerTel}
+                      {salesInfo.buyerTel === null ? '-' : salesInfo.buyerTel}
                     </td>
                     <td>
                       <p className={styles.change_width}>
