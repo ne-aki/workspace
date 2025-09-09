@@ -35,10 +35,10 @@ const SideMenu = () => {
           </p>
           <ul className={styles.side_menu}>
             <li className={styles.menu_li}>
-              <NavLink to={'/user/cart-list'} className={({isActive}) => isActive ? styles.active : undefined}>장바구니</NavLink>
+              <NavLink to={'/user/cart-list'} className={({isActive}) => isActive ? styles.active : undefined}><p>장바구니</p></NavLink>
             </li>
             <li className={styles.menu_li}>
-              <NavLink to={'/user/buy-list'} className={({isActive}) => isActive ? styles.active : undefined}>구매 내역</NavLink>
+              <NavLink to={'/user/buy-list'} className={({isActive}) => isActive ? styles.active : undefined}><p>구매 내역</p></NavLink>
             </li>
             <li className={styles.menu_li}>내 정보 관리</li>
           </ul>
@@ -54,10 +54,10 @@ const SideMenu = () => {
         </p>
         <ul className={styles.side_menu}>
           <li className={styles.menu_li}>
-            <NavLink to={'/admin/cate-manage'} className={({isActive}) => isActive ? styles.active : undefined}>카테고리관리</NavLink>
+            <NavLink to={'/admin/cate-manage'} className={({isActive}) => isActive ? styles.active : undefined}><p>카테고리관리</p></NavLink>
           </li>
           <li className={styles.menu_li}>
-            <NavLink to={'/admin/reg-book'} className={({isActive}) => isActive ? styles.active : undefined}>도서등록</NavLink>
+            <NavLink to={'/admin/reg-book'} className={({isActive}) => isActive ? styles.active : undefined}><p>도서등록</p></NavLink>
           </li>
           <li className={styles.menu_li}>도서관리</li>
         </ul>
@@ -84,7 +84,7 @@ const SideMenu = () => {
         </p>
         <ul className={styles.side_menu}>
           <li className={styles.menu_li}>
-            <NavLink to={'/admin/buy-list'} className={({isActive}) => isActive ? styles.active : undefined}>구매이력조회</NavLink>
+            <NavLink to={'/admin/buy-list'} className={({isActive}) => isActive ? styles.active : undefined}><p>구매이력조회</p></NavLink>
           </li>
           <li className={styles.menu_li}>주간매출관리</li>
           <li className={styles.menu_li}>연간매출관리</li>

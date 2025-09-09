@@ -42,4 +42,10 @@ public class BuyController {
   public List<BuyDTO> getBuyDetail(@PathVariable("orderNum") int orderNum) {
     return buyService.getBuyDetail(orderNum);
   }
+
+  //최근 10일간 매출액 조회
+  @GetMapping("/sales")
+  public List<Integer> getSales() {
+    return buyService.getSales();
+  }
 }

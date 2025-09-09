@@ -15,6 +15,7 @@ import java.util.List;
 public class SalesController {
   private final SalesService salesService;
 
+  //판매정보 등록 api
   @PostMapping("")
   public void regSalesInfo(@RequestBody SalesDTO salesDTO) {
     if (salesDTO.getBuyerTel().equals("")) {
@@ -23,6 +24,7 @@ public class SalesController {
     salesService.regSalesInfo(salesDTO);
   }
 
+  //판매목록 조회 api
   @GetMapping("")
   public List<SalesDTO> getSalesList() {
     return salesService.getSalesList();

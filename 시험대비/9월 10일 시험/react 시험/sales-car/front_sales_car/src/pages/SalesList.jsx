@@ -43,7 +43,7 @@ const SalesList = () => {
           </thead>
           <tbody>
             {
-              salesList.length == 0
+              salesList.length === 0
               ?
               <tr>
                 <td colSpan={7}>조회된 데이터가 없습니다.</td>
