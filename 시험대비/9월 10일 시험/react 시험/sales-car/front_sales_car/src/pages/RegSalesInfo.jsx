@@ -144,7 +144,7 @@ const RegSalesInfo = () => {
                   handleSalesCar(e);
                   handleErrorMsg(e);
                 }}
-                onKeyDown={e => e.key === 'Enter' && activeBtn ? regSalesCar() : null}
+                onKeyDown={e => e.key === 'Enter' && activeBtn ? regSalesCar() : undefined}
               />
               <ErrorMsg msg={errorMsg.buyerName} />
             </td>
@@ -200,7 +200,7 @@ const RegSalesInfo = () => {
                   handleSalesCar(e);
                   handleErrorMsg(e);
                 }}
-                onKeyDown={e => e.key === 'Enter' && activeBtn ? regSalesCar() : null}
+                onKeyDown={e => e.key === 'Enter' && activeBtn ? regSalesCar() : undefined}
               />
               <ErrorMsg msg={errorMsg.buyerTel} />
             </td>

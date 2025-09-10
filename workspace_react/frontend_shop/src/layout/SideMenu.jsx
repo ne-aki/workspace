@@ -40,7 +40,7 @@ const SideMenu = () => {
             <li className={styles.menu_li}>
               <NavLink to={'/user/buy-list'} className={({isActive}) => isActive ? styles.active : undefined}><p>구매 내역</p></NavLink>
             </li>
-            <li className={styles.menu_li}>내 정보 관리</li>
+            <li className={styles.menu_li}><a><p>내 정보 관리</p></a></li>
           </ul>
         </div>
         :
@@ -59,7 +59,7 @@ const SideMenu = () => {
           <li className={styles.menu_li}>
             <NavLink to={'/admin/reg-book'} className={({isActive}) => isActive ? styles.active : undefined}><p>도서등록</p></NavLink>
           </li>
-          <li className={styles.menu_li}>도서관리</li>
+          <li className={styles.menu_li}><a><p>도서관리</p></a></li>
         </ul>
       </div>
       <div className={styles.menu_category}>
@@ -70,9 +70,9 @@ const SideMenu = () => {
           고객관리
         </p>
         <ul className={styles.side_menu}>
-          <li className={styles.menu_li}>고객정보관리</li>
-          <li className={styles.menu_li}>고객정보변경</li>
-          <li className={styles.menu_li}>게시판관리</li>
+          <li className={styles.menu_li}><a><p>고객정보관리</p></a></li>
+          <li className={styles.menu_li}><a><p>고객정보변경</p></a></li>
+          <li className={styles.menu_li}><a><p>게시판관리</p></a></li>
         </ul>
       </div>
       <div className={styles.menu_category}>
@@ -86,8 +86,8 @@ const SideMenu = () => {
           <li className={styles.menu_li}>
             <NavLink to={'/admin/buy-list'} className={({isActive}) => isActive ? styles.active : undefined}><p>구매이력조회</p></NavLink>
           </li>
-          <li className={styles.menu_li}>주간매출관리</li>
-          <li className={styles.menu_li}>연간매출관리</li>
+          <li className={styles.menu_li}><a><p>주간매출관리</p></a></li>
+          <li className={styles.menu_li}><a><p>연간매출관리</p></a></li>
         </ul>
       </div>
         </>

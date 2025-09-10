@@ -127,8 +127,8 @@ const ManageCar = () => {
         <PageTitles title={'차량 등록'} />
         <div className={styles.reg_info_div}>
           <div>
-            <span>제조사</span>
-            <div>
+            <p>제조사</p>
+            <div className={styles.input_info}>
               <select
                 name="manufacturer"
                 value={regCar.manufacturer}
@@ -145,8 +145,8 @@ const ManageCar = () => {
             </div>
           </div>
           <div>
-            <span>모델명</span>
-            <div>
+            <p>모델명</p>
+            <div className={styles.input_info}>
               <input
                 type="text"
                 name="modelName"
@@ -155,14 +155,14 @@ const ManageCar = () => {
                   handleRegCar(e);
                   handleErrorMsg(e);
                 }}
-                onKeyDown={e => e.key === 'Enter' && activeBtn ? regBtn() : null}
+                onKeyDown={e => e.key === 'Enter' && activeBtn ? regBtn() : undefined}
               />
               <ErrorMsg msg={errorMsg.modelName} />
             </div>
           </div>
           <div>
-            <span>차량가격</span>
-            <div>
+            <p>차량가격</p>
+            <div className={styles.input_info}>
               <input
                 type="text"
                 name="price"
@@ -171,7 +171,7 @@ const ManageCar = () => {
                   handleRegCar(e);
                   handleErrorMsg(e);
                 }}
-                onKeyDown={e => e.key === 'Enter' && activeBtn ? regBtn() : null}
+                onKeyDown={e => e.key === 'Enter' && activeBtn ? regBtn() : undefined}
               />
               <ErrorMsg msg={errorMsg.price} />
             </div>

@@ -25,6 +25,11 @@
   margin-bottom: 10px;
 }
 
+.buy_list tbody tr:hover {
+  cursor: pointer;
+  background-color: #aaaaaa;
+}
+
 /* .buy_list > table td:first-child {
   background-color: red;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ErrorMsg = ({msg, ...props}) => {
+const ErrorMsg = ({msg, className, ...props}) => {
   return (
     <p
       style={{
