@@ -9,20 +9,21 @@ import Footer from './Footer'
 import Content from './content'
 import Hello from './Hello'
 import axios from 'axios'
+import Checkbox from './Checkbox'
 
 function App() {
-  const [restOrderInfo, setRestOrderInfo] = useState(null);
-  useEffect(() => {
-    axios.post('/api/rest-order-infos')
-    .then((res) => {
-      console.log(res.data)
-    })
-    .catch((error) => console.log(error))
-  }, [])
+  // const [restOrderInfo, setRestOrderInfo] = useState(null);
+  // useEffect(() => {
+  //   axios.post('/api/rest-order-infos')
+  //   .then((res) => {
+  //     console.log(res.data)
+  //   })
+  //   .catch((error) => console.log(error))
+  // }, [])
 
   return (
     <>
-      <Header />
+      {/* <Header />
       <Content />
       <table>
         <thead>
@@ -48,7 +49,8 @@ function App() {
       </table>
       <div></div>
       <Hello />
-      <Footer />
+      <Footer /> */}
+      <Checkbox />
     </>
   )
 }
