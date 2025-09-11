@@ -11,6 +11,11 @@ spring.datasource.password=mariadb
 #쿼리문이 있는 mapper 파일 위치 지정, classpath는 resources 폴더를 의미함
 mybatis.mapper-locations=classpath:mapper/*.xml
 
+#한 파일의 용량을 5MB로 설정
+spring.servlet.multipart.max-file-size=10MB
+#한 번에 업로드되는 용량을 5MB로 설정
+spring.servlet.multipart.max-request-size=10MB
+
 
 -----------------------------------------------------------------
 
