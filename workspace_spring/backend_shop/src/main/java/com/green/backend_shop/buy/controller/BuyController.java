@@ -13,6 +13,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("buys")
+
 @RequiredArgsConstructor
 public class BuyController {
   private final BuyService buyService;
