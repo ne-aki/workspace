@@ -1,0 +1,13 @@
+폴더 구성
+   src
+      App.jsx
+      components
+      - LoginTitle.jsx, LoginInput.jsx
+      common
+      - 대부분의 jsx에서 공통적으로 사용할 컴포넌트(button, input)
+      pages
+       - 각 페이지를 표현할 jsx (ex>로그인화면 -> Login.jsx)
+         member
+             - Login.jsx, Join.jsx
+         item
+             - itemList.jsx, itemReg.jsx
