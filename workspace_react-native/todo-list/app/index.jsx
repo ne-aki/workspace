@@ -1,9 +1,23 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
+import { FlatList, StyleSheet, Text, TextInput, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Task from '../components/Task'
+import axios from 'axios'
 
 const HomeScreen = () => {
+  //조회한 할 일 목록 데이터를 저장할 state 변수
+  const [todoList, setTodoList] = useState([]);
+
+  //마운트되면 목록 조회
+  useEffect(() => {
+    axios.get('http://localhost:8080/todo')
+    .then(res => {
+      console.log(res.data);
+      setTodoList(res.data);
+    })
+    .catch(e => console.log(e))
+  }, [])
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -16,9 +30,14 @@ const HomeScreen = () => {
         />
       </View>
       <View style={styles.list_view}>
-        <Task />
-        <Task />
-        <Task />
+        <FlatList
+          //전체 데이터
+          data={todoList}
+          //데이터로 그림 그리기, 매개변수 : 데이터 하나하나
+          renderItem={({item}) => <Task data={item} />}
+          //map 의 key={i} 내용과 동일
+          keyExtractor={item => item.todoNum}
+        />
       </View>
     </SafeAreaView>
   )
