@@ -10,6 +10,8 @@ import Content from './content'
 import Hello from './Hello'
 import axios from 'axios'
 import Checkbox from './Checkbox'
+import PaginationPractice from './PageNationPractice'
+import NewPaginationPractice from './NewPaginationPractice'
 
 function App() {
   // const [restOrderInfo, setRestOrderInfo] = useState(null);
@@ -50,7 +52,9 @@ function App() {
       <div></div>
       <Hello />
       <Footer /> */}
-      <Checkbox />
+      {/* <Checkbox /> */}
+      {/* <PaginationPractice /> */}
+      <NewPaginationPractice />
     </>
   )
 }
