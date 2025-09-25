@@ -74,9 +74,14 @@ const BookDetail = () => {
       buyCnt : cnt
     })
     .then(res => {
-      alert('구매 성공')
+      if (res.status === 201) {
+        alert('구매 성공');
+      }
     })
-    .catch(e => console.log(e));
+    .catch(e => {
+      console.log(e);
+      alert(e.response.data);
+    });
   }
 
   // console.log(cnt);
