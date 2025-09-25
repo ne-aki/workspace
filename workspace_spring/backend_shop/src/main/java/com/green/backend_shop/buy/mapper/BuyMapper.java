@@ -6,7 +6,7 @@ import com.green.backend_shop.buy.dto.SearchBuyDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-
+// 파일 못 읽어 올 때 : 메뉴 -> file -> invalidate cashes -> clear file로 시작하는 부분 체크하고 restart 누르기
 @Mapper
 public interface BuyMapper {
   int insertBuy(BuyDTO buyDTO);
