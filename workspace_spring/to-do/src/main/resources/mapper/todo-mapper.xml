@@ -14,6 +14,13 @@
       , TODO_TITLE
     FROM TODO
   </select>
+  <insert id="addTodo">
+    INSERT INTO TODO (
+      TODO_TITLE
+    ) VALUES (
+      #{todoTitle}
+    )
+  </insert>
 </mapper>
 
 

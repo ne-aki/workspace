@@ -24,4 +24,8 @@ public class TodoService {
       System.out.println(e);
     }
   }
+
+  public void addTodo(String todoTitle) {
+    todoMapper.addTodo(todoTitle);
+  }
 }

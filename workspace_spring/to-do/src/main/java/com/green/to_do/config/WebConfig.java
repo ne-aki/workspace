@@ -19,8 +19,7 @@ public class WebConfig implements WebMvcConfigurer {
     registry.addMapping("/**") // 접근 허용할 SPRING의 API URL
             .allowedOrigins(
                     "http://localhost:5173", //react
-                    "http://localhost:8081", //react-native web 실행
-                    "exp://192.168.30.77:8081" //react-native 에뮬리이터 실행(기기마다 다름)
+                    "http://localhost:8081" //react-native web 실행
             ) //접근을 허용할 origin 서버
             .allowedMethods("GET", "POST", "PUT", "DELETE")
             .allowedHeaders("*") //요청 시 허용할 헤더 정보
