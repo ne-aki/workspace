@@ -12,6 +12,8 @@ import axios from 'axios'
 import Checkbox from './Checkbox'
 import PaginationPractice from './PageNationPractice'
 import NewPaginationPractice from './NewPaginationPractice'
+import Pagination from './Pagination'
+import UserInfo from './UserInfo'
 
 function App() {
   // const [restOrderInfo, setRestOrderInfo] = useState(null);
@@ -54,7 +56,7 @@ function App() {
       <Footer /> */}
       {/* <Checkbox /> */}
       {/* <PaginationPractice /> */}
-      <NewPaginationPractice />
+      <UserInfo />
     </>
   )
 }
