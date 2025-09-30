@@ -11,10 +11,16 @@
   margin: 5px 0px;
 }
 
-.container
+.container {
+  padding: 20px;
+  background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.15);
+}
 
 .error {
-  color: red;
+  color: #c62828;
   font-size: 0.8rem;
   margin-top: -3px;
+  font-weight: 500;
 }

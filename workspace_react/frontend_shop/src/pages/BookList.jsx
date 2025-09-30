@@ -7,13 +7,11 @@ import { useNavigate } from 'react-router-dom';
 const BookList = () => {
   const [bookList, setBookList] = useState([]);
   const nav = useNavigate();
-  const userName = "홍길동";
   const [age, setAge] = useState(0);
     //dsfdㅇㄴㄻㅇsdfasdfasdfasdfsdfasdfwklkeflwdfshklj
   useEffect(() => {
     axios.get('/api/books')
     .then(res => {
-      alert('안녕');
       console.log(res.data);
       setBookList(res.data);
     })

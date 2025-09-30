@@ -5,7 +5,8 @@
   left: 0px;
   right: 0px;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(46, 125, 50, 0.15);
+  backdrop-filter: blur(2px);
   display: flex;
   justify-content: center;
   align-items: start;
@@ -13,10 +14,12 @@
 
 .modal_content {
   background-color: white;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 20px;
   margin-top: 50px;
   position: relative;
+  border-top: 4px solid #43a047;
+  box-shadow: 0 10px 25px rgba(46, 125, 50, 0.2);
 }
 
 .close_btn {
@@ -27,10 +30,13 @@
   border: none;
   font-size: 1.5rem;
   color: #555555;
+  transition: all 0.3s ease;
 }
 
 .close_btn:hover {
   cursor: pointer;
+  color: #2e7d32;
+  transform: rotate(90deg);
 }
 
 .content_div {
@@ -39,4 +45,5 @@
 
 .modal_title {
   text-align: center;
+  color: #2e7d32;
 }

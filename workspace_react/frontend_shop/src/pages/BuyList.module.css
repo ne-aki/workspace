@@ -6,11 +6,14 @@
 .buy_list > table {
   width: 100%;
   text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .buy_list > table td {
   padding: 10px;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #c8e6c9;
 }
 
 .search_list {
@@ -23,11 +26,17 @@
 
 .buy_list > p {
   margin-bottom: 10px;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.buy_list tbody tr {
+  transition: all 0.3s ease;
 }
 
 .buy_list tbody tr:hover {
   cursor: pointer;
-  background-color: #aaaaaa;
+  background-color: #c8e6c9;
 }
 
 /* .buy_list > table td:first-child {

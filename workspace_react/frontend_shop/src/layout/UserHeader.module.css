@@ -8,16 +8,26 @@
   justify-content: end;
   align-items: center;
   gap: 12px;
+  background: linear-gradient(90deg, #e8f5e9 0%, #c8e6c9 100%);
+  padding: 0 20px;
 }
 
 .banner_div {
   height: 120px;
   position: relative;
   cursor: pointer;
+  background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+  transition: all 0.3s ease;
+}
+
+.banner_div:hover {
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
 }
 
 .menu_div {
   height: 40px;
+  background-color: #43a047;
+  box-shadow: 0 2px 4px rgba(46, 125, 50, 0.2);
 }
 
 .banner_img {
@@ -25,6 +35,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 75%;
+  opacity: 0.3;
 }
 
 .banner_div > p {
@@ -34,9 +45,17 @@
   color: white;
   font-size: 2.5rem;
   letter-spacing: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.login_div > span {
+  color: #2e7d32;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .login_div > span:hover {
   cursor: pointer;
+  color: #1b5e20;
   text-decoration: underline;
 }

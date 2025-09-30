@@ -5,6 +5,12 @@
   border-radius: 5px;
   font-size: 0.8rem;
   transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .blue {
@@ -26,15 +32,17 @@
 }
 
 .green {
-  background-color: #188452;
+  background-color: #2e7d32;
 }
 
 .green:hover {
   cursor: pointer;
-  background-color: #146941;
+  background-color: #1b5e20;
 }
 
 .disabled{
   opacity: 0.3;
   cursor: default !important;
+  transform: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }

@@ -17,6 +17,9 @@
   text-align: center;
   width: 100%;
   font-size: 0.8rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cart_table td {
@@ -25,7 +28,7 @@
 }
 
 .cart_table > thead {
-  background-color: #71aaff;
+  background-color: #43a047;
   color: white;
   text-align: center;
 }
@@ -39,11 +42,11 @@
 }
 
 .cart_table > tbody tr:nth-child(odd) {
-  background-color: #b4d2ff;
+  background-color: #c8e6c9;
 }
 
 .cart_table > tbody tr:nth-child(even) {
-  background-color: #d3e4fd;
+  background-color: #e8f5e9;
 }
 
 .buy_div {
@@ -55,15 +58,18 @@
 
 .buy_div > div {
   display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .buy_div > div > p:first-child {
-  background-color: #0d6efd;
+  background-color: #2e7d32;
   color: white;
 }
 
 .buy_div > div p:last-child {
-  border-bottom: 1px solid #0d6efd;
+  border-bottom: 1px solid #2e7d32;
 }
 
 .buy_div p {
