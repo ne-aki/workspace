@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Task from '../components/Task'
 import axios from 'axios'
+import { SERVER_URL } from '@/constants/appConst'
 
 const HomeScreen = () => {
   //조회한 할 일 목록 데이터를 저장할 state 변수
@@ -16,7 +17,7 @@ const HomeScreen = () => {
 
   //마운트되면 목록 조회
   useEffect(() => {
-    axios.get('http://192.168.30.77:8080/todo')
+    axios.get(`${SERVER_URL}/todo`)
     .then(res => {
       console.log(res.data);
       setTodoList(res.data);
@@ -29,7 +30,7 @@ const HomeScreen = () => {
     axios.post('http://192.168.30.77:8080/todo', {todoTitle})
     .then(res => {
       alert('등록성공');
-      setReloading(reloading + 1);
+      changeReloading();
       //목록 재조회, 입력한 글자 초기화
       setTodoTitle('');
     })
@@ -42,6 +43,11 @@ const HomeScreen = () => {
         console.log(e);
       }
     });
+  }
+
+  //reloading 값 변경 함수
+  const changeReloading = () => {
+    setReloading(reloading + 1);
   }
 
   return (
@@ -69,7 +75,12 @@ const HomeScreen = () => {
             //전체 데이터
             data={todoList}
             //데이터로 그림 그리기, 매개변수 : 데이터 하나하나
-            renderItem={({item}) => <Task data={item} />}
+            renderItem={({item}) =>
+              <Task
+                data={item}
+                changeReloading={changeReloading}
+              />
+            }
             //map 의 key={i} 내용과 동일
             keyExtractor={item => item.todoNum}
           />
@@ -104,6 +115,5 @@ const styles = StyleSheet.create({
     backgroundColor : '#cccccc',
     padding : 10,
     gap : 10,
-    height : 700
   }
 })

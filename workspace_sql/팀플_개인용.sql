@@ -71,3 +71,7 @@ WHERE M.MEM_ID = 'aaaaa';
 
 SELECT * FROM shop_buy;
 
+SELECT MEM_ROLE
+FROM shop_member
+WHERE MEM_ID = 'aaaaa';
+SELECT * FROM qna;
