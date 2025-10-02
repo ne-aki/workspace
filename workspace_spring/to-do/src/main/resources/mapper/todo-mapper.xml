@@ -39,6 +39,12 @@
     DELETE FROM TODO
     WHERE TODO_NUM = #{todoNum}
   </delete>
+  <update id="updateTodo">
+    UPDATE TODO
+    SET
+      TODO_TITLE = #{todoTitle}
+    WHERE TODO_NUM = #{todoNum}
+  </update>
 </mapper>
 
 

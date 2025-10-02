@@ -27,4 +27,6 @@ public interface TodoMapper {
    * @param todoNum 삭제할 할 일의 번호 (PRIMARY KEY)
    */
   public void deleteTodo(int todoNum);
+
+  public void updateTodo(TodoDTO todoDTO);
 }

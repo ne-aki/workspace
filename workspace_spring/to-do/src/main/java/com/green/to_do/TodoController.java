@@ -116,4 +116,18 @@ public class TodoController {
               );
     }
   }
+
+  @PutMapping("/{todoNum}")
+  public ResponseEntity<?> update(
+          @PathVariable("todoNum") int todoNum,
+          @RequestBody TodoDTO todoDTO
+  ) {
+    System.out.println(todoNum);
+    System.out.println(todoDTO);
+    todoDTO.setTodoNum(todoNum);
+    todoService.updateTodo(todoDTO);
+    return ResponseEntity
+            .status(HttpStatus.OK)
+            .build();
+  }
 }

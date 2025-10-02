@@ -75,3 +75,8 @@ SELECT MEM_ROLE
 FROM shop_member
 WHERE MEM_ID = 'aaaaa';
 SELECT * FROM qna;
+
+SELECT MEM_ROLE
+FROM shop_member
+WHERE MEM_ID = 'admin'
+AND MEM_ROLE = 'ADMIN';

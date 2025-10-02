@@ -41,4 +41,8 @@ public class TodoService {
     // TodoMapper의 deleteTodo 메서드를 호출하여 실제 DB 삭제 작업 수행
     todoMapper.deleteTodo(todoNum);
   }
+
+  public void updateTodo(TodoDTO todoDTO) {
+    todoMapper.updateTodo(todoDTO);
+  }
 }
