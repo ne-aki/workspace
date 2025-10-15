@@ -80,3 +80,12 @@ SELECT MEM_ROLE
 FROM shop_member
 WHERE MEM_ID = 'admin'
 AND MEM_ROLE = 'ADMIN';
+
+SELECT
+      MEM_ID
+      , MEM_NAME
+      , MEM_ROLE
+      , STATUS
+    FROM SHOP_MEMBER
+    WHERE MEM_ID = 'gwon95'
+    AND MEM_PW = 'qw1212';
