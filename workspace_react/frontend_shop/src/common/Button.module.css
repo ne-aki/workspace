@@ -1,48 +1,239 @@
+/* 기본 버튼 스타일 */
 .btn {
-  color: white;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
   border: none;
-  padding: 4px 10px;
-  border-radius: 5px;
-  font-size: 0.8rem;
-  transition: all 0.3s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  user-select: none;
+  outline: none;
+  overflow: hidden;
+}
+
+/* 호버 효과 */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.btn:hover::before {
+  opacity: 1;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Primary (파란색) 버튼 */
 .blue {
-  background-color: #0d6efd;
+  background: var(--color-primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
 }
 
 .blue:hover {
-  cursor: pointer;
-  background-color: #0c5bd1;
+  background: var(--color-primary-dark);
+  box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
 }
 
+.blue:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Gray 버튼 */
 .gray {
-  background-color: #95a2ad;
+  background: var(--color-gray-500);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
 }
 
 .gray:hover {
-  cursor: pointer;
-  background-color: #69727a;
+  background: var(--color-gray-600);
 }
 
+.gray:focus-visible {
+  outline: 2px solid var(--color-gray-500);
+  outline-offset: 2px;
+}
+
+/* Green (Success) 버튼 */
 .green {
-  background-color: #2e7d32;
+  background: var(--color-success);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
 }
 
 .green:hover {
-  cursor: pointer;
-  background-color: #1b5e20;
+  background: #059669;
+  box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.4);
 }
 
-.disabled{
-  opacity: 0.3;
-  cursor: default !important;
+.green:focus-visible {
+  outline: 2px solid var(--color-success);
+  outline-offset: 2px;
+}
+
+/* Red (Danger) 버튼 */
+.red {
+  background: var(--color-error);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.red:hover {
+  background: #dc2626;
+  box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.4);
+}
+
+.red:focus-visible {
+  outline: 2px solid var(--color-error);
+  outline-offset: 2px;
+}
+
+/* Secondary (핑크) 버튼 */
+.pink {
+  background: var(--color-secondary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.pink:hover {
+  background: var(--color-secondary-dark);
+  box-shadow: 0 10px 20px -5px rgba(236, 72, 153, 0.4);
+}
+
+.pink:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* Outline 버튼 */
+.outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  box-shadow: none;
+}
+
+.outline:hover {
+  background: var(--color-primary);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+/* Ghost 버튼 */
+.ghost {
+  background: transparent;
+  color: var(--text-primary);
+  box-shadow: none;
+}
+
+.ghost:hover {
+  background: var(--bg-tertiary);
+  box-shadow: none;
+}
+
+/* Gradient 버튼 */
+.gradient {
+  background: var(--color-primary-gradient);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-colored);
+  border: none;
+}
+
+.gradient:hover {
+  box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.5);
+  transform: translateY(-3px);
+}
+
+/* Disabled 상태 */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  pointer-events: none;
   transform: none !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.disabled::before {
+  display: none;
+}
+
+/* 크기 변형 */
+.btn-sm {
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-xs);
+}
+
+.btn-lg {
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: var(--font-size-base);
+}
+
+.btn-xl {
+  padding: var(--spacing-4) var(--spacing-8);
+  font-size: var(--font-size-lg);
+}
+
+/* 전체 너비 버튼 */
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* 아이콘 버튼 */
+.btn-icon {
+  padding: var(--spacing-2);
+  border-radius: var(--radius-full);
+  aspect-ratio: 1;
+}
+
+/* 로딩 상태 */
+.loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

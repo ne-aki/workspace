@@ -10,7 +10,7 @@ const UserLayout = () => {
       <div className={styles.header_div}>
         <UserHeader />
       </div>
-      <div className="">
+      <div className={styles.content}>
         <Outlet />
       </div>
     </div>

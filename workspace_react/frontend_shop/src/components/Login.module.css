@@ -1,24 +1,64 @@
+/* 로그인 폼 컨테이너 */
 .login_div {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 20px;
-  background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.15);
+  gap: var(--spacing-5);
+  padding: var(--spacing-8);
+  background: var(--bg-gradient-subtle);
+  border-radius: var(--radius-lg);
 }
 
+/* 인풋 래퍼 */
 .login_input {
   position: relative;
+  width: 100%;
 }
 
 .login_input > span {
   position: absolute;
-  top: 2px;
-  left: 3px;
-  color: #66bb6a;
+  top: 50%;
+  left: var(--spacing-3);
+  transform: translateY(-50%);
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  pointer-events: none;
+  transition: all var(--transition-base);
+  z-index: 1;
 }
 
 .login_input > input {
-  padding-left: 25px;
+  padding-left: var(--spacing-10);
+  width: 100%;
+}
+
+/* 인풋 포커스 시 아이콘 색상 변경 */
+.login_input:has(input:focus) > span {
+  color: var(--color-primary-dark);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* 로그인 버튼 */
+.login_div > button {
+  margin-top: var(--spacing-4);
+  height: 42px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 애니메이션 */
+.login_div {
+  animation: slideDown var(--transition-slow) ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,63 +1,152 @@
+/* 사이드 메뉴 컨테이너 */
 .container {
   width: 100%;
-  background-color: #f1f8e9;
   height: 100%;
-  box-shadow: 2px 0 4px rgba(46, 125, 50, 0.1);
+  background: var(--bg-primary);
+  padding: var(--spacing-4) 0;
 }
 
+/* 메뉴 카테고리 */
 .menu_category {
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-6);
 }
 
 .menu_category > p {
-  font-size: 0.8rem;
-  color: #66bb6a;
-  padding: 12px;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  padding: var(--spacing-3) var(--spacing-6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-left: 3px solid transparent;
+  transition: all var(--transition-base);
 }
 
 .menu_category > p > span {
-  color: #2e7d32;
-  margin-right: 5px;
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
 }
 
+/* 사이드 메뉴 리스트 */
 .side_menu {
-  font-size: 0.9rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.side_menu > li {
-  /* 12시부터 시계방향 */
-  border: 3px solid rgba(0, 0, 0, 0);
-  transition: all 0.3s ease;
+.menu_li {
+  position: relative;
+  border-left: 3px solid transparent;
+  transition: all var(--transition-base);
+  cursor: pointer;
 }
 
-/* .active를 자식으로 가진 .menu_li */
+.menu_li:hover {
+  background: var(--bg-gradient-subtle);
+  border-left-color: var(--color-primary);
+}
+
+/* active 클래스를 가진 메뉴 아이템 */
 .menu_li:has(.active) {
-  background-color: #c8e6c9;
-  border-left: 3px solid #2e7d32 !important;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%);
+  border-left-color: var(--color-primary);
 }
 
-.side_menu > li:hover {
-  background-color: #c8e6c9;
-  border-left: 3px solid #2e7d32;
-  color: #2e7d32;
-}
-
-.active {
-  color: #2e7d32;
-  font-weight: 600;
-}
-
-a {
-  color: black;
+/* 링크 스타일 */
+.menu_li a {
+  display: block;
+  color: var(--text-secondary);
   text-decoration: none;
+  transition: all var(--transition-base);
 }
 
-a > p {
-  padding: 10px 0px 10px 16px;
-
+.menu_li a > p {
+  padding: var(--spacing-3) var(--spacing-6);
+  padding-left: var(--spacing-8);
+  margin: 0;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-base);
 }
 
 .menu_li:hover a {
-  color: #2e7d32;
+  color: var(--color-primary);
+}
+
+.menu_li:hover a > p {
+  padding-left: calc(var(--spacing-8) + 4px);
+}
+
+/* Active 상태 */
+.active {
+  color: var(--color-primary) !important;
+  font-weight: var(--font-weight-semibold) !important;
+}
+
+.active > p {
+  position: relative;
+}
+
+.active > p::before {
+  content: '';
+  position: absolute;
+  left: var(--spacing-6);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+/* 아이콘 애니메이션 */
+.menu_category > p > span {
+  transition: transform var(--transition-base);
+}
+
+.menu_category:hover > p > span {
+  transform: scale(1.1);
+}
+
+/* 구분선 */
+.menu_category:not(:last-child) {
+  border-bottom: 1px solid var(--border-color-light);
+  padding-bottom: var(--spacing-4);
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .container {
+    padding: var(--spacing-3) 0;
+  }
+
+  .menu_category {
+    margin-bottom: var(--spacing-4);
+  }
+
+  .menu_category > p {
+    padding: var(--spacing-2) var(--spacing-4);
+  }
+
+  .menu_li a > p {
+    padding: var(--spacing-2) var(--spacing-4);
+    padding-left: var(--spacing-6);
+  }
+
+  .menu_li:hover a > p {
+    padding-left: calc(var(--spacing-6) + 4px);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu_category > p {
+    font-size: var(--font-size-xs);
+  }
+
+  .menu_li a > p {
+    font-size: var(--font-size-xs);
+  }
 }
