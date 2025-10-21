@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
 
 // app/(tabs)/(home)/detail.jsx
@@ -12,5 +12,3 @@ const DetailScreen = () => {
 }
 
 export default DetailScreen
-
-const styles = StyleSheet.create({})

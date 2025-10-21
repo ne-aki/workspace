@@ -1,6 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import { Stack } from 'expo-router'
 
 //프로젝트 실행 로직
@@ -17,5 +15,3 @@ const RootLayout = () => {
 }
 
 export default RootLayout
-
-const styles = StyleSheet.create({})

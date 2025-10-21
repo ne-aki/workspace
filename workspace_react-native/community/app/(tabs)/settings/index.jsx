@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
 
 // app/settings/index.jsx
@@ -12,5 +12,3 @@ const SettingsHomeScreen = () => {
 }
 
 export default SettingsHomeScreen
-
-const styles = StyleSheet.create({})
