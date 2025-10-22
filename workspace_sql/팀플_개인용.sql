@@ -89,3 +89,5 @@ SELECT
     FROM SHOP_MEMBER
     WHERE MEM_ID = 'gwon95'
     AND MEM_PW = 'qw1212';
+    
+SELECT * FROM item;
