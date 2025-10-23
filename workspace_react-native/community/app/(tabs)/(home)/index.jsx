@@ -1,7 +1,7 @@
 import { FlatList, Keyboard, Pressable, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useRouter } from 'expo-router'
+import { useFocusEffect, useRouter } from 'expo-router'
 import { colors } from '../../../constants/colorConstant'
 import FeedItem from '../../../components/home/FeedItem'
 import { dummyData } from '../../../constants/dummy'
@@ -24,13 +24,20 @@ import * as SecureStore from 'expo-secure-store'
 // 데이터 조회 -> await SecureStore.getItemAsync('key')
 // 데이터 삭제 -> await SecureStore.deleteItemAsync('key')
 
+// //userFocusEffect 기본 문법
+// //컴포넌트가 마운트되거나 포커스(?) 됐을 때
+// useFocusEffect(
+//   useCallback(() => {}, [])
+// )
+
 // app/(tabs)/(home)/index.jsx
 // sns 목록 페이지
 const HomeScreen = () => {
-
   //로그인 정보 여부 확인
-  useEffect(() => {
-    const getLoginInfo = async () => {
+  //마운트되거나, 화면에 focus가 잡히면 실행
+  useFocusEffect(
+    useCallback(() => {
+      const getLoginInfo = async () => {
       //SecureStore에 저장된 로그인 정보를 가져옴
       const loginInfo = await SecureStore.getItemAsync('loginInfo');
 
@@ -46,7 +53,8 @@ const HomeScreen = () => {
 
     }
     getLoginInfo();
-  }, []);
+    }, [])
+  )
 
   const router = useRouter();
 

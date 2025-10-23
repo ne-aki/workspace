@@ -63,6 +63,9 @@ const SettingsHomeScreen = () => {
     await SecureStore.deleteItemAsync('loginInfo');
 
     //첫 페이지로 이동
+    if (router.canDismiss()) { //쌓은 스택이 존재하면...
+      router.dismissAll(); //모든 stack 제거
+    }
     router.replace('/');
   }
 

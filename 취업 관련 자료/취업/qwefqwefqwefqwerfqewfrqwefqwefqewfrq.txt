@@ -1,0 +1,37 @@
+//SecureStore에 저장된 로그인 정보를 가져옴
+    const loginInfo = await SecureStore.getItemAsync('loginInfo');
+
+    //가져온 데이터를 원래 형태인 객체로 변환
+    const result = JSON.parse(loginInfo);
+
+    console.log('로그인 데이터 = ', result)
+
+
+
+    const getLoginInfo = async () => {
+    //SecureStore에 저장된 로그인 정보를 가져옴
+    const loginInfo = await SecureStore.getItemAsync('loginInfo');
+
+    //가져온 데이터를 원래 형태인 객체로 변환
+    const result = JSON.parse(loginInfo);
+
+    console.log('로그인 데이터 = ', result)
+    }
+    getLoginInfo();
+
+
+
+
+
+
+const checkLoginInfo = async () => {
+      //SecureStore에 저장된 로그인 정보를 가져옴
+      const loginInfo = await SecureStore.getItemAsync('loginInfo');
+
+      //가져온 데이터를 원래 형태인 객체로 변환
+      const result = JSON.parse(loginInfo);
+
+      console.log('로그인 데이터 = ', result)
+    }
+
+    checkLoginInfo();
