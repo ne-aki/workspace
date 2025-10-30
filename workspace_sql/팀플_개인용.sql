@@ -112,3 +112,14 @@ ORDER BY DIBS_DATE;
 
 DELETE FROM dibs
 WHERE DIBS_NUM = 3 AND DIBS_NUM = 5;
+
+-- Item 테이블에 할인 관련 컬럼 추가
+ALTER TABLE item ADD COLUMN discount_rate INT DEFAULT 0 COMMENT '할인율 (0~100)';
+ALTER TABLE item ADD COLUMN is_on_sale BOOLEAN DEFAULT FALSE COMMENT '할인 여부';
+
+-- 인덱스 추가 (할인 상품 조회 성능 향상)
+CREATE INDEX idx_is_on_sale ON item(is_on_sale);
+
+SELECT * FROM item;
+
+SELECT * FROM shop_member;
