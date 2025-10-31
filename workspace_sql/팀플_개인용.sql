@@ -123,3 +123,25 @@ CREATE INDEX idx_is_on_sale ON item(is_on_sale);
 SELECT * FROM item;
 
 SELECT * FROM shop_member;
+# item 테이블에 세트메뉴 컬럼 추가
+ALTER TABLE item ADD COLUMN IS_SET_MENU BOOLEAN;
+UPDATE item SET IS_SET_MENU = FALSE;
+
+# item 테이블 세트메뉴 varchar로 변경
+ALTER TABLE ITEM MODIFY COLUMN IS_SET_MENU VARCHAR(1);
+
+ALTER TABLE item RENAME COLUMN is_set_menu TO IS_GIFT_SET;
+
+UPDATE ITEM SET IS_SET_MENU = 0 WHERE IS_SET_MENU IS NULL;
+
+UPDATE ITEM SET IS_SET_MENU = 1 WHERE ITEM_NUM = 18;  -- '행복세트' 상품을 세트메뉴로 변경
+
+-- 기존 상품들을 일반상품(0)으로 설정
+UPDATE ITEM SET IS_SET_MENU = 0 WHERE IS_SET_MENU IS NULL;
+
+-- '행복세트' 상품을 세트메뉴(1)로 변경 (테스트용)
+UPDATE ITEM SET IS_SET_MENU = 1 WHERE ITEM_NUM = 18;
+
+UPDATE item SET part = '선물세트' WHERE item_num = 18;
+
+COMMIT;
