@@ -1,0 +1,89 @@
+교육 이수 내용
+
+[Java]
+기초 문법: 출력문, 변수 선언 및 초기화, 자료형, 형변환
+제어문: 조건문(if, switch), 삼항 연산자, 반복문(while, for), break/continue
+배열: 배열 선언 및 사용, for each문
+메서드: 메서드 정의 및 호출, return, 변수의 사용 영역, 배열 호출
+객체지향: 클래스, getter/setter, this/super 키워드, 생성자, 접근제한자, static
+상속: 상속 구조, protected, 다형성, 메서드 오버라이딩
+고급 개념: Object 클래스(equals, toString), String, Interface, 예외처리
+컬렉션: 컬렉션 프레임워크
+설계 패턴: 결합도 낮추기
+
+[JavaScript]
+기초 문법: 출력문, 변수, 연산자, 조건문, 반복문, 배열
+함수: 함수 선언 및 호출, 함수 표현식, 화살표 함수
+객체: 객체 생성 및 사용
+ES6+: 구조분해할당(배열, 객체), 스프레드 연산자
+배열 메서드: forEach, map
+HTML 연동: HTML과 JavaScript 연동
+
+[React]
+기초: 컴포넌트, React App 실행 과정, 컴포넌트 변수 사용
+이벤트: 이벤트 핸들링, onChange 이벤트(select, textarea)
+상태 관리: useState
+라이프사이클: useEffect
+HTTP 통신: axios, REST API 연동, POST 요청
+라우팅: React Router, 페이지 이동, useParams, useNavigate
+비동기 처리: 비동기 프로그래밍
+모듈화: export/import
+라이브러리: react-js-pagination, 체크박스 데이터 처리
+
+[React Native]
+환경 설정: React Native 설치 및 초기 설정
+컴포넌트: 기본 컴포넌트 사용법, onChangeText
+스타일링: Flex 속성, 이미지 사용, 한글 설정
+데이터 연동: Database 연결, CORS 설정, FlatList
+이벤트: TouchableWithoutFeedback, onSubmitEditing, onBlur
+UI: Alert.alert, confirm 형식
+네비게이션: Expo Router, Stack 네비게이션, Tab 네비게이션, 페이지 이동, 파라미터 전달
+최적화: Server URL 상수화, props 최적화
+
+[Spring]
+핵심 개념: IOC(Inversion of Control), DI(Dependency Injection)
+REST API: RESTful 웹 서비스 개발
+HTTP 응답: ResponseEntity
+
+[SQL]
+기초: 데이터베이스, DBMS, 데이터 조회(SELECT)
+조건: WHERE, BETWEEN, IN, LIKE, 와일드카드
+정렬: ORDER BY
+중복 제거: DISTINCT
+함수: 수치 함수, 문자 함수, 날짜 함수, IF문, CASE문
+집계: GROUP BY, HAVING
+테이블: 테이블 생성, 데이터 삽입(INSERT)
+조인: JOIN, 외래키
+서브쿼리: 단일행 서브쿼리
+별칭: AS
+
+[HTML]
+기본 구조: HTML 문서 구조, 태그 개념
+텍스트: 제목 태그(h1~h6), 단락(p), 줄바꿈(br)
+이미지: img 태그
+표: table, tr, td 태그
+리스트: ul, ol, li 태그
+폼: form, input, textarea, select 태그
+링크: a 태그
+
+[CSS]
+선택자: 태그 선택자, 클래스 선택자, ID 선택자, 자식 선택자, 가상 클래스
+박스 모델: width, height, padding, margin, border, box-sizing
+레이아웃: position(fixed, absolute, relative), Flexbox, Grid
+속성: 배경, 텍스트 스타일, overflow
+기타: 아이콘 사용법, 중앙 정렬, 여러 클래스 사용
+
+[Python]
+기초 문법: 출력문, 변수, 조건문
+자료구조: 리스트, 딕셔너리
+제어문: 반복문(for, range)
+함수: 함수 정의 및 호출, 매개변수, 리턴
+
+[Git/GitHub]
+버전 관리: Git 기본 명령어
+협업: GitHub 사용법, 포크, 팀 작업
+
+[웹 개발]
+개념: 인터넷, 웹, 웹서버, 웹브라우저
+프로토콜: HTTP, URL, Domain
+통합: React + Spring + Database 연동
