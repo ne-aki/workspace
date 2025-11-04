@@ -1,1 +1,11 @@
+CREATE TABLE member2 (
+	ID VARCHAR(50) PRIMARY key
+	, PW VARCHAR(50) NOT NULL
+	, NAME VARCHAR(50) NOT NULL
+);
+
+SELECT * FROM member2;
+
 SELECT * FROM board;
+
+DESC board;

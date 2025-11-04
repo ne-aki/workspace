@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -33,5 +35,21 @@ public class BoardController {
   public String getBoardDetail() {
     //보여질 html 파일명을 리턴
     return "board-detail";
+  }
+
+  //게시글 작성 페이지로 이동
+  @GetMapping("/writeForm")
+  public String goWriteForm() {
+    return "write-form";
+  }
+
+  //게시글 등록
+  @PostMapping("/write")
+  public String write(@ModelAttribute BoardDTO boardDTO) {
+    //게시글 등록 쿼리 실행
+    boardService.write(boardDTO);
+
+    //게시글 목록 페이지로 이동
+    return "redirect:/board";
   }
 }

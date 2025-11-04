@@ -22,6 +22,17 @@
     FROM BOARD
     ORDER BY CREATE_DATE DESC
   </select>
+  <insert id="write">
+    INSERT INTO BOARD (
+      TITLE
+      , WRITER
+      , CONTENT
+    ) VALUES (
+      #{title}
+      , #{writer}
+      , #{content}
+    )
+  </insert>
 </mapper>
 
 
