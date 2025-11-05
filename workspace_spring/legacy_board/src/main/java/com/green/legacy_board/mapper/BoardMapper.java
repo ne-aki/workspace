@@ -9,4 +9,5 @@ import java.util.List;
 public interface BoardMapper {
   public List<BoardDTO> getList();
   public void write(BoardDTO boardDTO);
+  public BoardDTO getDetail(int boardNum);
 }

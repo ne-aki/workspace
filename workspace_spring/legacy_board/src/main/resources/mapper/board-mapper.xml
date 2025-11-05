@@ -33,35 +33,15 @@
       , #{content}
     )
   </insert>
+  <select id="getDetail" resultMap="board">
+    SELECT
+      BOARD_NUM
+      , TITLE
+      , WRITER
+      , READ_CNT
+      , CREATE_DATE
+      , CONTENT
+    FROM BOARD
+    WHERE BOARD_NUM = #{boardNum}
+  </select>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

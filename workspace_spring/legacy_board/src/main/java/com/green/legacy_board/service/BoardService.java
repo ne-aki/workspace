@@ -19,4 +19,8 @@ public class BoardService {
   public void write(BoardDTO boardDTO) {
     boardMapper.write(boardDTO);
   }
+
+  public BoardDTO getDetail(int boardNum) {
+    return boardMapper.getDetail(boardNum);
+  }
 }

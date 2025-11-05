@@ -7,5 +7,33 @@
 </head>
 <body>
   <h3>게시글 상세 페이지</h3>
+  <div class="detail-table">
+    <table>
+      <tr>
+        <td>제목</td>
+        <td th:text="${boardInfo.title}"></td>
+        <td>작성자</td>
+        <td th:text="${boardInfo.writer}"></td>
+      </tr>
+      <tr>
+        <td>작성일</td>
+        <td th:text="${#temporals.format(boardInfo.createDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td>조회수</td>
+        <td th:text="${boardInfo.readCnt}"></td>
+      </tr>
+      <tr>
+        <td>내용</td>
+        <td th:text="${boardInfo.content}"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="btn-div">
+    <button type="button">목록가기</button>
+    <th:block th:if="${session.loginInfo != null and
+      (session.loginInfo.id == boardInfo.writer or session.loginInfo.role == 'ADMIN')}">
+      <button type="button">수정</button>
+      <button type="button">삭제</button>
+    </th:block>
+  </div>
 </body>
 </html>

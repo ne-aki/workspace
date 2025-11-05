@@ -1,14 +1,13 @@
 package com.green.legacy_board.controller;
 
 import com.green.legacy_board.dto.BoardDTO;
+import com.green.legacy_board.dto.MemberDTO;
 import com.green.legacy_board.service.BoardService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,11 +44,31 @@ public class BoardController {
 
   //게시글 등록
   @PostMapping("/write")
-  public String write(@ModelAttribute BoardDTO boardDTO) {
+  public String write(@ModelAttribute BoardDTO boardDTO, HttpSession session) {
+    //세션에 저장된 데이터 가져오기
+    //세션에 저장된 데이터는 Object 타입이기 때문에 형변환 수 사용
+    Object loginData = session.getAttribute("loginInfo");
+    MemberDTO loginInfo = (MemberDTO) loginData;
+
+    //로그인 정보에서 id를 추출하고, 추출한 id는 boardDTO의 작성자로 저장
+    boardDTO.setWriter(loginInfo.getId());
+
     //게시글 등록 쿼리 실행
     boardService.write(boardDTO);
 
     //게시글 목록 페이지로 이동
     return "redirect:/board";
+  }
+
+  //게시글 상세 페이지
+  @GetMapping("/detail/{boardNum}")
+  public String detail(@PathVariable("boardNum") int boardNum, Model model) {
+    System.out.println("전달받은 글 번호 : " + boardNum);
+
+    //게시글 상세 조회
+    model.addAttribute("boardInfo", boardService.getDetail(boardNum));
+
+    //게시글 상세페이지(board-detail.html)
+    return "board-detail";
   }
 }

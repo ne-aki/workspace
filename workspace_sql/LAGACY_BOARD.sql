@@ -9,3 +9,13 @@ SELECT * FROM member2;
 SELECT * FROM board;
 
 DESC board;
+
+ALTER TABLE member2
+ADD COLUMN ROLE VARCHAR(20) DEFAULT 'USER';
+
+UPDATE member2
+SET
+	ROLE = 'ADMIN'
+WHERE ID = 'admin';
+
+COMMIT;

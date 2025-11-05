@@ -8,6 +8,7 @@
     <id column="ID" property="id" />
     <result column="PW" property="pw" />
     <result column="NAME" property="name" />
+    <result column="ROLE" property="role" />
   </resultMap>
 
   <insert id="join">
@@ -25,39 +26,9 @@
     SELECT
       ID
       , NAME
+      , ROLE
     FROM MEMBER2
     WHERE ID = #{id}
     AND PW = #{pw}
   </select>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
