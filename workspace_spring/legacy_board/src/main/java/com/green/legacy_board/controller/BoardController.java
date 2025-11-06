@@ -71,4 +71,33 @@ public class BoardController {
     //게시글 상세페이지(board-detail.html)
     return "board-detail";
   }
+
+  //게시글 삭제
+  @GetMapping("/delete/{boardNum}")
+  public String deleteBoard(@PathVariable("boardNum") int boardNum) {
+    boardService.deleteBoard(boardNum);
+
+    //게시글 목록 페이지
+    return "redirect:/board";
+  }
+
+  //수정페이지로 이동
+  @GetMapping("/update/{boardNum}")
+  public String goUpdate(@PathVariable("boardNum") int boardNum, Model model) {
+    //수정할 게시글 원본 내용 조회
+    model.addAttribute("boardDetail", boardService.getDetail(boardNum));
+
+    return "board-update";
+  }
+
+  // 글수정
+  @PostMapping("/update")
+  public String updateBoard(@ModelAttribute BoardDTO boardDTO) {
+    System.out.println(boardDTO);
+
+    boardService.updateBoard(boardDTO);
+
+    //상세페이지로 이동
+    return "redirect:/board/detail/" + boardDTO.getBoardNum();
+  }
 }

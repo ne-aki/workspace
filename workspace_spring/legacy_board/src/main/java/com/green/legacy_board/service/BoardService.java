@@ -23,4 +23,12 @@ public class BoardService {
   public BoardDTO getDetail(int boardNum) {
     return boardMapper.getDetail(boardNum);
   }
+
+  public void deleteBoard(int boardNum) {
+    boardMapper.deleteBoard(boardNum);
+  }
+
+  public void updateBoard(BoardDTO boardDTO) {
+    boardMapper.updateBoard(boardDTO);
+  }
 }
