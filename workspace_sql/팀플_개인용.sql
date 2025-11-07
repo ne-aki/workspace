@@ -144,4 +144,6 @@ UPDATE ITEM SET IS_SET_MENU = 1 WHERE ITEM_NUM = 18;
 
 UPDATE item SET part = '선물세트' WHERE item_num = 18;
 
+SELECT * FROM survey;
+
 COMMIT;
