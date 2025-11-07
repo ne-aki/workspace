@@ -1,3 +1,6 @@
+<!-->axios 비동기를 사용하기 위한 태그<-->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 spring.devtools.restart.enabled=true
 spring.devtools.livereload.enabled=true
 spring.thymeleaf.cache=false
