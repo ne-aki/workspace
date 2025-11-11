@@ -35,6 +35,7 @@ public class BoardController {
   @PostMapping("")
   public ResponseEntity<?> write(@RequestBody BoardDTO boardDTO) {
     //게시글 등록 쿼리 실행. 현재 로그인 id 정보 없음!
+    boardDTO.setWriter("臨時");
     boardService.write(boardDTO);
 
     //게시글 목록 페이지로 이동
