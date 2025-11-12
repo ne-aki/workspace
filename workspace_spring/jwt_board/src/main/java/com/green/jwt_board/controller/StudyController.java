@@ -1,6 +1,6 @@
-package com.green.legacy_board.controller;
+package com.green.jwt_board.controller;
 
-import com.green.legacy_board.dto.BoardDTO;
+import com.green.jwt_board.dto.BoardDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
-package com.green.legacy_board.mapper;
+package com.green.jwt_board.mapper;
 
-import com.green.legacy_board.dto.MemberDTO;
+import com.green.jwt_board.dto.MemberDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

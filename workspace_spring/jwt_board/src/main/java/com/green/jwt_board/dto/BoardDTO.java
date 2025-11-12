@@ -1,4 +1,4 @@
-package com.green.legacy_board.dto;
+package com.green.jwt_board.dto;
 
 import lombok.Data;
 

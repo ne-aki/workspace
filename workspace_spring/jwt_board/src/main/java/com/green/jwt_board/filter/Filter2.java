@@ -1,4 +1,4 @@
-package com.green.legacy_board.filter;
+package com.green.jwt_board.filter;
 
 import jakarta.servlet.*;
 

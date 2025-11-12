@@ -1,12 +1,13 @@
-package com.green.legacy_board.controller;
+package com.green.jwt_board.controller;
 
-import com.green.legacy_board.dto.BoardDTO;
-import com.green.legacy_board.dto.MemberDTO;
-import com.green.legacy_board.service.BoardService;
+import com.green.jwt_board.dto.BoardDTO;
+import com.green.jwt_board.dto.MemberDTO;
+import com.green.jwt_board.service.BoardService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,25 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardController {
   private final BoardService boardService;
+  private final PasswordEncoder passwordEncoder;
+
+  //비밀번호 암호화 예제 api
+  @GetMapping("/pw-test")
+  public String test1() {
+    String pw = "1234";
+
+    //암호화 메서드
+    String encodedPw1 = passwordEncoder.encode(pw);
+    String encodedPw2 = passwordEncoder.encode(pw);
+    System.out.println(encodedPw1);
+    System.out.println(encodedPw2);
+
+    //암호전 데이터와 암호화된 데이터를 비교
+    boolean result = passwordEncoder.matches(pw, encodedPw1);
+    System.out.println(result);
+
+    return "aaa";
+  }
 
   @GetMapping("")
   public ResponseEntity<?> getBoardList() {

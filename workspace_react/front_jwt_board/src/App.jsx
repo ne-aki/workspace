@@ -7,6 +7,7 @@ import BoardList from './pages/BoardList'
 import Header from './components/Header'
 import BoardDetail from './pages/BoardDetail'
 import BoardWrite from './pages/BoardWrite'
+import Join from './pages/Join'
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
         <Route path='/detail/:boardNum' element={ <BoardDetail /> } />
         {/* 글 등록 페이지 */}
         <Route path='/write' element={ <BoardWrite /> } />
+        {/* 회원 가입 페이지 */}
+        <Route path='/join' element={ <Join /> } />
       </Routes>
     </>
   )
