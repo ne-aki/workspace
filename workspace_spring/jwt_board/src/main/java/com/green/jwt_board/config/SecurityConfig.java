@@ -1,5 +1,6 @@
 package com.green.jwt_board.config;
 
+import com.green.jwt_board.jwt.LoginFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,6 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -46,6 +48,10 @@ public class SecurityConfig {
                     auth ->
                             auth.anyRequest().permitAll()
             );
+
+    //로그인 처리 필터인 UsernamePasswordAuthenticationFilter 자리에 우리가 만든 로그인 처리 필터인 LoginFilter로 교체
+    http.addFilterAt(new LoginFilter(authenticationManager), UsernamePasswordAuthenticationFilter.class);
+
     //인증 및 인가에 대한 모든 정보를 가진 http 객체를 리턴
     return http.build();
   }
