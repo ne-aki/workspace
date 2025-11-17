@@ -10,5 +10,29 @@ export const join = async (joinData) => {
   } catch (e) {
     console.log('회원 가입 API 오류, join()');
     console.log(e);
+    throw e;
+  }
+}
+
+//로그인 API
+export const login = async (loginData) => {
+  try {
+    const response = await axios.post('/api/member/login', loginData)
+
+    //응답헤더에 담긴 토큰정보 추출
+    const accessToken = response.headers['authorization'];
+    console.log(accessToken);
+
+    //전달받은 토큰을 localStorage에 저장
+    localStorage.setItem('accessToken', accessToken);
+
+  } catch (e) {
+    if (e.status === 401) {
+      alert('아이디와 비번을 확인하세요.');
+    } else {
+      console.log(e);
+      throw e;
+    }
+    
   }
 }
