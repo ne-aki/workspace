@@ -24,7 +24,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 //SpringSecurity의 인증과 인가에 대한 설정 파일
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity //나중에 설명
+//해당 어노테이션이 있으면 컨트롤러에서 인가에 대한 어노테이션 사용 가능
+@EnableMethodSecurity(prePostEnabled = true, securedEnabled = true)
 @RequiredArgsConstructor
 public class SecurityConfig {
   private final JwtUtil jwtUtil;
